@@ -1,0 +1,673 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+LoginDemo
+</name>
+</assembly>
+<members>
+<member name="T:LoginDemo.My.MyWpfExtension">
+ <summary>
+ 用于定义“我的 WPF 命名空间”中的可用属性的模块
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:LoginDemo.My.MyWpfExtension.Application">
+ <summary>
+ 返回正在运行的应用程序的应用程序对象
+ </summary>
+</member>
+<member name="P:LoginDemo.My.MyWpfExtension.Computer">
+ <summary>
+ 返回有关主机计算机的信息。
+ </summary>
+</member>
+<member name="P:LoginDemo.My.MyWpfExtension.User">
+ <summary>
+ 返回当前用户的信息。  如果希望使用当前的 
+ Windows 用户凭据来运行应用程序，请调用 My.User.InitializeWithWindowsUser()。
+ </summary>
+</member>
+<member name="P:LoginDemo.My.MyWpfExtension.Log">
+ <summary>
+ 返回应用程序日志。可以使用应用程序的配置文件配置侦听器。
+ </summary>
+</member>
+<member name="P:LoginDemo.My.MyWpfExtension.Windows">
+ <summary>
+ 返回项目中定义的 Windows 集合。
+ </summary>
+</member>
+<member name="T:LoginDemo.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:LoginDemo.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:LoginDemo.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:LoginDemo.LoginWindow">
+<summary>
+LoginWindow
+</summary>
+</member>
+<member name="M:LoginDemo.LoginWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:LoginDemo.BaseCommand">
+ <summary>
+ 命令基类
+ </summary>
+</member>
+<member name="T:LoginDemo.EventCommand">
+ <summary>
+ 事件命令
+ </summary>
+</member>
+<member name="P:LoginDemo.EventCommand.Command">
+ <summary>
+ 事件
+ </summary>
+</member>
+<member name="P:LoginDemo.EventCommand.CommandParameter">
+ <summary>
+ 事件参数，如果为空，将自动传入事件的真实参数
+ </summary>
+</member>
+<member name="T:LoginDemo.DotNet.Utilities.HttpHelper">
+ <summary>
+ Http连接操作帮助类
+ </summary>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.GetHtml(LoginDemo.DotNet.Utilities.HttpItem)">
+ <summary>
+ 根据相传入的数据，得到相应页面数据
+ </summary>
+ <param name="item">参数类对象</param>
+ <returns>返回HttpResult类型</returns>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.GetData(LoginDemo.DotNet.Utilities.HttpItem,LoginDemo.DotNet.Utilities.HttpResult)">
+ <summary>
+ 获取数据的并解析的方法
+ </summary>
+ <param name="item"></param>
+ <param name="result"></param>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.SetEncoding(LoginDemo.DotNet.Utilities.HttpItem,LoginDemo.DotNet.Utilities.HttpResult,System.Byte[])">
+ <summary>
+ 设置编码
+ </summary>
+ <param name="item">HttpItem</param>
+ <param name="result">HttpResult</param>
+ <param name="ResponseByte">byte[]</param>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.GetByte">
+ <summary>
+ 提取网页Byte
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.GetMemoryStream(System.IO.Stream)">
+ <summary>
+ 4.0以下.net版本取数据使用
+ </summary>
+ <param name="streamResponse">流</param>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.SetRequest(LoginDemo.DotNet.Utilities.HttpItem)">
+ <summary>
+ 为请求准备参数
+ </summary>
+<param name="item">参数列表</param>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.SetCer(LoginDemo.DotNet.Utilities.HttpItem)">
+ <summary>
+ 设置证书
+ </summary>
+ <param name="item"></param>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.SetCerList(LoginDemo.DotNet.Utilities.HttpItem)">
+ <summary>
+ 设置多个证书
+ </summary>
+ <param name="item"></param>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.SetCookie(LoginDemo.DotNet.Utilities.HttpItem)">
+ <summary>
+ 设置Cookie
+ </summary>
+ <param name="item">Http参数</param>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.SetPostData(LoginDemo.DotNet.Utilities.HttpItem)">
+ <summary>
+ 设置Post数据
+ </summary>
+ <param name="item">Http参数</param>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.SetProxy(LoginDemo.DotNet.Utilities.HttpItem)">
+ <summary>
+ 设置代理
+ </summary>
+ <param name="item">参数对象</param>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.CheckValidationResult(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+ <summary>
+ 回调验证证书问题
+ </summary>
+ <param name="sender">流对象</param>
+ <param name="certificate">证书</param>
+ <param name="chain">X509Chain</param>
+ <param name="errors">SslPolicyErrors</param>
+ <returns>bool</returns>
+</member>
+<member name="M:LoginDemo.DotNet.Utilities.HttpHelper.BindIPEndPointCallback(System.Net.ServicePoint,System.Net.IPEndPoint,System.Int32)">
+ <summary>
+ 通过设置这个属性，可以在发出连接的时候绑定客户端发出连接所使用的IP地址。 
+ </summary>
+ <param name="servicePoint"></param>
+ <param name="remoteEndPoint"></param>
+ <param name="retryCount"></param>
+ <returns></returns>
+</member>
+<member name="T:LoginDemo.DotNet.Utilities.HttpItem">
+ <summary>
+ Http请求参考类
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.URL">
+ <summary>
+ 请求URL必须填写
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Method">
+ <summary>
+ 请求方式默认为GET方式,当为POST方式时必须设置Postdata的值
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Timeout">
+ <summary>
+ 默认请求超时时间
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.ReadWriteTimeout">
+ <summary>
+ 默认写入Post数据超时间
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.KeepAlive">
+ <summary>
+  获取或设置一个值，该值指示是否与 Internet 资源建立持久性连接默认为true。
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Accept">
+ <summary>
+ 请求标头值 默认为text/html, application/xhtml+xml, */*
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.ContentType">
+ <summary>
+ 请求返回类型默认 text/html
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.UserAgent">
+ <summary>
+ 客户端访问信息默认Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Encoding">
+ <summary>
+ 返回数据编码默认为NUll,可以自动识别,一般为utf-8,gbk,gb2312
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.PostDataType">
+ <summary>
+ Post的数据类型
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Postdata">
+ <summary>
+ Post请求时要发送的字符串Post数据
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.PostdataByte">
+ <summary>
+ Post请求时要发送的Byte类型的Post数据
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.WebProxy">
+ <summary>
+ 设置代理对象，不想使用IE默认配置就设置为Null，而且不要设置ProxyIp
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.CookieCollection">
+ <summary>
+ Cookie对象集合
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Cookie">
+ <summary>
+ 请求时的Cookie
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Referer">
+ <summary>
+ 来源地址，上次访问地址
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.CerPath">
+ <summary>
+ 证书绝对路径
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.IsToLower">
+ <summary>
+ 是否设置为全文小写，默认为不转化
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Allowautoredirect">
+ <summary>
+ 支持跳转页面，查询结果将是跳转后的页面，默认是不跳转
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Connectionlimit">
+ <summary>
+ 最大连接数
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.ProxyUserName">
+ <summary>
+ 代理Proxy 服务器用户名
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.ProxyPwd">
+ <summary>
+ 代理 服务器密码
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.ProxyIp">
+ <summary>
+ 代理 服务IP ,如果要使用IE代理就设置为ieproxy
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.ResultType">
+ <summary>
+ 设置返回类型String和Byte
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Header">
+ <summary>
+ header对象
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.Expect100Continue">
+ <summary>
+  获取或设置一个 System.Boolean 值，该值确定是否使用 100-Continue 行为。如果 POST 请求需要 100-Continue 响应，则为 true；否则为 false。默认值为 true。
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.ClentCertificates">
+ <summary>
+ 设置509证书集合
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.PostEncoding">
+ <summary>
+ 设置或获取Post参数编码,默认的为Default编码
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.ResultCookieType">
+ <summary>
+ Cookie返回类型,默认的是只返回字符串类型
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.ICredentials">
+ <summary>
+ 获取或设置请求的身份验证信息。
+ </summary>
+</member>
+<member name="F:LoginDemo.DotNet.Utilities.HttpItem._MaximumAutomaticRedirections">
+ <summary>
+ 设置请求将跟随的重定向的最大数目
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.IfModifiedSince">
+ <summary>
+ 获取和设置IfModifiedSince，默认为当前日期和时间
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpItem.IPEndPoint">
+ <summary>
+ 设置本地的出口ip和端口
+ </summary>]
+ <example>
+item.IPEndPoint = new IPEndPoint(IPAddress.Parse("192.168.1.1"),80);
+ </example>
+</member>
+<member name="T:LoginDemo.DotNet.Utilities.HttpResult">
+ <summary>
+ Http返回参数类
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpResult.Cookie">
+ <summary>
+ Http请求返回的Cookie
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpResult.CookieCollection">
+ <summary>
+ Cookie对象集合
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpResult.Html">
+ <summary>
+ 返回的String类型数据 只有ResultType.String时才返回数据，其它情况为空
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpResult.ResultByte">
+ <summary>
+ 返回的Byte数组 只有ResultType.Byte时才返回数据，其它情况为空
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpResult.Header">
+ <summary>
+ header对象
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpResult.StatusDescription">
+ <summary>
+ 返回状态说明
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpResult.StatusCode">
+ <summary>
+ 返回状态码,默认为OK
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpResult.ResponseUri">
+ <summary>
+ 最后访问的URl
+ </summary>
+</member>
+<member name="P:LoginDemo.DotNet.Utilities.HttpResult.RedirectUrl">
+ <summary>
+ 获取重定向的URl
+ </summary>
+</member>
+<member name="T:LoginDemo.DotNet.Utilities.ResultType">
+ <summary>
+ 返回类型
+ </summary>
+</member>
+<member name="F:LoginDemo.DotNet.Utilities.ResultType.String">
+ <summary>
+ 表示只返回字符串 只有Html有数据
+ </summary>
+</member>
+<member name="F:LoginDemo.DotNet.Utilities.ResultType.Byte">
+ <summary>
+ 表示返回字符串和字节流 ResultByte和Html都有数据返回
+ </summary>
+</member>
+<member name="T:LoginDemo.DotNet.Utilities.PostDataType">
+ <summary>
+ Post的数据格式默认为string
+ </summary>
+</member>
+<member name="F:LoginDemo.DotNet.Utilities.PostDataType.String">
+ <summary>
+ 字符串类型，这时编码Encoding可不设置
+ </summary>
+</member>
+<member name="F:LoginDemo.DotNet.Utilities.PostDataType.Byte">
+ <summary>
+ Byte类型，需要设置PostdataByte参数的值编码Encoding可设置为空
+ </summary>
+</member>
+<member name="F:LoginDemo.DotNet.Utilities.PostDataType.FilePath">
+ <summary>
+ 传文件，Postdata必须设置为文件的绝对路径，必须设置Encoding的值
+ </summary>
+</member>
+<member name="T:LoginDemo.DotNet.Utilities.ResultCookieType">
+ <summary>
+ Cookie返回类型
+ </summary>
+</member>
+<member name="F:LoginDemo.DotNet.Utilities.ResultCookieType.String">
+ <summary>
+ 只返回字符串类型的Cookie
+ </summary>
+</member>
+<member name="F:LoginDemo.DotNet.Utilities.ResultCookieType.CookieCollection">
+ <summary>
+ CookieCollection格式的Cookie集合同时也返回String类型的cookie
+ </summary>
+</member>
+<member name="M:LoginDemo.NotificationObject.RaisePropertyChanged(System.String)">
+ <summary>
+ 发起通知
+ </summary>
+ <param name="propertyName">属性名</param>
+</member>
+<member name="P:LoginDemo.NotificationObject.IsValid">
+ <summary>
+ 页面中是否所有控制数据验证正确
+ </summary>
+</member>
+<member name="T:LoginDemo.NotifyAdorner">
+ <summary>
+ 带有感叹号的提示图形
+ </summary>
+</member>
+<member name="T:LoginDemo.PasswordBoxHelper">
+ <summary>
+ 增加Password扩展属性
+ </summary>
+</member>
+<member name="T:LoginDemo.PasswordBoxBehavior">
+ <summary>
+ 接收PasswordBox的密码修改事件
+ </summary>
+</member>
+<member name="T:LoginDemo.ValidationExceptionBehavior">
+ <summary>
+ 验证异常行为
+ </summary>
+</member>
+<member name="F:LoginDemo.ValidationExceptionBehavior.ExceptionCount">
+ <summary>
+ 记录异常的数量
+ </summary>
+ <remarks>在一个页面里面，所有控件的验证错误信息都会传到这个类上，每个控制需不需要显示验证错误，需要分别记录</remarks>
+</member>
+<member name="F:LoginDemo.ValidationExceptionBehavior.AdornerDict">
+ <summary>
+ 缓存页面的提示装饰器
+ </summary>
+</member>
+<member name="M:LoginDemo.ValidationExceptionBehavior.OnValidationError(System.Object,System.Windows.Controls.ValidationErrorEventArgs)">
+ <summary>
+ 当验证错误信息改变时，首先调用此函数
+ </summary>
+</member>
+<member name="M:LoginDemo.ValidationExceptionBehavior.GetValidationExceptionHandler">
+ <summary>
+ 获得行为所在窗口的DataContext
+ </summary>
+</member>
+<member name="M:LoginDemo.ValidationExceptionBehavior.ShowAdorner(System.Windows.UIElement,System.String)">
+ <summary>
+ 显示错误信息提示
+ </summary>
+</member>
+<member name="M:LoginDemo.ValidationExceptionBehavior.HideAdorner(System.Windows.UIElement)">
+ <summary>
+ 隐藏错误信息提示
+ </summary>
+</member>
+<member name="T:LoginDemo.WindowBehavior">
+ <summary>
+ 窗口行为
+ </summary>
+</member>
+<member name="P:LoginDemo.WindowBehavior.Close">
+ <summary>
+ 关闭窗口
+ </summary>
+</member>
+<member name="T:LoginDemo.WindowManager">
+ <summary>
+ 窗口管理器
+ </summary>
+</member>
+<member name="M:LoginDemo.读写文件`1.读取配置">
+ <summary>
+ 读取配置
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:LoginDemo.读写文件`1.保存配置(`0)">
+ <summary>
+ 保存配置
+ </summary>
+</member>
+<member name="M:LoginDemo.读写文件`1.创建文件">
+ <summary>
+ 创建文件
+ </summary>
+</member>
+<member name="T:LoginDemo.LoginModel">
+ <summary>
+ 登录窗口Model
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginModel.UserName">
+ <summary>
+ 用户名
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginModel.Password">
+ <summary>
+ 密码
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginModel.Record">
+ <summary>
+ 记录
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginModel.IsValid">
+ <summary>
+ 数据填写正确
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginViewModel.UserName">
+ <summary>
+ 用户名
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginViewModel.Password">
+ <summary>
+ 密码
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginViewModel.Record">
+ <summary>
+ 记录
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginViewModel.ToClose">
+ <summary>
+ 是否要关闭窗口
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginViewModel.IsValid">
+ <summary>
+ 数据填写正确
+ </summary>
+</member>
+<member name="P:LoginDemo.LoginViewModel.LoginClick">
+ <summary>
+ 登录事件
+ </summary>
+</member>
+<member name="M:LoginDemo.VipViewModel.GridLoed">
+ <summary>
+  初始化Grid
+ </summary>
+</member>
+<member name="M:LoginDemo.VipViewModel.GridDataAdd">
+ <summary>
+ 填充Grid数据
+ </summary>
+</member>
+<member name="F:LoginDemo.VipViewModel._ChangedClick">
+ <summary>
+ SelectionChanged事件
+ </summary>
+</member>
+<member name="T:LoginDemo.Application">
+<summary>
+Application
+</summary>
+</member>
+<member name="M:LoginDemo.Application.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="M:LoginDemo.Application.Main">
+<summary>
+Application Entry Point.
+</summary>
+</member>
+<member name="T:LoginDemo.MainWindow">
+<summary>
+MainWindow
+</summary>
+</member>
+<member name="M:LoginDemo.MainWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:LoginDemo.XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+<summary>
+GeneratedInternalTypeHelper
+</summary>
+</member>
+<member name="M:LoginDemo.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+<summary>
+CreateInstance
+</summary>
+</member>
+<member name="M:LoginDemo.XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+<summary>
+GetPropertyValue
+</summary>
+</member>
+<member name="M:LoginDemo.XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+<summary>
+SetPropertyValue
+</summary>
+</member>
+<member name="M:LoginDemo.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+<summary>
+CreateDelegate
+</summary>
+</member>
+<member name="M:LoginDemo.XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+<summary>
+AddEventHandler
+</summary>
+</member>
+</members>
+</doc>

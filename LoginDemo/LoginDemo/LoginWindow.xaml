@@ -1,11 +1,10 @@
-﻿<Window x:Class="LoginDemo.LoginWindow"
+﻿<Window x:Class="LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        xmlns:c="clr-namespace:LoginDemo.ViewModel.Common"
-        xmlns:local="clr-namespace:LoginDemo"
+        xmlns:c="clr-namespace:LoginDemo"
         mc:Ignorable="d"
         Title="登录" Height="200" Width="300">
     <i:Interaction.Behaviors>
@@ -13,7 +12,7 @@
         <c:WindowBehavior Close="{Binding ToClose}"/>
     </i:Interaction.Behaviors>
     <Window.Resources>
-        <c:CheckConverter x:Key="CheckConverter"/>
+        <!--<c:CheckConverter x:Key="CheckConverter"/>-->
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="5"/>
         </Style>
@@ -43,9 +42,10 @@
             </i:Interaction.Behaviors>
         </PasswordBox>
 
-        <RadioButton Grid.Row="2" Grid.Column="0" Content="男" IsChecked="{Binding Gender,Mode=TwoWay,Converter={StaticResource CheckConverter},ConverterParameter=1}"/>
-        <RadioButton Grid.Row="2" Grid.Column="1" Content="女" IsChecked="{Binding Gender,Mode=TwoWay,Converter={StaticResource CheckConverter},ConverterParameter=2}"/>
-
+        <!--<RadioButton Grid.Row="2" Grid.Column="0" Content="男" IsChecked="{Binding Gender,Mode=TwoWay,Converter={StaticResource CheckConverter},ConverterParameter=1}"/>
+        <RadioButton Grid.Row="2" Grid.Column="1" Content="女" IsChecked="{Binding Gender,Mode=TwoWay,Converter={StaticResource CheckConverter},ConverterParameter=2}"/>-->
+        <CheckBox Grid.Row="2" Grid.Column="1" Content="记录帐号" IsChecked="{Binding Record,Mode=TwoWay}"/>
+        
         <Button Grid.Row="3" Grid.ColumnSpan="2" Content="登录" Width="200" Height="30" IsEnabled="{Binding IsValid}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
@@ -53,5 +53,6 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
+       
     </Grid>
 </Window>

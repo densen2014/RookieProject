@@ -1,0 +1,65 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\MI\\Desktop\\覃哥\\MVVM\\登录Mvvm VB - Git\\LoginDemo\\LoginDemo\\LoginDemo.vbproj": {}
+  },
+  "projects": {
+    "C:\\Users\\MI\\Desktop\\覃哥\\MVVM\\登录Mvvm VB - Git\\LoginDemo\\LoginDemo\\LoginDemo.vbproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\MI\\Desktop\\覃哥\\MVVM\\登录Mvvm VB - Git\\LoginDemo\\LoginDemo\\LoginDemo.vbproj",
+        "projectName": "LoginDemo",
+        "projectPath": "C:\\Users\\MI\\Desktop\\覃哥\\MVVM\\登录Mvvm VB - Git\\LoginDemo\\LoginDemo\\LoginDemo.vbproj",
+        "packagesPath": "C:\\Users\\MI\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\MI\\Desktop\\覃哥\\MVVM\\登录Mvvm VB - Git\\LoginDemo\\LoginDemo\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\MI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "NearDI": {
+              "target": "Package",
+              "version": "[1.0.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "System.Windows.Interactivity.WPF": {
+              "target": "Package",
+              "version": "[2.0.20525, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
