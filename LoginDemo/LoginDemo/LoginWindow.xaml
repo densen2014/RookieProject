@@ -1,0 +1,57 @@
+﻿<Window x:Class="LoginDemo.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:c="clr-namespace:LoginDemo.ViewModel.Common"
+        xmlns:local="clr-namespace:LoginDemo"
+        mc:Ignorable="d"
+        Title="登录" Height="200" Width="300">
+    <i:Interaction.Behaviors>
+        <c:ValidationExceptionBehavior></c:ValidationExceptionBehavior>
+        <c:WindowBehavior Close="{Binding ToClose}"/>
+    </i:Interaction.Behaviors>
+    <Window.Resources>
+        <c:CheckConverter x:Key="CheckConverter"/>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10,10,30,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="用户名"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding UserName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="密码"/>
+        <PasswordBox Grid.Row="1" Grid.Column="1" Margin="5" c:PasswordBoxHelper.Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,ValidatesOnExceptions=True,ValidatesOnDataErrors=True,NotifyOnValidationError=True}">
+            <i:Interaction.Behaviors>
+                <c:PasswordBoxBehavior/>
+            </i:Interaction.Behaviors>
+        </PasswordBox>
+
+        <RadioButton Grid.Row="2" Grid.Column="0" Content="男" IsChecked="{Binding Gender,Mode=TwoWay,Converter={StaticResource CheckConverter},ConverterParameter=1}"/>
+        <RadioButton Grid.Row="2" Grid.Column="1" Content="女" IsChecked="{Binding Gender,Mode=TwoWay,Converter={StaticResource CheckConverter},ConverterParameter=2}"/>
+
+        <Button Grid.Row="3" Grid.ColumnSpan="2" Content="登录" Width="200" Height="30" IsEnabled="{Binding IsValid}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <c:EventCommand Command="{Binding LoginClick}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+    </Grid>
+</Window>
