@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "跨窗口完成绑定", "Wp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginDemo", "LoginDemo\LoginDemo\LoginDemo.csproj", "{2BA5149C-EEAB-4002-9CBF-E68EB07647A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstMVVM-cs", "FirstMVVM C#\FirstMVVM\FirstMVVM-cs.csproj", "{3715E8D4-4C08-4389-A61F-AB377E589D52}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FirstMVVM", "FirstMVVM VB\FirstMVVM\FirstMVVM.vbproj", "{5BBA0E1C-451B-48A3-B1EE-2A27354B2FC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{2BA5149C-EEAB-4002-9CBF-E68EB07647A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BA5149C-EEAB-4002-9CBF-E68EB07647A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BA5149C-EEAB-4002-9CBF-E68EB07647A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3715E8D4-4C08-4389-A61F-AB377E589D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3715E8D4-4C08-4389-A61F-AB377E589D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3715E8D4-4C08-4389-A61F-AB377E589D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3715E8D4-4C08-4389-A61F-AB377E589D52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BBA0E1C-451B-48A3-B1EE-2A27354B2FC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BBA0E1C-451B-48A3-B1EE-2A27354B2FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BBA0E1C-451B-48A3-B1EE-2A27354B2FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BBA0E1C-451B-48A3-B1EE-2A27354B2FC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
