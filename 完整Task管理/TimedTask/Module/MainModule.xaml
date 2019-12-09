@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="TimedTask.Module.MainModule"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             Height="336" Width="680"
+             xmlns:my="clr-namespace:TimedTask.Converts"
+             Background="Transparent">
+    <Border x:Name="mainBoder"  Background="#FFF9F9F9" BorderThickness="0 1 0 1" >
+        <StackPanel Orientation="Vertical">
+            <Border x:Name="bdTop" BorderBrush="Black" BorderThickness="0">
+                <Label Content="统计归档..." HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Border>
+            <StackPanel x:Name="spMain" Orientation="Horizontal">
+                <Border x:Name="bdLeft" VerticalAlignment="Top"
+                        BorderThickness="0 1 1 0" 
+                        BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                        Width="495" Height="319">
+                    <Grid Name="Simon"/>
+                </Border>
+                <Border x:Name="bdRight" 
+                        BorderThickness="0 1 0 0" 
+                        BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                        Width="180">
+                    <StackPanel Orientation="Vertical">
+                        <Label HorizontalAlignment="Left">
+                            <TextBlock x:Name="txtStatistical" xml:space="preserve"/>
+                        </Label>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

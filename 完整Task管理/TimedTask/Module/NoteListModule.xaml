@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="TimedTask.Module.NoteListModule"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             Height="336" Width="680"
+             xmlns:vm="clr-namespace:TimedTask.ViewModel"
+             xmlns:my="clr-namespace:TimedTask.Converts"
+             Background="Transparent">
+    <!--页面加载-->
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding CloseCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <UserControl.Resources>
+        <my:CreateDate x:Key="myDate"/>
+    </UserControl.Resources>
+    <!--定义上下文 和 //this.DataContext = new NoteViewModel(); 同样能实现-->
+    <Border x:Name="mainBoder"  Background="#FFF9F9F9" BorderThickness="0 1 0 1">
+        <StackPanel Orientation="Vertical">
+            <Border x:Name="bdTop" BorderBrush="Black" BorderThickness="0">
+                <Label Content="可在右侧面板添加或修改记事..." HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Border>
+            <StackPanel x:Name="spMain" Orientation="Horizontal">
+                <Border x:Name="bdLeft" 
+                        BorderThickness="0 1 1 0" 
+                        BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                        Width="450">
+                    <ListBox x:Name="lstNote" 
+                             ItemsSource="{Binding NoteList}"
+                             SelectionChanged="lstNote_SelectionChanged" BorderThickness="0" Height="319" VerticalAlignment="Top">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border x:Name="bd" BorderBrush="#FFC8C0C0" BorderThickness="1,1,1,1" VerticalAlignment="Stretch" CornerRadius="4">
+                                    <Grid Height="80" Width="440">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="100"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" Grid.Column="0" >
+                                            <Label Content="{Binding Title}" Style="{StaticResource NormalLabelStyle}" HorizontalAlignment="Left"/>
+                                            <Label Content="{Binding CreateDate,Converter={StaticResource myDate}}" HorizontalAlignment="Right"/>
+                                        </StackPanel>
+                                        <Label Height="40" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left">
+                                            <TextBlock Height="40" TextWrapping="Wrap" Text="{Binding Content}"/>
+                                        </Label>
+                                        <Button x:Name="btn_Edit" Click="Item_Click" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Width="43" Margin="0 3 5 0" Grid.Row="0" Content="查 看"/>
+                                        <Button x:Name="btn_Delete" 
+                                                Click="Item_Click" 
+                                                Grid.Column="1" Width="43" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 3 5 0" Content="删 除" Grid.Row="1">
+                                        </Button>
+                                    </Grid>
+
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </Border>
+                <Border x:Name="bdRight" 
+                        BorderThickness="0 1 0 0" 
+                        BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                        Width="230">
+                    <StackPanel Orientation="Vertical" x:Name="mNote">
+                        <Label Content="记事本" Style="{StaticResource BoldLabelStyle}" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                        <Label Content="标题" HorizontalAlignment="Left"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="txtTitle" Width="148" Height="24" Margin="2 0 0 0" />
+                            <ComboBox x:Name="cboType" 
+                                      DisplayMemberPath="Name" SelectedValuePath="Id" 
+                                      HorizontalAlignment="Right" Margin="3 0 3 0" Width="70" FontSize="12"></ComboBox>
+                        </StackPanel>
+                        <Label Content="内容" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="txtContent" xml:space="preserve" Margin="3" 
+                                 TextWrapping="Wrap" 
+                                 AcceptsReturn="True" Height="150" Width="220"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 4 0 0">
+                            <Button x:Name="btnOk" Content="添加" Width="50" Click="btnOk_Click"/>
+                            <Button x:Name="btnReset" Content="重置" Width="50" Margin="8 0 0 0" Click="btnReset_Click"/>
+                            <!--测试用-->
+                                        <!--<Button Height="23" 
+                                                Command="{Binding SaveCommand}" 
+                                                CommandParameter="{Binding ElementName=mNote}"
+                                                HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Content="确定"/>-->
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

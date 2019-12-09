@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="TimedTask.Module.TaskListModule"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:tb="http://www.hardcodet.net/taskbar"
+             xmlns:my="clr-namespace:TimedTask.Converts"
+             xmlns:ts="clr-namespace:TimedTask"
+             Height="336" Width="680" FontSize="12"
+             Background="Transparent">
+    <UserControl.Resources>
+        <my:RunType x:Key="myRun"/>
+        <my:Enable x:Key="myEnable"/> 
+        <my:MyDate x:Key="myNextDate"/>
+        <my:CreateDate x:Key="myDate"/>
+        <my:StartParameters x:Key="myPapa"/>
+        <my:ButtonEnable x:Key="myBtnEnable"/>
+        <my:EnableColor x:Key="myColorEnable"/>
+    </UserControl.Resources>
+    <Border x:Name="mainBoder"  Background="#FFF9F9F9" BorderThickness="0 1 0 1" >
+        <StackPanel Orientation="Vertical">
+            <Border x:Name="bdTop" BorderBrush="Black" BorderThickness="0">
+                <Label Content="可在右侧面板添加或修改提醒铃声..." HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Border>
+            <StackPanel x:Name="spMain" Orientation="Horizontal">
+                <Border x:Name="bdLeft" 
+                        BorderThickness="0 1 1 0" 
+                        BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                        Width="495">
+                    <ListBox x:Name="lstMain" BorderThickness="0"  SelectionChanged="lstMain_SelectionChanged" VerticalAlignment="Top" Height="324">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border x:Name="bd" BorderBrush="#FFC8C0C0" BorderThickness="1,1,1,1" VerticalAlignment="Stretch" CornerRadius="4">
+                                    <Grid Height="90" Width="485">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="160" />
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="55"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="{Binding Title}" Style="{StaticResource NormalLabelStyle}" Grid.Column="0" HorizontalAlignment="Left">
+                                            <Label.ToolTip >
+                                                <StackPanel Orientation="Vertical">
+                                                    <Label Content="停止日期"></Label>
+                                                    <Label Content="{Binding Path=StopDate,Converter={StaticResource myDate}}"></Label>
+                                                </StackPanel>
+                                            </Label.ToolTip>
+                                        </Label>
+                                        <Label Content="{Binding StartParameters,Converter={StaticResource myPapa}}" Grid.Column="1" >
+                                            <Label.ToolTip >
+                                                <Label Content="启动参数"></Label>
+                                            </Label.ToolTip>
+                                        </Label>
+                                        <Label Content="{Binding Path=NextStartDate,Converter={StaticResource myNextDate}}" HorizontalAlignment="Center" Grid.Column="2" />
+                                        <Label Content="{Binding TimeType, Converter={StaticResource myRun}}" HorizontalAlignment="Center" Grid.Column="3"/>
+                                        <Label Content="{Binding Enable, Converter={StaticResource myEnable}}" Foreground="{Binding Path=Enable,Converter={StaticResource myColorEnable}}" VerticalAlignment="Center"  Width="50" Grid.Column="4"/>
+                                        <Label Height="50" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" HorizontalAlignment="Left" Padding="14 0 0 0">
+                                            <TextBlock Height="50" TextWrapping="Wrap" Text="{Binding Remark}"></TextBlock>
+                                        </Label>
+                                        <Button x:Name="btn_Edit" Click="Item_Click" Grid.Column="5" Width="43" Content="查 看"/>
+                                        <Button x:Name="btn_Delete"  Click="Item_Click" Grid.Column="5" Width="43" Content="删 除" Grid.Row="1"/>
+                                        <Button x:Name="btn_Enable"  Click="Item_Click" Grid.Column="5" Width="43" Content="{Binding Enable, Converter={StaticResource myBtnEnable}}" Grid.Row="2"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ContextMenu>
+                            <ContextMenu x:Name="cmEdit" StaysOpen="true" >
+                                <MenuItem Header="运行"  Click="cmClick" />
+                                <MenuItem Header="停止实例" Click="cmClick" />
+                                <MenuItem Header="运行记录" Click="cmClick" />
+                            </ContextMenu>
+                        </ListBox.ContextMenu>
+                    </ListBox>
+                    <!--状态栏-->
+                    <!--<ToolBarPanel Height="32" Margin="0.5 0 0.5 0" Background="LightGray">
+        <StatusBarItem >
+                <Label x:Name="lblState" Content="{Binding ApplicationStatus}" HorizontalAlignment="Stretch"/>
+            </StatusBarItem>
+        </ToolBarPanel>-->
+                </Border>
+                <Border x:Name="bdRight" 
+                        BorderThickness="0 1 0 0" 
+                        BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" 
+                        Width="180">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="铃声设置" Style="{StaticResource BoldLabelStyle}" HorizontalAlignment="Center" VerticalAlignment="Stretch"/>
+                        <Label Content="选择铃声" HorizontalAlignment="Left"/>
+                        <ComboBox x:Name="cboAudio" SelectionChanged="cboAudio_SelectionChanged" Margin="8,0,0,8" HorizontalAlignment="Left" Width="160" />
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="提示音量" HorizontalAlignment="Left"/>
+                            <Label Content="{Binding ElementName=sdVolume,Path=Value}" Width="34" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                        <Slider x:Name="sdVolume" Height="22" Maximum="100" 
+                                Minimum="0" Value="80" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="170" 
+                                />
+                        <Label Content="其他设置" HorizontalAlignment="Left"/>
+                        <CheckBox x:Name="chkEnable" Content="是否响铃" Margin="12 8 0 0"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 13 0 0">
+                            <Button x:Name="btnAdd" Content="添 加" Width="50" Click="btnAdd_Click" Margin="0 0 8 0"/>
+                            <Button x:Name="btnSave" Content="保 存" Width="50" Click="btnSave_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</UserControl>

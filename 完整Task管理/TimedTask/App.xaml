@@ -1,0 +1,22 @@
+﻿<Application x:Class="TimedTask.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!--引入外部样式-->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Theme/ButtonStyle.xaml" />
+                <ResourceDictionary Source="/Theme/ListBoxStyle.xaml" />
+                <ResourceDictionary Source="/Theme/MenuStyle.xaml"/>
+                <ResourceDictionary Source="/Theme/WindowStyle.xaml"/>
+                <ResourceDictionary Source="/Theme/Style.xaml" />
+                <ResourceDictionary Source="/Theme/LabelStyle.xaml"/>
+                <ResourceDictionary Source="/Theme/CheckBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Theme/ComboxStyle.xaml"/>
+                <ResourceDictionary Source="/Theme/Brushes.xaml"/>
+                <ResourceDictionary Source="Theme/TextBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--全局Lable-->
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="微软雅黑" />
+        <Setter Property="HorizontalAlignment"  Value="Center" />
+        <Setter Property="VerticalAlignment"  Value="Center" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="#FF3F3F3F"/>
+    </Style>
+    <!--首页Lable样式-->
+    <Style TargetType="{x:Type Label}" x:Key="Lbstyle">
+        <Setter Property="FontFamily" Value="微软雅黑" />
+        <Setter Property="Foreground" Value="#8EB657"/>
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <!--锁屏界面Lable样式-->
+    <Style TargetType="{x:Type Label}" x:Key="LockLabelStyle">
+        <Setter Property="FontFamily" Value="微软雅黑" />
+        <Setter Property="Foreground" Value="#FF7A0365"/>
+        <Setter Property="FontSize" Value="45" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <!--Lable粗体样式-->
+    <Style TargetType="{x:Type Label}" x:Key="BoldLabelStyle">
+        <Setter Property="FontFamily" Value="微软雅黑" />
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="BorderBrush"  Value="#FF4E4E4E"/>
+    </Style>
+    <!--主窗口任务标题正常字体-->
+    <Style TargetType="{x:Type Label}" x:Key="NormalLabelStyle">
+        <Setter Property="FontFamily" Value="微软雅黑" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Foreground"  Value="#FF212121"/>
+    </Style>
+</ResourceDictionary>

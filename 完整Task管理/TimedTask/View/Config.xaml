@@ -1,0 +1,125 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="TimedTask.View.Config" mc:Ignorable="d" 
+        Height="352" Width="500"  WindowStartupLocation="CenterScreen" AllowsTransparency="True"
+        WindowStyle="None" MouseLeftButtonDown="bg_MouseLeftButtonDown"
+        xmlns:my="clr-namespace:TimedTask.Converts"
+        Background="Transparent" >
+    <Window.Resources>
+        <my:BooleanVisibility x:Key="myVisible"/>
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
+    <Border x:Name="mainBoder" Style="{StaticResource MainBoderStyle}">
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Image  Margin="9,3,0,0" Source="/Images/app.ico"/>
+                <Label x:Name="lblTask" Content="设置" Foreground="White" Margin="3 3 0 0"/>
+                <Button Style="{StaticResource CloseBtnStyle}" Margin="415,0,20,0" x:Name="btnClose" Click="btnClose_Click"/>
+            </StackPanel>
+            <Grid Margin="1" Background="White" Height="320" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="263"/>
+                    <RowDefinition Height="55"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" x:Name="boderLedt" BorderThickness="0 1 1 1" Padding="0 8 0 0" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
+                    <StackPanel Orientation="Vertical">
+                        <RadioButton x:Name="rbtWhole" Click="rbtCeeck_Click" IsChecked="True" Style="{StaticResource ConfigRadioButtonStyle}" Content="全局设置" GroupName="Navigation" HorizontalAlignment="Center"/>
+                        <RadioButton x:Name="rbtShortKey" Click="rbtCeeck_Click" Style="{StaticResource ConfigRadioButtonStyle}" Content="快捷键设置" GroupName="Navigation" HorizontalAlignment="Center"/>
+                        <RadioButton x:Name="rbtAbout" Click="rbtCeeck_Click" Style="{StaticResource ConfigRadioButtonStyle}" Content="关于" GroupName="Navigation" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="0" x:Name="borderRigth" BorderThickness="0,1,0,1" Grid.Column="1" Margin="0" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
+                    <Grid>
+                        <Grid Visibility="{Binding IsChecked, ElementName=rbtWhole,Converter={StaticResource myVisible}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="28*"/>
+                                <RowDefinition Height="28*"/>
+                                <RowDefinition Height="29*"/>
+                                <RowDefinition Height="28*"/>
+                                <RowDefinition Height="30*"/>
+                                <RowDefinition Height="32*"/>
+                                <RowDefinition Height="29*"/>
+                                <RowDefinition Height="58*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="0.55*"/>
+                                <ColumnDefinition Width="0.15*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="基本设置" HorizontalAlignment="Center" Margin="26,0,28,0" VerticalAlignment="Stretch" Width="58" />
+                            <CheckBox x:Name="chkAutoRun" Content="启动Windows时启动软件" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Width="155"/>
+                            <CheckBox x:Name="chkMinToTray" Content="关闭时最小化时到系统托盘" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Grid.Row="1" Width="126"/>
+                            <CheckBox x:Name="chkSaveLog" Content="记录运行日志" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Grid.Row="2" Width="90"/>
+                            <Label Content="系统背景" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Stretch" Margin="27,0" Width="58" />
+                            <TextBox x:Name="tbxBgImg" Grid.Column="1" HorizontalAlignment="Left" Margin="0,3" Grid.Row="3"  Width="198"/>
+                            <Label Content="锁屏背景" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Stretch" Margin="27,0" Width="58"/>
+                            <TextBox x:Name="tbxLockBgImg" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Width="198" Margin="0,3,0,5"/>
+                            <Button Name="btnOpenAppImg" Grid.Column="2" Grid.Row="3" Click="btnOpenFile_Click" Width="30" Height="Auto" HorizontalAlignment="Left" Margin="0,3">
+                                <Image Source="/Images/Button/openFolder.png" Width="24" Height="17"/>
+                            </Button>
+                            <Button Name="btnOpenLockImg" Grid.Column="2" Grid.Row="4" Click="btnOpenFile_Click" Width="30" Height="Auto" HorizontalAlignment="Left" Margin="0,3,0,5">
+                                <Image Source="/Images/Button/openFolder.png" Width="24" Height="17"/>
+                            </Button>
+                            <Label Content="天气预报" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="58" Height="26" Margin="27,1,27,5"/>
+                            <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1" >
+                                <ComboBox x:Name="chkProvince" Width="70" SelectionChanged="chkProvince_SelectionChanged" />
+                                <ComboBox x:Name="chkCity"  Width="70" Margin="5 0 0 0"/>
+                            </StackPanel>
+                            <Label Content="锁屏时间" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="58" Height="26" Margin="27,29,27,6" Grid.RowSpan="2"/>
+                            <ComboBox x:Name="cboMinute"  Grid.Column="1" Grid.Row="6" Width="70" HorizontalAlignment="Left" Margin="0,2,0,1" Height="Auto"/>
+                            <Label Grid.Row="6" Grid.Column="1" Content="分钟" Height="26" Width="34" Margin="-20 0 0 0"/>
+                        </Grid>
+                        <Grid Visibility="{Binding IsChecked, ElementName=rbtShortKey,Converter={StaticResource myVisible}}">
+                            <Label Content="新功能，敬请期待！"></Label>
+                        </Grid>
+                        <Grid Visibility="{Binding IsChecked, ElementName=rbtAbout,Converter={StaticResource myVisible}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="8*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="作者:"></TextBlock>
+                            <TextBlock Text="山林" Grid.Column="1"/>
+                            <TextBlock Text="Email:" Grid.Row="1"></TextBlock>
+                            <TextBlock Text="m.sh.lin0328@163.com" Grid.Column="1" Grid.Row="1"/>
+                            <TextBlock Text="个人主页:" Grid.Row="2"></TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="2">
+            <Hyperlink Command="{Binding OpenLinkCommand}" CommandParameter="http://home.cnblogs.com/u/shanlin/">http://home.cnblogs.com/u/shanlin/</Hyperlink>
+                            </TextBlock>
+                            <TextBlock Text="博客:" Grid.Row="3"></TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="3">
+            <Hyperlink Command="{Binding OpenLinkCommand}" CommandParameter="http://home.cnblogs.com/u/shanlin/">http://home.cnblogs.com/u/shanlin/</Hyperlink>
+                            </TextBlock>
+                            <TextBlock Text="作品说明:" Grid.Row="4"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1">
+            <Run>本作品只提供用于学习交流, 如若转载, 请注明作者与出处。</Run>
+            <LineBreak/>
+            <Run>如果您有任何疑问, 欢迎给我发Email交流。</Run>
+                            </TextBlock>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0" Margin="0" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
+                    <Button Content="保存" x:Name="btnOK" Width="55" Click="btnOK_Click"/>
+                </Border>
+            </Grid>
+        </StackPanel>
+    </Border>
+</Window>

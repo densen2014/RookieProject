@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--TextBox全局样式-->
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="FontFamily" Value="微软雅黑" />
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Foreground" Value="#FF3F3F3F"/>
+    </Style>
+</ResourceDictionary>

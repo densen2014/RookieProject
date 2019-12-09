@@ -1,0 +1,18 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d" 
+        Title="Test" Height="300" Width="723.5">
+    <Grid>
+    	<Label Content="程序运行成功" HorizontalAlignment="Left" 
+		Margin="296,88,0,93.416" VerticalAlignment="Stretch" Width="424" AllowDrop="True" Focusable="True" 
+		IsHitTestVisible="False" IsTabStop="True" Background="#00008332" BorderBrush="#FF3F3F3F" 
+		d:LayoutOverrides="GridBox" FontFamily="Arial"/>
+    	<ComboBox HorizontalAlignment="Left" Margin="160,40,0,0" 
+		VerticalAlignment="Top" Width="120" Style="{DynamicResource cbobStyle}"
+		 Background="#FF434243"/>
+    </Grid>
+</Window>
+
+

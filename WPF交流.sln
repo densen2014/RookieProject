@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstMVVM-cs", "FirstMVVM C
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FirstMVVM", "FirstMVVM VB\FirstMVVM\FirstMVVM.vbproj", "{5BBA0E1C-451B-48A3-B1EE-2A27354B2FC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimedTask", "完整Task管理\TimedTask\TimedTask.csproj", "{247B9B90-EFD6-44FE-B67A-B824C5C67735}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{5BBA0E1C-451B-48A3-B1EE-2A27354B2FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BBA0E1C-451B-48A3-B1EE-2A27354B2FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BBA0E1C-451B-48A3-B1EE-2A27354B2FC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{247B9B90-EFD6-44FE-B67A-B824C5C67735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{247B9B90-EFD6-44FE-B67A-B824C5C67735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{247B9B90-EFD6-44FE-B67A-B824C5C67735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{247B9B90-EFD6-44FE-B67A-B824C5C67735}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

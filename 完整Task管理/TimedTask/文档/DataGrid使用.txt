@@ -1,0 +1,45 @@
+﻿ <!--CanUserAddRows:是否新增行-->
+                    <!--<DataGrid x:Name="dg_Main" Height="268" VerticalAlignment="Top" AutoGenerateColumns="False" CanUserAddRows="False" BorderBrush="#FFCAD4DE" >
+                        <DataGrid.RowStyle>
+                            <Style TargetType="{x:Type DataGridRow}">
+                                <Setter Property="Background" Value="LightBlue" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="LightGray"/>
+                                        <Setter Property="Foreground" Value="Green"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <CheckBox x:Name="chk_All" Checked="chk_All_Click" Unchecked="chk_All_Unchecked" IsChecked="False" HorizontalAlignment="Left" Content="全选"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate >
+                                        <CheckBox x:Name="cboID" HorizontalAlignment="Center" Margin="4 0 0 0"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn IsReadOnly="False" Binding="{Binding Title}" Header="任务名称"  Width="170"  Foreground="Black"/>
+                            <DataGridTextColumn IsReadOnly="False" Binding="{Binding StartParameters}" Header="启动参数" Width="95"/>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding StopDate}" Header="停止时间" Width="145"/>
+                            <DataGridTextColumn IsReadOnly="False" Binding="{Binding Enable, Converter={StaticResource myEnable}}" Header="是否启用" Width="60"/>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding AudioPath}" Header="音乐名称" Width="100"/>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding StartDate}" Header="启动时间" Width="100"  Visibility="Hidden"/>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding TaskType}" Header="任务类型" Visibility="Hidden"/>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding ID}" Header="ID" Visibility="Hidden"/>
+                        </DataGrid.Columns>
+                        <DataGrid.ContextMenu>
+                            <ContextMenu x:Name="cmEdit" StaysOpen="true" >
+                                <MenuItem Header="查看" Click="cmClick" />
+                                <MenuItem Header="运行"  Click="cmClick" />
+                                <MenuItem Header="删除"  Click="cmClick" />
+                                <MenuItem Header="停止实例" Click="cmClick" />
+                                <MenuItem Header="运行记录" Click="cmClick" />
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                    </DataGrid>-->
