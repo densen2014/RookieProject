@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.View"
         mc:Ignorable="d"
-        Title="窗口" Height="450" Width="800"
+        Title="窗口" Height="600" Width="800"
         DataContext="{Binding Source={StaticResource Locator},Path=Main}">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+        <StackPanel Orientation="Vertical" Margin="10,10,0,0" Grid.ColumnSpan="3">
             <StackPanel Orientation="Horizontal" >
                 <TextBlock Text="请输入姓名：" ></TextBlock>
                 <TextBox Text="{Binding UserInfo.名字,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Width="200" ></TextBox>
@@ -23,9 +23,9 @@
             </StackPanel>
 
         </StackPanel>
-        
+
         <!--下拉框-->
-        <StackPanel Margin="10,63,0,289">
+        <StackPanel Margin="10,63,0,289" Grid.ColumnSpan="3">
             <TextBlock Text="下拉框" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
             <DockPanel x:Name="Combbox" >
                 <StackPanel DockPanel.Dock="Left" Width="240">
@@ -40,7 +40,7 @@
             </DockPanel>
         </StackPanel>
         <!--单选框-->
-        <StackPanel Margin="10,130,0,229">
+        <StackPanel Margin="10,130,0,251" Grid.ColumnSpan="3">
             <TextBlock Text="单选框" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
             <DockPanel x:Name="RadioButton" >
                 <StackPanel DockPanel.Dock="Left" Width="240">
@@ -51,6 +51,13 @@
                     <TextBlock Text="{Binding IsSingleRadioCheck,StringFormat='结果：\{0\}'}" ></TextBlock>
                 </StackPanel>
             </DockPanel>
+        </StackPanel>
+
+        <StackPanel Margin="0,189,0,0" Orientation="Horizontal" Grid.ColumnSpan="3">
+            <TextBlock Text="{Binding UserInfo.调试信息}" Height="387" Width="340" />
+            <Button Content="tcp客户端" Command="{Binding LoadTcpClient}"/>
+            <TextBlock Text="{Binding UserInfo.客户端调试信息}" Height="391" Width="404" />
+
         </StackPanel>
     </Grid>
 </Window>

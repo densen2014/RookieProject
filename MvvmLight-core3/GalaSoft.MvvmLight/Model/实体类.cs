@@ -52,6 +52,26 @@ namespace WpfApp1.Model
             get { return _地址; }
             set { _地址 = value; RaisePropertyChanged(() => 地址); }
         }
+
+        private String _调试信息;
+        /// <summary>
+        /// 用户名称
+        /// </summary>
+        public String 调试信息
+        {
+            get { return _调试信息; }
+            set { _调试信息 = _调试信息 + "\r\n" + value; RaisePropertyChanged(() => 调试信息); }
+        }
+
+        private String _客户端调试信息;
+        /// <summary>
+        /// 用户名称
+        /// </summary>
+        public String 客户端调试信息
+        {
+            get { return _客户端调试信息; }
+            set { _客户端调试信息 = _客户端调试信息 + "\r\n" + value; RaisePropertyChanged(() => 客户端调试信息); }
+        }
     }
 
     /// <summary>

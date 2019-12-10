@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmLight-demo-nf4", "MvvmL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmLight-core3", "MvvmLight-core3\GalaSoft.MvvmLight\MvvmLight-core3.csproj", "{886F109A-51CE-43A8-8F07-5E158EEA310E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTCP", "SimpleTCP\SimpleTCP.csproj", "{EAEDADD6-A234-4373-B3C5-E7E1FEFD6B71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{886F109A-51CE-43A8-8F07-5E158EEA310E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{886F109A-51CE-43A8-8F07-5E158EEA310E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{886F109A-51CE-43A8-8F07-5E158EEA310E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAEDADD6-A234-4373-B3C5-E7E1FEFD6B71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAEDADD6-A234-4373-B3C5-E7E1FEFD6B71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAEDADD6-A234-4373-B3C5-E7E1FEFD6B71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAEDADD6-A234-4373-B3C5-E7E1FEFD6B71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

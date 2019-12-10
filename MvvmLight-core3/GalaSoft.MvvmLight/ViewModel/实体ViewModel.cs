@@ -1,5 +1,10 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
+using SimpleTCP;
+using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Windows.Input;
 using WpfApp1.Model;
 
 namespace WpfApp1.ViewModel
@@ -32,9 +37,26 @@ namespace WpfApp1.ViewModel
                   new ComplexInfoModel(){  Key="1",Text="苹果"},
                   new ComplexInfoModel(){  Key="2",Text="香蕉"}
             };
+
+ 
+            Thread t = new Thread(delegate ()
+            {
+                // replace the IP with your system IP Address...
+                Server myserver = new Server("127.0.0.1", 13000, UserInfo);
+            });
+            t.Start();
+
+            Console.WriteLine("Server Started...!");
+            Client tcp通讯 = new Client(UserInfo);
+            LoadTcpClient = new RelayCommand(CQCQCQ);
+
         }
 
-         
+        void CQCQCQ()
+        {
+            Client tcp通讯 = new Client(UserInfo);
+            tcp通讯.启动();
+        }
 
         #region 双向绑定
 
@@ -71,13 +93,15 @@ namespace WpfApp1.ViewModel
             set { combboxList = value; RaisePropertyChanged(() => CombboxList); }
         }
 
-       
+
 
 
 
         #endregion
 
         #region 命令
+        public ICommand LoadTcpClient { get; private set; }
+
         #endregion
 
     }
