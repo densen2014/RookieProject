@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfApp1.View.Appchuangti"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.View"
+        mc:Ignorable="d"
+        Title="窗口" Height="450" Width="800"
+        DataContext="{Binding Source={StaticResource Locator},Path=Main}">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="请输入姓名：" ></TextBlock>
+                <TextBox Text="{Binding UserInfo.名字,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Width="200" ></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal" >
+                <TextBlock Text="Hello " ></TextBlock>
+                <TextBlock Text="{Binding UserInfo.名字}" ></TextBlock>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" >
+            </StackPanel>
+
+        </StackPanel>
+        
+        <!--下拉框-->
+        <StackPanel Margin="10,63,0,289">
+            <TextBlock Text="下拉框" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
+            <DockPanel x:Name="Combbox" >
+                <StackPanel DockPanel.Dock="Left" Width="240">
+                    <ComboBox Width="200" HorizontalAlignment="Left" ItemsSource="{Binding CombboxList}" SelectedItem="{Binding CombboxItem}" DisplayMemberPath="Text" SelectedValuePath="Key" />
+                </StackPanel>
+
+                <StackPanel DockPanel.Dock="Right" Width="240" Orientation="Horizontal" DataContext="{Binding CombboxItem}" >
+                    <TextBlock Text="{Binding Key,StringFormat='结果：\{0\}'}" Margin="0,0,15,0" ></TextBlock>
+                    <TextBlock Text="{Binding Text}"></TextBlock>
+                </StackPanel>
+
+            </DockPanel>
+        </StackPanel>
+        <!--单选框-->
+        <StackPanel Margin="10,130,0,229">
+            <TextBlock Text="单选框" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
+            <DockPanel x:Name="RadioButton" >
+                <StackPanel DockPanel.Dock="Left" Width="240">
+                    <RadioButton Content="{Binding SingleRadio}" IsChecked="{Binding IsSingleRadioCheck}" HorizontalAlignment="Right" Width="240" >
+                    </RadioButton>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Right" Width="240" Orientation="Horizontal">
+                    <TextBlock Text="{Binding IsSingleRadioCheck,StringFormat='结果：\{0\}'}" ></TextBlock>
+                </StackPanel>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>

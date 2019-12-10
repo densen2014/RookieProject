@@ -1,6 +1,0 @@
-{
-  "UserName": "qigetest0102",
-  "Password": "123456",
-  "Record": true,
-  "IsValid": true
-}

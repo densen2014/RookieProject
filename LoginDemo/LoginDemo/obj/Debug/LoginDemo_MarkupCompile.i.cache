@@ -2,18 +2,18 @@
 
 
 winexe
-VB
-.vb
-C:\Users\MI\Desktop\覃哥\MVVM\登录Mvvm VB - Git\LoginDemo\LoginDemo\obj\Debug\
+C#
+.cs
+C:\Users\Alex\source\repos\WPF初学者交流\LoginDemo\LoginDemo\obj\Debug\
 LoginDemo
 none
 false
-
-C:\Users\MI\Desktop\覃哥\MVVM\登录Mvvm VB - Git\LoginDemo\LoginDemo\Application.xaml
+DEBUG;TRACE
+C:\Users\Alex\source\repos\WPF初学者交流\LoginDemo\LoginDemo\App.xaml
 22037783069
 
-28944096445
-16243656085
+21-1696035368
+15888849999
 LoginWindow.xaml;MainWindow.xaml;
 
 True

@@ -13,6 +13,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FirstMVVM", "FirstMVVM VB\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimedTask", "完整Task管理\TimedTask\TimedTask.csproj", "{247B9B90-EFD6-44FE-B67A-B824C5C67735}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmLight-demo-nf4", "MvvmLight-demo\WpfApp1\MvvmLight-demo-nf4.csproj", "{D8D8DE7D-F1EF-47CC-BDC5-FA032A936A5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmLight-core3", "MvvmLight-core3\GalaSoft.MvvmLight\MvvmLight-core3.csproj", "{886F109A-51CE-43A8-8F07-5E158EEA310E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{247B9B90-EFD6-44FE-B67A-B824C5C67735}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{247B9B90-EFD6-44FE-B67A-B824C5C67735}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{247B9B90-EFD6-44FE-B67A-B824C5C67735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8D8DE7D-F1EF-47CC-BDC5-FA032A936A5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D8DE7D-F1EF-47CC-BDC5-FA032A936A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D8DE7D-F1EF-47CC-BDC5-FA032A936A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D8DE7D-F1EF-47CC-BDC5-FA032A936A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{886F109A-51CE-43A8-8F07-5E158EEA310E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{886F109A-51CE-43A8-8F07-5E158EEA310E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{886F109A-51CE-43A8-8F07-5E158EEA310E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{886F109A-51CE-43A8-8F07-5E158EEA310E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

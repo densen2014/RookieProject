@@ -1,5 +1,0 @@
-﻿
-Class MainViewModel
-
-End Class
-

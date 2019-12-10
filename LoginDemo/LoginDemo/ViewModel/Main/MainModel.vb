@@ -1,5 +1,0 @@
-﻿
-Class MainModel
-
-End Class
-
