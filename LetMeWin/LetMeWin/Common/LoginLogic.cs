@@ -23,16 +23,9 @@ namespace LetMeWin.Common
         /// <param name="密码"></param>
         /// <returns></returns>
         public int 登录(string 帐号, string 密码)
-        {                                      
-                //啟動控件
-                //設定跳動頻為1秒。1000＝1秒
-                //引发事件
-                //添加事件
-                检测时钟.Enabled = true;              
-                检测时钟.Interval = 30 * 1000;
-                检测时钟.Start();
-                检测时钟.Elapsed += new ElapsedEventHandler(检测时钟_Tick);
-                return 1;
+        {
+      
+            return 1;
         }
        
         /// <summary>
@@ -40,7 +33,7 @@ namespace LetMeWin.Common
         /// </summary>
         private void 检测在线()
         {
-  
+            
         }
 
         /// <summary>

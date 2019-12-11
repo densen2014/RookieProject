@@ -13,7 +13,7 @@
     <Window.Resources>
         <!--表格模版定义-->
         <DataTemplate x:Key="AccountDrid">
-            <DataGrid  ItemsSource="{Binding}" AutoGenerateColumns="False" >
+            <DataGrid  ItemsSource="{Binding}" AutoGenerateColumns="False"  >
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn Header="勾选" Width="40"  Binding="{Binding 勾选 ,Mode=TwoWay}" />
                     <DataGridTextColumn     Header="序号" Width="40"  Binding="{Binding 序号 ,Mode=TwoWay}"/>
@@ -39,13 +39,21 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="350"/>
                     </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Grid.ColumnSpan="2" Content="添加会员" Width="200" Height="30">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <mvvm:EventToCommand Command="{Binding SserAddChanged}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+
                     <!--表格分类-->
-                    <TabControl  Grid.Row="1" TabStripPlacement="Left">
+                    <TabControl  Grid.Row="1" TabStripPlacement="Left" x:Name="表格分类">
                         <TabItem Header="自我"   ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData}"/>
                         <TabItem Header="迪斯尼" ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData}"/>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
-                                <mvvm:EventToCommand Command="{Binding SelectionChanged}" />
+                                <mvvm:EventToCommand Command="{Binding SelectionChanged}" CommandParameter="{Binding ElementName=表格分类,Path=SelectedIndex}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TabControl>

@@ -17,11 +17,13 @@ namespace LetMeWin.ViewModel
        {
             //读取数据
             InitData();
-
+            
        }
 
         #region 局部变量    
         readonly AccountGridService 数据库 = new AccountGridService();
+        private List<AccountDridModel> 帐号List = new List<AccountDridModel>();
+       
         #endregion
 
         #region 全局属性
@@ -40,38 +42,91 @@ namespace LetMeWin.ViewModel
                 RaisePropertyChanged(() => AccountGridData);
             }
         }
+        
+
+        private int select = 0;
+        /// <summary>
+        /// 分类选中
+        /// </summary>
+        public int Select
+        {
+            get { return select; }
+            set
+            {
+                select = value;
+                RaisePropertyChanged(() => Select);
+            }
+        }
+
+        private RelayCommand userAddChanged ;
+        /// <summary>
+        /// 会员Add
+        /// </summary>
+        public RelayCommand SserAddChanged
+        {
+            get
+            {
+                if (userAddChanged == null) userAddChanged = new RelayCommand(() => SserAddChangedSub());
+                return userAddChanged;
+            }
+            set
+            {
+                userAddChanged = value;
+            }
+        }
+
         #endregion
 
         #region 命令事件
-        private RelayCommand selectionChanged;
+        private RelayCommand<object> selectionChanged = null;
         /// <summary>
-        /// 传递单个参数命令
+        /// 传递参数命令
         /// </summary>
-        public RelayCommand SelectionChanged
+        public RelayCommand<object> SelectionChanged
         {
             get
             {
                 if (selectionChanged == null)
-                    selectionChanged = new RelayCommand(() => ExecutePassArgStr());
+                    //selectionChanged = new RelayCommand(() => ExecutePassArgStr());
+                selectionChanged = new RelayCommand<object>(ExecutePassArgStr);
                 return selectionChanged;
 
             }
             set { selectionChanged = value; }
         }
-
-        private void ExecutePassArgStr()
+      
+        private void ExecutePassArgStr(object obj)
         {
-            Console.WriteLine(0);
+            if (select != Convert.ToInt32(obj))
+            {
+                select = Convert.ToInt32(obj);
+                accountDridModel = 帐号List.Where(x => x.类型 == (select + 1)).ToList();
+                Console.WriteLine(obj);
+            }
+
+          
         }
 
+        #endregion
 
+        #region 辅助方法
+        /// <summary>
+        /// 会员条件事件
+        /// </summary>
+        private void SserAddChangedSub()
+        {
+            AccountGridData.Add(new AccountDridModel { 勾选 =1 , 帐号= "1789" , 密码 ="123"});
+            Console.WriteLine(0);
+        }
         #endregion
 
         #region 附加方法
         private void InitData()
         {
-            var laq = 数据库.查询();
-            accountDridModel = laq.Where(x => x.类型 == 1).ToList();
+             帐号List = 数据库.查询();
+            accountDridModel = 帐号List.Where(x => x.类型 == 1).ToList();
+
+
         }
         #endregion 
     }
