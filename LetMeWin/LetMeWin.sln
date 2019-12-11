@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetMeWin", "LetMeWin\LetMeWin.csproj", "{6AC1D3B6-6EB2-484D-B75D-247C1140AF33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteService", "SqliteService\SqliteService.csproj", "{E8A37EDB-63FB-4AEE-9058-49912821A9E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AC1D3B6-6EB2-484D-B75D-247C1140AF33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC1D3B6-6EB2-484D-B75D-247C1140AF33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC1D3B6-6EB2-484D-B75D-247C1140AF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC1D3B6-6EB2-484D-B75D-247C1140AF33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A37EDB-63FB-4AEE-9058-49912821A9E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A37EDB-63FB-4AEE-9058-49912821A9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A37EDB-63FB-4AEE-9058-49912821A9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A37EDB-63FB-4AEE-9058-49912821A9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AE50EA9-12B7-4D7E-AB04-5A23BE3A45F0}
+	EndGlobalSection
+EndGlobal
