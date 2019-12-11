@@ -49,7 +49,7 @@
 
                     <!--表格分类-->
                     <TabControl  Grid.Row="1" TabStripPlacement="Left" x:Name="表格分类">
-                        <TabItem Header="自我"   ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData,Mode=TwoWay}"/>
+                        <TabItem Header="自我"   ContentTemplate="{StaticResource AccountDrid}" Content="{Binding orderDetails,Mode=TwoWay}"/>
                         <TabItem Header="迪斯尼" ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData,Mode=TwoWay}"/>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">

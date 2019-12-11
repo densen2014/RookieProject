@@ -23,7 +23,9 @@ namespace LetMeWin.ViewModel
         #region 局部变量    
         readonly AccountGridService 数据库 = new AccountGridService();
         private List<AccountDridModel> 帐号List = new List<AccountDridModel>();
-       
+
+        public ObservableCollection<AccountDridModel> orderDetails { get; set; }
+
         #endregion
 
         #region 全局属性
@@ -115,12 +117,9 @@ namespace LetMeWin.ViewModel
         /// </summary>
         private void SserAddChangedSub()
         {
-            accountDridModel.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1789", 密码 = "123" });
-            accountDridModel.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1789", 密码 = "123" });
-            accountDridModel.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1789", 密码 = "123" });
-            accountDridModel.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1789", 密码 = "123" });
-
+ 
             AccountGridData.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1222789", 密码 = "122223" });
+            orderDetails.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1222789", 密码 = "122223" });
 
             //AccountGridData = accountDridModel;
             //AccountGridData[0].积分 += 100;
@@ -136,6 +135,13 @@ namespace LetMeWin.ViewModel
         {
              帐号List = 数据库.查询();
             accountDridModel = 帐号List.Where(x => x.类型 == 1).ToList();
+            orderDetails = new ObservableCollection<AccountDridModel>();
+
+            var items = 帐号List.Where(x => x.类型 == (select + 1)).ToList();
+            foreach (var item in items)
+            {
+                orderDetails.Add(item);
+            }
 
         }
         #endregion 
