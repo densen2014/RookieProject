@@ -62,9 +62,25 @@ namespace LetMeWin.ViewModel
         private void ExecutePassArgStr()
         {
             Console.WriteLine(0);
+
         }
 
+        public RelayCommand<object> OKCommand
+        {
+            get
+            {
+                if (_okCommand == null)
+                    _okCommand = new RelayCommand<object>(OkCommand_Execute);
+                return _okCommand;
+            }
+        }
+        private RelayCommand<object> _okCommand = null;
 
+        private void OkCommand_Execute(object obj)
+        {
+            Console.WriteLine(0);
+           // Result = true;
+        }
         #endregion
 
         #region 附加方法
