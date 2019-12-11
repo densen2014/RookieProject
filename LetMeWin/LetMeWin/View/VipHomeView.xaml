@@ -49,8 +49,8 @@
 
                     <!--表格分类-->
                     <TabControl  Grid.Row="1" TabStripPlacement="Left" x:Name="表格分类">
-                        <TabItem Header="自我"   ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData}"/>
-                        <TabItem Header="迪斯尼" ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData}"/>
+                        <TabItem Header="自我"   ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData,Mode=TwoWay}"/>
+                        <TabItem Header="迪斯尼" ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData,Mode=TwoWay}"/>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <mvvm:EventToCommand Command="{Binding SelectionChanged}" CommandParameter="{Binding ElementName=表格分类,Path=SelectedIndex}" />

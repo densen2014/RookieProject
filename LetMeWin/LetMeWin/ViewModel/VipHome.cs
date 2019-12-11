@@ -100,7 +100,7 @@ namespace LetMeWin.ViewModel
             if (select != Convert.ToInt32(obj))
             {
                 select = Convert.ToInt32(obj);
-                accountDridModel = 帐号List.Where(x => x.类型 == (select + 1)).ToList();
+                AccountGridData = 帐号List.Where(x => x.类型 == (select + 1)).ToList();
                 Console.WriteLine(obj);
             }
 
@@ -115,7 +115,18 @@ namespace LetMeWin.ViewModel
         /// </summary>
         private void SserAddChangedSub()
         {
-            AccountGridData.Add(new AccountDridModel { 勾选 =1 , 帐号= "1789" , 密码 ="123"});
+            accountDridModel.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1789", 密码 = "123" });
+            accountDridModel.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1789", 密码 = "123" });
+            accountDridModel.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1789", 密码 = "123" });
+            accountDridModel.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1789", 密码 = "123" });
+
+            AccountGridData.Add(new AccountDridModel { 勾选 = 1, 帐号 = "1222789", 密码 = "122223" });
+
+            //AccountGridData = accountDridModel;
+            //AccountGridData[0].积分 += 100;
+            //AccountGridData[1].帐号 = DateTime.Now .ToString();
+
+            //RaisePropertyChanged(() => AccountGridData);
             Console.WriteLine(0);
         }
         #endregion
@@ -125,7 +136,6 @@ namespace LetMeWin.ViewModel
         {
              帐号List = 数据库.查询();
             accountDridModel = 帐号List.Where(x => x.类型 == 1).ToList();
-
 
         }
         #endregion 
