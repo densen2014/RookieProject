@@ -40,13 +40,17 @@
                         <RowDefinition Height="350"/>
                     </Grid.RowDefinitions>
                     <!--表格分类-->
-                    <TabControl  Grid.Row="1" TabStripPlacement="Left" x:Name="xxx">
+                    <TabControl  Grid.Row="1" TabStripPlacement="Left" x:Name="xxx" >
                         <TabItem Header="自我"   ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData}"/>
                         <TabItem Header="迪斯尼" ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData}"/>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <mvvm:EventToCommand Command="{Binding OKCommand}" CommandParameter="{Binding ElementName=xxx,Path=SelectedIndex}"/>
                             </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseMove">
+                                <mvvm:EventToCommand Command="{Binding OKCommand2}" CommandParameter="{Binding ElementName=xxx,Path=SelectedItem}"/>
+                            </i:EventTrigger>
+                            
                         </i:Interaction.Triggers>
                     </TabControl>
                 </Grid>
