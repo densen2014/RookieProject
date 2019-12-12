@@ -48,7 +48,7 @@ namespace LetMeWin.ViewModel
             //注册
             SimpleIoc.Default.Register<Login>();
             SimpleIoc.Default.Register<VipHome>();
-         
+            //SimpleIoc.Default.Register<AddMember>();
         }
 
         #region 实例化
@@ -73,11 +73,22 @@ namespace LetMeWin.ViewModel
             }
         }
 
+        ///// <summary>
+        ///// 会员帐号添加
+        ///// </summary>
+        //public AddMember AddMember
+        //{
+        //    get
+        //    {
+        //        return ServiceLocator.Current.GetInstance<AddMember>();
+        //    }
+        //}
         #endregion
 
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
+            // TODO Clear the ViewModels     
         }
     }
 }

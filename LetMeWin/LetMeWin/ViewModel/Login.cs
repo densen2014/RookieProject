@@ -37,10 +37,10 @@ namespace LetMeWin.ViewModel
 
         #region 全局属性
 
-        private LoginModel validateUI;
         /// <summary>
         /// 用户信息
         /// </summary>
+        private LoginModel validateUI;
         public LoginModel ValidateUI
         {
             get
@@ -60,7 +60,6 @@ namespace LetMeWin.ViewModel
         /// 是否要关闭窗口
         /// </summary>
         private bool toClose;
-
         public bool ToClose
         {
             get { return toClose; }

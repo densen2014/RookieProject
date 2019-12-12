@@ -64,14 +64,20 @@
     <Compile Include="Common\PasswordBoxHelper.cs" />
     <Compile Include="Common\WindowBehavior.cs" />
     <Compile Include="Common\验证类.cs" />
+    <Compile Include="Model\ComplexInfoModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\ResTypeModel.cs" />
     <Compile Include="Model\VipModel.cs" />
     <Compile Include="SqlService\AccountGridService\AccountGridService.cs" />
     <Compile Include="SqlService\UserService\UserService.cs" />
     <Compile Include="SqlService\数据库连接.cs" />
+    <Compile Include="ViewModel\AddMember.cs" />
     <Compile Include="ViewModel\Login.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\VipHome.cs" />
+    <Compile Include="View\AddMemberView.xaml.cs">
+      <DependentUpon>AddMemberView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
@@ -94,6 +100,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddMemberView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

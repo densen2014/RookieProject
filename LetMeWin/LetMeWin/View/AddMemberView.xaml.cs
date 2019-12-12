@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
+using LetMeWin.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,15 +17,15 @@ using System.Windows.Shapes;
 namespace LetMeWin.View
 {
     /// <summary>
-    /// VipView.xaml 的交互逻辑
+    /// AddMember.xaml 的交互逻辑
     /// </summary>
-    public partial class VipHomeView : Window
+    public partial class AddMemberView : Window
     {
-        public VipHomeView()
+        public AddMemberView()
         {
             InitializeComponent();
-            //卸载当前(this)对象注册的所有MVVMLight消息
+            DataContext = new AddMember();
             this.Unloaded += (sender, e) => Messenger.Default.Unregister(this);
-        }
+        }  
     }
 }

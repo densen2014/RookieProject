@@ -13,13 +13,16 @@
     <Window.Resources>
         <!--表格模版定义-->
         <DataTemplate x:Key="AccountDrid">
-            <DataGrid  ItemsSource="{Binding}" AutoGenerateColumns="False"  >
+            <DataGrid  ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridCheckBoxColumn Header="勾选" Width="40"  Binding="{Binding 勾选 ,Mode=TwoWay}" />
+                    <DataGridCheckBoxColumn Header="勾选" Width="40"  Binding="{Binding 勾选 ,Mode=TwoWay}"/>
                     <DataGridTextColumn     Header="序号" Width="40"  Binding="{Binding 序号 ,Mode=TwoWay}"/>
-                    <DataGridTextColumn     Header="帐号" Width="70"  Binding="{Binding 帐号 ,Mode=TwoWay}" />
-                    <DataGridTextColumn     Header="密码" Width="70"  Binding="{Binding 密码 ,Mode=TwoWay}"  />
-                    <DataGridTextColumn     Header="积分" Width="70"  Binding="{Binding 积分 ,Mode=TwoWay}"  />
+                    <DataGridTextColumn     Header="帐号" Width="70"  Binding="{Binding 帐号 ,Mode=TwoWay}"/>
+                    <DataGridTextColumn     Header="密码" Width="70"  Binding="{Binding 密码 ,Mode=TwoWay}"/>
+                    <DataGridTextColumn     Header="积分" Width="70"  Binding="{Binding 积分 ,Mode=TwoWay}"/>
+                    <DataGridTextColumn     Header="比例" Width="70"  Binding="{Binding 比例 ,Mode=TwoWay}"/>
+                    <DataGridTextColumn     Header="停止" Width="70"  Binding="{Binding 停止 ,Mode=TwoWay}"/>
+                    <DataGridTextColumn     Header="游戏" Width="70"  Binding="{Binding 游戏 ,Mode=TwoWay}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DataTemplate>
@@ -39,18 +42,57 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="350"/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="0" Grid.ColumnSpan="2" Content="添加会员" Width="200" Height="30">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Click">
-                                <mvvm:EventToCommand Command="{Binding SserAddChanged}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </Button>
 
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel  Orientation="Vertical" Grid.Row="0">
+                            <StackPanel.Resources>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Orientation" Value="Horizontal" />
+                                    <Setter Property="Margin" Value="0,0,0,4" />
+                                </Style>
+                                <Style TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
+                                    <Setter Property="Width" Value="10" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                </Style>
+                            </StackPanel.Resources>
+                            <StackPanel>
+                                <!--添加按钮-->
+                                <Button Grid.Row="0" Grid.ColumnSpan="2" Content="添加会员" Width="100" Height="30" IsEnabled="{Binding UserAddChangedEnabled}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <mvvm:EventToCommand Command="{Binding UserAddChanged}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Label Content=""/>
+                                <!--保存按钮-->
+                                <Button Grid.Row="0" Grid.ColumnSpan="2" Content="保存" Width="100" Height="30">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <mvvm:EventToCommand Command="{Binding 保存Changed}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Label Content=""/>
+                                <!--更新网址-->
+                                <Button Grid.Row="0" Grid.ColumnSpan="2" Content="更新网址" Width="100" Height="30" >
+                                    <!--<i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <mvvm:EventToCommand Command="{Binding UserAddChanged}"/>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>-->
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
                     <!--表格分类-->
                     <TabControl  Grid.Row="1" TabStripPlacement="Left" x:Name="表格分类">
-                        <TabItem Header="自我"   ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData}"/>
-                        <TabItem Header="迪斯尼" ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData}"/>
+                        <TabItem Header="自我"   ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData,Mode=TwoWay}"/>
+                        <TabItem Header="迪斯尼" ContentTemplate="{StaticResource AccountDrid}" Content="{Binding AccountGridData,Mode=TwoWay}"/>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <mvvm:EventToCommand Command="{Binding SelectionChanged}" CommandParameter="{Binding ElementName=表格分类,Path=SelectedIndex}" />
