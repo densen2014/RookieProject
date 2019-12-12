@@ -1,0 +1,28 @@
+﻿<Window x:Class="MVVMLightDemo.View.MessengerSenderCollector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMLightDemo.View"
+        mc:Ignorable="d"
+        Title="MessengerSenderCollector" Height="600" Width="600">
+    <Grid>
+        <StackPanel Orientation="Vertical" >
+
+            <GroupBox  Header="过滤发送源的信道" >
+                <StackPanel Margin="0 10 0 10" DataContext="{Binding Source={StaticResource Locator},Path=ForSourceSender}" Orientation="Horizontal">
+                    <TextBlock Text="以目标源为进行发送：" ></TextBlock>
+                    <Button Content="发送消息" Command="{Binding SendMsg}" Width="100" ></Button>
+                </StackPanel>
+            </GroupBox>            
+
+            <GroupBox Header="PropertyChanged­Message" Margin="0 15 0 0" >
+                <StackPanel Margin="0 10 0 10" DataContext="{Binding Source={StaticResource Locator},Path=PropertyChanged}" Orientation="Horizontal">
+                    <TextBlock Text="属性UserName变化触发消息发送：" ></TextBlock>
+                    <TextBox Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Width="100" ></TextBox>
+                </StackPanel>
+            </GroupBox>
+                        
+        </StackPanel>
+    </Grid>
+</Window>

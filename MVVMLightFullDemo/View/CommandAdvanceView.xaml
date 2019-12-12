@@ -1,0 +1,142 @@
+﻿<Window x:Class="MVVMLightDemo.View.CommandAdvanceView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:model="clr-namespace:MVVMLightDemo.Model"
+        xmlns:common="clr-namespace:MVVMLightDemo.Common"
+        xmlns:mvvm="http://www.galasoft.ch/mvvmlight"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        DataContext="{Binding Source={StaticResource Locator},Path=CommandAdvance}"
+        Title="CommandAdvanceView" Height="500" Width="650">
+    <Grid>
+        <Grid.Resources>
+            <common:UserInfoConvert x:Key="uic" />
+        </Grid.Resources>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" >
+            <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" >
+
+                <StackPanel Margin="10,20,0,50">
+                    <TextBlock Text="传递单个参数" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
+                    <DockPanel x:Name="ArgStr" >
+                        <StackPanel DockPanel.Dock="Left" Width="240" Orientation="Horizontal" >
+                            <TextBox x:Name="ArgStrFrom" Width="100" Margin="0,0,10,0"></TextBox>
+                            <Button Content="传递参数" Width="100" HorizontalAlignment="Left" Command="{Binding PassArgStrCommand}" 
+                                    CommandParameter="{Binding ElementName=ArgStrFrom,Path=Text,UpdateSourceTrigger=PropertyChanged}"  ></Button>
+                        </StackPanel>
+                        <StackPanel DockPanel.Dock="Right" Width="240" Orientation="Horizontal">
+                            <TextBlock Text="{Binding ArgStrTo,StringFormat='接收到参数：\{0\}'}" ></TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+
+                
+                <StackPanel Margin="10,0,0,50">
+                    <TextBlock Text="传递对象参数" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left" Width="240">
+                            <Button Command="{Binding PassArgObjCmd}"  Content="传递多个参数" Height="23" HorizontalAlignment="Left" Width="100">
+                                <Button.CommandParameter>
+                                    <model:UserParam UserName="Brand" UserPhone="88888888" UserAdd="地址" UserSex="男" ></model:UserParam>
+                                </Button.CommandParameter>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel DockPanel.Dock="Right" Width="240" Orientation="Vertical">
+                            <TextBlock Text="{Binding ObjParam.UserName,StringFormat='姓名：\{0\}'}" ></TextBlock>
+                            <TextBlock Text="{Binding ObjParam.UserPhone,StringFormat='电话：\{0\}'}" ></TextBlock>
+                            <TextBlock Text="{Binding ObjParam.UserAdd,StringFormat='地址：\{0\}'}" ></TextBlock>
+                            <TextBlock Text="{Binding ObjParam.UserSex,StringFormat='性别：\{0\}'}" ></TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+
+
+                <StackPanel Margin="10,0,0,50">
+                    <TextBlock Text="动态参数传递" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
+                    <StackPanel Orientation="Horizontal" >
+                        <StackPanel Orientation="Vertical" Margin="0,0,10,0" >
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
+                                <TextBlock Text="姓名" Width="80" ></TextBlock>
+                                <TextBox x:Name="txtUName" Width="200" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
+                                <TextBlock Text="电话" Width="80" ></TextBlock>
+                                <TextBox x:Name="txtUPhone" Width="200" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
+                                <TextBlock Text="地址" Width="80"></TextBlock>
+                                <TextBox x:Name="txtUAdd" Width="200"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,5" >
+                                <TextBlock Text="性别" Width="80" ></TextBlock>
+                                <TextBox x:Name="txtUSex" Width="200" />
+                            </StackPanel>                          
+                        </StackPanel>
+
+                        <StackPanel>
+                            <Button Content="点击传递" Command="{Binding DynamicParamCmd}">
+                                <Button.CommandParameter>
+                                    <MultiBinding Converter="{StaticResource uic}">
+                                        <Binding ElementName="txtUName" Path="Text"/>
+                                        <Binding ElementName="txtUSex" Path="Text"/>
+                                        <Binding ElementName="txtUPhone" Path="Text"/>
+                                        <Binding ElementName="txtUAdd" Path="Text"/>
+                                    </MultiBinding>
+                                </Button.CommandParameter>
+                            </Button>
+                        </StackPanel>
+
+                        <StackPanel Width="240" Orientation="Vertical" Margin="10,0,0,0" >
+                            <TextBlock Text="{Binding ArgsTo.UserName,StringFormat='姓名：\{0\}'}" ></TextBlock>
+                            <TextBlock Text="{Binding ArgsTo.UserPhone,StringFormat='电话：\{0\}'}" ></TextBlock>
+                            <TextBlock Text="{Binding ArgsTo.UserAdd,StringFormat='地址：\{0\}'}" ></TextBlock>
+                            <TextBlock Text="{Binding ArgsTo.UserSex,StringFormat='性别：\{0\}'}" ></TextBlock>
+                        </StackPanel>                        
+                    </StackPanel>
+                </StackPanel>
+
+
+                <StackPanel Margin="10,0,0,50">
+                    <TextBlock Text="传递原事件参数" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
+                    <DockPanel x:Name="PassEventArg" >
+                        <StackPanel DockPanel.Dock="Left" Width="240" Orientation="Horizontal" >
+                            <Border BorderBrush="Red" BorderThickness="1" >
+                                <TextBlock Width="100" Height="50"  Text="拖拽上传" TextAlignment="Center" FontSize="18" AllowDrop="True" >
+                                  <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Drop">
+                            <mvvm:EventToCommand PassEventArgsToCommand="True" Command="{Binding DropCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                                </TextBlock>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel DockPanel.Dock="Right" Width="240" Orientation="Horizontal">
+                            <TextBlock Text="{Binding FileAdd,StringFormat='获取地址：\{0\}'}" ></TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+
+
+                <StackPanel Margin="10,0,0,50">
+                    <TextBlock Text="事件转命令执行" FontWeight="Bold" FontSize="12" Margin="0,5,0,5" ></TextBlock>
+                    <DockPanel x:Name="EventToCommand" >
+                        <StackPanel DockPanel.Dock="Left" Width="240" Orientation="Horizontal" >
+                            <ComboBox Width="130" ItemsSource="{Binding ResType.List}" DisplayMemberPath="Text" SelectedValuePath="Key" 
+                          SelectedIndex="{Binding ResType.SelectIndex}" >
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <mvvm:EventToCommand Command="{Binding SelectCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel DockPanel.Dock="Right" Width="240" Orientation="Horizontal">
+                            <TextBlock Text="{Binding SelectInfo,StringFormat='选中值：\{0\}'}" ></TextBlock>
+                        </StackPanel>
+                    </DockPanel>
+                </StackPanel>
+                
+
+            
+            </StackPanel>            
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -1,0 +1,75 @@
+﻿<Window x:Class="MVVMLightDemo.View.ComboBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMLightDemo.View"
+        xmlns:mvvm="http://www.galasoft.ch/mvvmlight"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d"
+        Title="ComboBox" Height="300" Width="300">
+    <Grid>
+ <!--TextBoxBase.TextChanged="{Binding Serach}"-->
+        <StackPanel>
+        <StackPanel>
+            <ComboBox x:Name="CmbxPortList" Margin="5" Width="200" ItemsSource="{Binding PortList}"           
+                      DisplayMemberPath="Text" SelectedValuePath="Key" IsEditable="True" SelectedItem="{Binding Port}"  IsTextSearchCaseSensitive="False"  IsTextSearchEnabled="True"  Text="{Binding CbTxt}" >
+                <!--<i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextBoxBase.TextChanged">
+                        <mvvm:EventToCommand Command="{Binding Serach}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>-->
+            </ComboBox>
+            <TextBox Text="{Binding ElementName=CmbxPortList,Path=Text,UpdateSourceTrigger=PropertyChanged}" Visibility ="Collapsed">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <mvvm:EventToCommand Command="{Binding Serach}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+
+        </StackPanel>
+
+
+        <StackPanel>
+
+            <ComboBox Name="cob" IsEditable="True" StaysOpenOnEdit="True" TextSearch.TextPath="Content.Children[0].Text" >
+                <ComboBoxItem>
+                    <StackPanel >
+                        <TextBlock Text="1"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel>
+                        <TextBlock Text="2"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel >
+                        <TextBlock Text="3"/>
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
+
+
+                <ComboBox Name="cobx" IsEditable="True" StaysOpenOnEdit="True" TextSearch.TextPath="Children[0].Text" >
+                    <StackPanel >
+                        <TextBlock Text="1"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="2"/>
+                    </StackPanel>
+                    <StackPanel >
+                        <TextBlock Text="3"/>
+                    </StackPanel>
+
+                </ComboBox>
+
+
+
+
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

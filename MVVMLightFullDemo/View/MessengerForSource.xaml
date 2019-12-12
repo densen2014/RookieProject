@@ -1,0 +1,22 @@
+﻿<Window x:Class="MVVMLightDemo.View.MessengerForSource"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMLightDemo.View"
+        mc:Ignorable="d"
+        Title="MessengerForSource" Height="500" Width="500">
+    <Grid>
+        <StackPanel Orientation="Vertical" >
+            <StackPanel>
+                <TextBlock Text="侦听来源端：SourceSender" ></TextBlock>
+                <TextBlock Text="{Binding MsgInfo}" ></TextBlock>
+            </StackPanel>
+            
+            <StackPanel Margin="0 50 0 0" >
+                <TextBlock Text="监听来源的属性UserName：" ></TextBlock>
+                <TextBlock Text="{Binding PropertyChangedInfo}" ></TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+﻿<Window x:Class="MVVMLightDemo.View.Index"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVMLightDemo.View"
+        mc:Ignorable="d"
+        Title="Index" Height="500" Width="600">
+    <Grid>
+        <WrapPanel Button.Click="Button_Click">
+            <Button Margin="5"  Content="欢迎界面" Tag="WelcomeView"></Button>
+            <Button Margin="5" Content="双向绑定" Tag="BothWayBindView"></Button>
+            <Button Margin="5" Content="绑定基础" Tag="BindBasic"></Button>
+            <Button Margin="5" Content="绑定深入" Tag="BindingAdvancedView"></Button>
+            <Button Margin="5" Content="绑定相关表单验证" Tag="BindingFormView"></Button>
+            <Button Margin="5"  Content="封装表单验证" Tag="PackagedValidate"></Button>
+            
+            <Button Margin="5" Content="命令基础" Tag="CommandView"></Button>            
+            <Button Margin="5" Content="命令深入" Tag="CommandAdvanceView"></Button>
+            
+            <Button Margin="5" Content="DispatcherHelper" Tag="DispatcherHelper"></Button>
+            
+            <Button Margin="5" Content="Messager(View-ViewModel)" Tag="MessagerForView"></Button>
+            <Button Margin="5" Content="Messenger(ViewModel-ViewModel)" Tag="MessengerRegisterView"></Button>
+
+            <Button Margin="5" Content="MessagerForDispatch" Tag="MessagerForDispatch"></Button>
+            <Button Margin="5" Content="MessengerForSource" Tag="MessengerForSource"></Button>
+            <Button Margin="5" Content="MessengerSenderCollector" Tag="MessengerSenderCollector"></Button>
+        </WrapPanel>
+    </Grid>
+</Window>

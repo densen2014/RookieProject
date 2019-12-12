@@ -1,0 +1,12 @@
+﻿<Window x:Class="MVVMLightDemo.View.WelcomeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WelcomeView"       
+        Height="300" Width="300">
+    <!--DataContext="{Binding Source={StaticResource Locator},Path=Welcome}"-->
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <TextBlock Text="{Binding Welcome.Introduction}" FontSize="30" ></TextBlock>         
+        </StackPanel>        
+    </Grid>
+</Window>
