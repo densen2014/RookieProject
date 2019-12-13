@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LetMeWin.ViewModel
@@ -185,7 +186,19 @@ namespace LetMeWin.ViewModel
                 Int += 1;
                 item.序号 = Int;
                 AccountGridData.Add(item);
+                login(item);
             }
+
+        }
+        void login(object c1)
+        {
+            Thread thread = new Thread(() => 模拟登录(c1)); thread.Start();
+        }
+        public void 模拟登录(object c1)
+        {
+            Thread.Sleep(3000);
+            AccountDridModel item =(AccountDridModel) c1;
+            item.登录状态 = "没钱登录";
         }
 
         #endregion

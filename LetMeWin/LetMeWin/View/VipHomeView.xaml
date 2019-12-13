@@ -23,6 +23,7 @@
                     <DataGridTextColumn     Header="比例" Width="70"  Binding="{Binding 比例 ,Mode=TwoWay}"/>
                     <DataGridTextColumn     Header="停止" Width="70"  Binding="{Binding 停止 ,Mode=TwoWay}"/>
                     <DataGridTextColumn     Header="游戏" Width="70"  Binding="{Binding 游戏 ,Mode=TwoWay}"/>
+                    <DataGridTextColumn     Header="登录状态" Width="70"  Binding="{Binding 登录状态 ,Mode=TwoWay}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DataTemplate>

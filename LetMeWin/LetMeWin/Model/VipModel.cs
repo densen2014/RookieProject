@@ -12,7 +12,7 @@ namespace LetMeWin.Model
     {
     }
     [SugarTable("AccountGrid")]
-    public class AccountDridModel
+    public class AccountDridModel : ObservableObject
     {
         [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public int      Id { get; set; }
@@ -35,6 +35,19 @@ namespace LetMeWin.Model
         public string 比例 { get; set; }
 
         public string 游戏 { get; set; }
+
+         private string _登录状态;
+
+         [SugarColumn(IsIgnore = true)]
+       public string 登录状态
+        {
+            get { return _登录状态; }
+            set
+            {
+                _登录状态 = value;
+                RaisePropertyChanged(() => 登录状态);
+            }
+        }
     }
 
     //[SugarTable("AccountGrid")]
