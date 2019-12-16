@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Input;
 using WpfApp1.Model;
+using WpfApp1.Serv;
 
 namespace WpfApp1.ViewModel
 {
@@ -50,12 +51,28 @@ namespace WpfApp1.ViewModel
             Client tcp通讯 = new Client(UserInfo);
             LoadTcpClient = new RelayCommand(CQCQCQ);
 
+
+            Thread t2 = new Thread(async delegate ()
+            {
+                // replace the IP with your system IP Address...
+                Websocket myserver = new Websocket();
+                await  myserver.Server();
+            });
+            t2.Start();
+
         }
 
         void CQCQCQ()
         {
             Client tcp通讯 = new Client(UserInfo);
             tcp通讯.启动();
+            WebsocketClient();
+        }
+        void WebsocketClient()
+        {
+            Websocket myserver = new Websocket();
+              myserver.Client();
+
         }
 
         #region 双向绑定

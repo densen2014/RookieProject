@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetMeWin", "LetMeWin\LetMeW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMLightFullDemo", "MVVMLightFullDemo\MVVMLightFullDemo.csproj", "{5AF6E511-579E-4C80-8027-64CD57F9086A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppUC", "WpfAppUC\WpfApp1\WpfAppUC.csproj", "{C78FAC18-0879-441B-916C-544859DE816C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +121,14 @@ Global
 		{5AF6E511-579E-4C80-8027-64CD57F9086A}.Release|Any CPU.ActiveCfg = Release|x86
 		{5AF6E511-579E-4C80-8027-64CD57F9086A}.Release|x86.ActiveCfg = Release|x86
 		{5AF6E511-579E-4C80-8027-64CD57F9086A}.Release|x86.Build.0 = Release|x86
+		{C78FAC18-0879-441B-916C-544859DE816C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78FAC18-0879-441B-916C-544859DE816C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78FAC18-0879-441B-916C-544859DE816C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C78FAC18-0879-441B-916C-544859DE816C}.Debug|x86.Build.0 = Debug|Any CPU
+		{C78FAC18-0879-441B-916C-544859DE816C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78FAC18-0879-441B-916C-544859DE816C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78FAC18-0879-441B-916C-544859DE816C}.Release|x86.ActiveCfg = Release|Any CPU
+		{C78FAC18-0879-441B-916C-544859DE816C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
