@@ -169,7 +169,8 @@ namespace LetMeWin.ViewModel
             //实例化帐号表格绑定的变量
             AccountGridData = new ObservableCollection<AccountDridModel>();
             //帐号查询
-            帐号List = 数据库.查询();
+            //帐号List = 数据库.查询();
+            帐号List = 数据库.查询<AccountDridModel>();
             重新渲染AccountGridData();
         }
 

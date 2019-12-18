@@ -23,11 +23,18 @@ namespace SqliteService.Service
             var List = Db.Queryable<AccountDridModel>().ToList();
              return (List.Count > 0 ? List : List);    
         }
+        public List<T> 查询<T>()
+        {
+            var List = Db.Queryable<T>().ToList();
+            return (List.Count > 0 ? List : List);
+        }
 
         public List<AccountDridModel> 更新( List<AccountDridModel> Data)
         {
             var List = Db.Saveable<AccountDridModel>(Data).ExecuteReturnEntity();
             return null;
         }
+ 
+       
     }
 }

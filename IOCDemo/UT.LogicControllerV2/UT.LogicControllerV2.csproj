@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECE86DF2-143F-4362-B415-52B0A2FA03A3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UT.LogicControllerV2</RootNamespace>
+    <AssemblyName>UT.LogicControllerV2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UT.CoreV20\UT.CoreV20.csproj">
+      <Project>{273BBF5C-8940-4554-9407-3B4DB0C3B512}</Project>
+      <Name>UT.CoreV20</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UT.EmailV20\UT.EmailV20.csproj">
+      <Project>{B412D784-8882-4627-8DAB-2B265C369616}</Project>
+      <Name>UT.EmailV20</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UT.MessageServiceV20\UT.MessageServiceV20.csproj">
+      <Project>{53918183-FB4F-462B-859C-6F116BBE0D20}</Project>
+      <Name>UT.MessageServiceV20</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UT.SMSV21\UT.SMSV21.csproj">
+      <Project>{06326484-0677-417E-BF48-AA2A4D011D6D}</Project>
+      <Name>UT.SMSV21</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UT.TelephoneV20\UT.TelephoneV20.csproj">
+      <Project>{110899F2-6201-4C5C-8F85-FCEF6E9E9DB8}</Project>
+      <Name>UT.TelephoneV20</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UT.WechatV22\UT.WechatV22.csproj">
+      <Project>{2EE8BEAC-673D-4648-A759-024CB6E94E1F}</Project>
+      <Name>UT.WechatV22</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
