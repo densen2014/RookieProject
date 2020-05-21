@@ -34,9 +34,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication2", "Wasm.Winforms\WebApplication2\WebApplication2.csproj", "{F9E15C80-29B7-4725-A096-FBF23D0C8C17}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IOCdemo", "IOCdemo", "{3C058ECD-61E1-49FD-A220-D5FC6F203965}"
-	ProjectSection(SolutionItems) = preProject
-		IOCDemo\IOCDemo.sln = IOCDemo\IOCDemo.sln
-	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1", "BlazorClientSolo\BlazorApp1.csproj", "{F58A75DD-C46C-48D1-9C0B-850FF1D5FBFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -156,6 +155,14 @@ Global
 		{F9E15C80-29B7-4725-A096-FBF23D0C8C17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9E15C80-29B7-4725-A096-FBF23D0C8C17}.Release|x86.ActiveCfg = Release|Any CPU
 		{F9E15C80-29B7-4725-A096-FBF23D0C8C17}.Release|x86.Build.0 = Release|Any CPU
+		{F58A75DD-C46C-48D1-9C0B-850FF1D5FBFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F58A75DD-C46C-48D1-9C0B-850FF1D5FBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F58A75DD-C46C-48D1-9C0B-850FF1D5FBFF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F58A75DD-C46C-48D1-9C0B-850FF1D5FBFF}.Debug|x86.Build.0 = Debug|Any CPU
+		{F58A75DD-C46C-48D1-9C0B-850FF1D5FBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F58A75DD-C46C-48D1-9C0B-850FF1D5FBFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F58A75DD-C46C-48D1-9C0B-850FF1D5FBFF}.Release|x86.ActiveCfg = Release|Any CPU
+		{F58A75DD-C46C-48D1-9C0B-850FF1D5FBFF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
