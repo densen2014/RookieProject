@@ -7,9 +7,9 @@ Blazor客户端方式,测试json序列化
 
 BlazorAppPWA
 -------
-PWA,测试json序列化.demo地址 https://b.freepos.es/
+PWA,测试`json`序列化.demo地址   https://b.freepos.es/
     参考 : 
-    利用 ASP.NET Core Blazor WebAssembly 生成渐进式 Web 应用. 
+    利用 ASP.NET Core `Blazor WebAssembly` 生成渐进式 Web 应用. 
     https://docs.microsoft.com/zh-cn/aspnet/core/blazor/progressive-web-app?view=aspnetcore-3.1&tabs=visual-studio
 
 ChromiumWebBrowser
