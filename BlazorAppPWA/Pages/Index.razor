@@ -4,6 +4,7 @@
 @using System.Diagnostics
 @using System.Text.Json
 @using System.Text.Json.Serialization
+@using MiniProgramApi.Model
 
 <h1>Hello, BlazorAppPWA!</h1>
 
@@ -22,6 +23,8 @@ Welcome to your new app.
     <button @onclick="net序列化">net序列化</button>
     <button @onclick="net反序列化">net反序列化</button>
     <button @onclick="()=>显示=!显示">显示结果</button>
+    <button @onclick="写入文本">写入文本</button>
+    <button @onclick="读取文本">读取文本</button>
 </div>
 <div class="row">
     <div class="col-9">
@@ -60,6 +63,8 @@ Welcome to your new app.
     string tojson = "";
     bool 显示;
     bool isBusy;
+
+    IFreeSql fsql { get; set; }
 
     void 序列化()
     {
@@ -135,7 +140,31 @@ Welcome to your new app.
         isBusy = false;
     }
 
+    void 读取文本()
+    {
+        try
+        {
 
+            info = System.IO.File.ReadAllText("xxxxxx.txt");
+            Console.WriteLine("读取文本 xxxxxx.txt");
+        }
+        catch (Exception ex)
+        {
+            info = $"读取文本 Err : {ex.Message}";
+            Console.WriteLine($"读取文本 Err : {ex.Message}");
+        }
+    }
+    void 写入文本()
+    {
+        Random ran = new Random();
+
+        int n = ran.Next(100, 1000);
+
+        System.IO.File.WriteAllText("xxxxxx.txt", DateTime.Now.ToString() +  "       " + n);
+
+        Console.WriteLine("写入 xxxxxx.txt");
+
+    }
     protected override async Task OnInitializedAsync()
     {
         info = "load";
@@ -173,8 +202,28 @@ Welcome to your new app.
         //        });
 
         //        await _hubConnection.StartAsync();
+
+
+        //   fsql = new FreeSql.FreeSqlBuilder()
+        //.UseConnectionString(FreeSql.DataType.Sqlite, $"data source=dddddd.db;", typeof(FreeSql.Sqlite.SqliteProvider<>))
+        //.UseAutoSyncStructure(true)
+        //.UseMonitorCommand(cmd => Console.WriteLine("\r\n SQL==> \r\n" + cmd.CommandText))
+        //.UseNoneCommandParameter(true)
+        //.Build();
+
+        //   var demo = fsql.Select<SellerSupport>().Where(a => a.ID == 1).ToList();
+        //   Console.WriteLine("\r\n demo==> \r\n" + demo.Count);
+
+        //   for (int i = 0; i < 10; i++)
+        //   {
+        //       fsql.Insert<SellerSupport>().AppendData(new SellerSupport() { description = i.ToString() }).ExecuteAffrows();
+        //   }
+
+        //   Console.WriteLine("\r\n demo count ==> \r\n" + fsql.Select<SellerSupport>().Count());
+
+        Console.WriteLine("Xxxxxxxxx");
     }
- 
+
 
     public class Rootobject2
     {
