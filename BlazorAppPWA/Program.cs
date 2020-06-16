@@ -18,7 +18,6 @@ namespace BlazorAppPWA
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
-
             //builder.Services.AddSingleton(fsql);
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

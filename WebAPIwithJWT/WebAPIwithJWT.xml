@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPIwithJWT</name>
+    </assembly>
+    <members>
+        <member name="P:WebAPIwithJWT.Model.UpdateViewModel.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:WebAPIwithJWT.Model.UpdateViewModel.Account">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:WebAPIwithJWT.Model.UpdateViewModel.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+    </members>
+</doc>
