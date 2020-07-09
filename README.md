@@ -1,5 +1,5 @@
 # .Net/Core/WPF交流,菜鸡互啄
-https://github.com/densen2014/WPF-
+https://github.com/densen2014/RookieProject
 
 BlazorClientSolo
 -------
@@ -27,3 +27,7 @@ WebAPIwithSwagger
 WebAPIwithJWT
 -------
 使用Swagger为.NET Core 3.0应用添加JWT授权说明文档
+
+DSAPI_tset
+-------
+来源 http://dsapi.dylikesoft.com/  DYLIKE智能软件实验室
