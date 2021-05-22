@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>8be44128-f0d5-4d8b-b8ea-1d0475997532</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LettuceEncrypt" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
