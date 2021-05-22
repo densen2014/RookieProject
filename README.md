@@ -30,4 +30,4 @@ WebAPIwithJWT
 
 DSAPI_tset
 -------
-来源 http://dsapi.dylikesoft.com/  DYLIKE智能软件实验室
+来源 https://dsapi.dylikesoft.com/  DYLIKE智能软件实验室
