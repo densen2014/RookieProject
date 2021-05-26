@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <Label Content="https://localhost:5001/" />
+            <WebBrowser Height="352" Source="https://localhost:5001/" />
 
+        </StackPanel>
     </Grid>
 </Window>
