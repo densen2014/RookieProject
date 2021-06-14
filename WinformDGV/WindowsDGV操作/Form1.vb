@@ -3,7 +3,7 @@
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Button2.PerformClick()
+        ButtonInitDatas.PerformClick()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -38,7 +38,7 @@ Public Class Form1
             Next
 
             SUM(DT)
-            Form2.SUM(DT)
+            FormMain.SUM(DT)
         End If
 
 
@@ -60,7 +60,7 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles ButtonInitDatas.Click
         For P = 1 To 10
             AddgoodsGridView.Rows.Add(False, "名称" & P, P * 0.8, P, "水水水水")
         Next
