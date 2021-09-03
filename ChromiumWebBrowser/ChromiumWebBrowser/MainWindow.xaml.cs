@@ -29,7 +29,7 @@ namespace WpfApp1
         string html = "主打歌努力工作中....";
         public string HTML { get => html; set => SetProperty(ref html, value); }
 
-        string url = "http://www.wyj55.cn/test/A187.php";
+        string url = "https://www.blazor.zone/tables/edit";
         public string URL { get => url; set => SetProperty(ref url, value); }
 
         public MainWindow()
@@ -40,8 +40,8 @@ namespace WpfApp1
             Cef.Initialize(settings);
             webBrowser = new ChromiumWebBrowser(URL);
             //webBrowser.Address = "http://www.wyj55.cn/test/A187.php";
-            webBrowser.Width = 500;
-            webBrowser.Height = 300;
+            webBrowser.Width = 1050;
+            webBrowser.Height = 800;
             //隐藏滚动条
             webBrowser.FrameLoadEnd += OnBrowserFrameLoadEnd;
 
@@ -74,6 +74,20 @@ namespace WpfApp1
                 HTML = await webBrowser.GetSourceAsync();
 
                 //source.Text=HTML;
+                 
+                string[] separatingStrings = { "<a href=" };
+                 
+                System.Console.WriteLine($"Original text: '{HTML}'");
+
+                string[] words = HTML.Split(separatingStrings, System.StringSplitOptions.RemoveEmptyEntries);
+                System.Console.WriteLine($"{words.Length} substrings in text:");
+
+                var i = 1;
+                foreach (var word in words)
+                {
+                    System.Console.WriteLine($"{++i} {word.Split('"')[1]}");
+                }
+
             }
         }
 
