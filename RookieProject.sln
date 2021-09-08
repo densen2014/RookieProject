@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.181
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "跨窗口完成绑定", "WpfApplication1\跨窗口完成绑定.csproj", "{4A8DD550-CF52-4997-A027-05B0CE3EEBCC}"
 EndProject
@@ -61,7 +61,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppNet5", "ConsoleAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRChat", "SignalRChat\SignalRChat.csproj", "{DDFD6C7C-5234-4FAB-BA8F-447B7A1C78FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRChatWPF", "SignalRChatWPF\SignalRChatWPF.csproj", "{A89E7649-FA0D-4125-9D0A-7633BCA6EC8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRChatWPF", "SignalRChatWPF\SignalRChatWPF.csproj", "{A89E7649-FA0D-4125-9D0A-7633BCA6EC8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoSwitch_nf461", "PhotoSwitch_nf461\PhotoSwitch_nf461.csproj", "{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -393,6 +395,18 @@ Global
 		{A89E7649-FA0D-4125-9D0A-7633BCA6EC8A}.Release|x64.Build.0 = Release|Any CPU
 		{A89E7649-FA0D-4125-9D0A-7633BCA6EC8A}.Release|x86.ActiveCfg = Release|Any CPU
 		{A89E7649-FA0D-4125-9D0A-7633BCA6EC8A}.Release|x86.Build.0 = Release|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Debug|x64.Build.0 = Debug|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Debug|x86.Build.0 = Debug|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Release|x64.ActiveCfg = Release|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Release|x64.Build.0 = Release|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Release|x86.ActiveCfg = Release|Any CPU
+		{EF6EE5AA-544E-4B7A-A99C-7E4990432E51}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
