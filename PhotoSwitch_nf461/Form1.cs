@@ -30,7 +30,8 @@ namespace PhotoSwitch_nf461
             do
             {
                 this.Invoke(() => { this.Text = i.ToString(); });
-                this.BackgroundImage = Image.FromStream(System.Net.WebRequest.Create(url[i++]).GetResponse().GetResponseStream());
+                this.BackgroundImage = Image.FromStream(System.Net.WebRequest.Create(url[i]).GetResponse().GetResponseStream());
+                pictureBox1.Image = Image.FromStream(System.Net.WebRequest.Create(url[i++]).GetResponse().GetResponseStream());
                 await Task.Delay(1000); 
                 if (i == url.Length) i=0;
             } while (true);
