@@ -23,7 +23,7 @@ namespace DgvSample
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 29);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.RowTemplate.Height = 23 ;
             this.dataGridView1.Size = new System.Drawing.Size(620, 392);
             this.Controls.Add(this.dataGridView1);
 
@@ -32,31 +32,50 @@ namespace DgvSample
             this.dataGridView1.CellEndEdit += (s, e) => dataGridView1_CellEndEdit(s, e);
             this.dataGridView1.CellBeginEdit += (s, e) => dataGridView1_CellBeginEdit(s, e);
             this.dataGridView1.Scroll += (s, e) => dataGridView1_Scroll(s, e);
+            this.dataGridView1.EditingControlShowing += (s, e) => dataGridView1_EditingControlShowing(s, e);
         }
 
+            List<ItemTest> ItemTests =new List<ItemTest>();
+        void init()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                var ctrlType = i < 3 ? CtrlType.TextAndButton : i % 2 == 0 ? CtrlType.ComboboxAndButton : CtrlType.PictureBoxAndButton;
+                ItemTests.Add(new ItemTest( i ,  "col1" + i.ToString() ,  "col2" + i.ToString(), ctrlType));
+            }
+            for (int i = 10; i < 15; i++)
+            {
+                var ctrlType =  CtrlType.TextBox;
+                ItemTests.Add(new ItemTest( i ,  "col1" + i.ToString() ,  "col2" + i.ToString(), ctrlType));
+            }
+            this.dataGridView1.DataSource = ItemTests;
 
+            this.dataGridView1.Columns[0].Width = 200;
+
+        }
 
         private void DgvTextAndButton_Load(object sender, EventArgs e)
 
         {
+            init();
 
-            DataTable dt = new DataTable();
+            //DataTable dt = new DataTable();
 
-            dt.Columns.Add("col1");
+            //dt.Columns.Add("col1");
 
-            dt.Columns.Add("col2");
+            //dt.Columns.Add("col2");
 
-            dt.Columns.Add("col3");
+            //dt.Columns.Add("col3");
 
-            for (int j = 0; j < 20; j++)
+            //for (int j = 0; j < 20; j++)
 
-            {
+            //{
 
-                dt.Rows.Add("col1" + j.ToString(), "col2" + j.ToString(), "col3" + j.ToString());
+            //    dt.Rows.Add("col1" + j.ToString(), "col2" + j.ToString(), "col3" + j.ToString());
 
-            }
+            //}
 
-            this.dataGridView1.DataSource = dt;
+            //this.dataGridView1.DataSource = dt;
 
             this.dataGridView1.Columns[0].Width = 150;
 
@@ -118,7 +137,27 @@ namespace DgvSample
         PictureBoxAndButtonControl picbtnControl;
 
 
+        void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
 
+        {
+
+            if (this.dataGridView1.CurrentCell.ColumnIndex == 0)
+
+            {
+
+                this.BeginInvoke(new MethodInvoker(setfocus));
+
+            }
+
+        }
+
+        private void setfocus()
+
+        {
+
+            this.txbtnControl.Focus();
+
+        }
         void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
 
         {
@@ -126,6 +165,7 @@ namespace DgvSample
             if (e.ColumnIndex == 0 && e.RowIndex > -1 && e.RowIndex != this.dataGridView1.NewRowIndex)
 
             {
+                var cellStyle = ItemTests[e.RowIndex].CtrlType;
 
                 Rectangle textRect = e.CellBounds;
 
@@ -145,7 +185,7 @@ namespace DgvSample
 
                 formater.Alignment = StringAlignment.Center;
 
-                e.Graphics.DrawString(e.RowIndex % 2 == 0 ? "文本框" : "combo框", e.CellStyle.Font, new SolidBrush(e.CellStyle.ForeColor), btnRect, formater);
+                e.Graphics.DrawString(cellStyle == CtrlType.PictureBoxAndButton ? "图片框" : cellStyle == CtrlType.TextAndButton ? "文本框" : cellStyle == CtrlType.ComboboxAndButton?"combo框": cellStyle .ToString(), e.CellStyle.Font, new SolidBrush(e.CellStyle.ForeColor), btnRect, formater);
 
                 e.Handled = true;
 
@@ -165,7 +205,9 @@ namespace DgvSample
 
                 Rectangle rect = this.dataGridView1.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
 
-                if (e.RowIndex <3)
+                var cellStyle = ItemTests[e.RowIndex].CtrlType;
+
+                if (cellStyle== CtrlType.PictureBoxAndButton)
                 {
                     this.picbtnControl.Location = rect.Location;
 
@@ -180,7 +222,7 @@ namespace DgvSample
                     this.picbtnControl.Visible = true;
 
                 }
-                else if (e.RowIndex % 2 == 0)
+                else if (cellStyle == CtrlType.TextAndButton)
                 {
                     this.txbtnControl.Location = rect.Location;
 
@@ -195,7 +237,7 @@ namespace DgvSample
                     this.txbtnControl.Visible = true;
 
                 }
-                else
+                else if (cellStyle == CtrlType.ComboboxAndButton)
                 {
                     this.cmbbtnControl.comboBox1.Items.Clear();
                     for (int i = 0; i < e.RowIndex; i++)
@@ -229,7 +271,8 @@ namespace DgvSample
             if (e.ColumnIndex == 0 && e.RowIndex > -1 && e.RowIndex != this.dataGridView1.NewRowIndex)
 
             {
-                if (e.RowIndex < 3)
+                var cellStyle = ItemTests[e.RowIndex].CtrlType;
+                if (cellStyle == CtrlType.PictureBoxAndButton)
                 {
 
                     this.dataGridView1.CurrentCell.Value = this.picbtnControl.Text;
@@ -237,14 +280,14 @@ namespace DgvSample
                     this.picbtnControl.Visible = false;
 
                 }
-                else if (e.RowIndex % 2 == 0)
+                else if (cellStyle == CtrlType.TextAndButton)
                 {
 
                     this.dataGridView1.CurrentCell.Value = this.txbtnControl.Text;
 
                     this.txbtnControl.Visible = false;
                 }
-                else
+                else if (cellStyle == CtrlType.ComboboxAndButton)
                 {
 
                     this.dataGridView1.CurrentCell.Value = this.cmbbtnControl.Text;
@@ -320,7 +363,29 @@ namespace DgvSample
 
     }
 
+    enum CtrlType
+    {
+        TextBox,
+        ComboBox,
+        TextAndButton,
+        ComboboxAndButton,
+        PictureBoxAndButton,
+    }
 
+    class ItemTest
+    {
+        public ItemTest(int ID, string Name, string Description, CtrlType CtrlType)
+        {
+            this.ID= ID;
+            this.Name = Name;
+            this.Description = Description;
+            this.CtrlType = CtrlType;
+        }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public CtrlType CtrlType { get; set; }
+    }
 
     class TextAndButtonControl : UserControl
 
@@ -522,6 +587,10 @@ namespace DgvSample
 
             this.pictureBox1.BackColor = Color.Red;
 
+            this.pictureBox1.Image = Image.FromFile("dslogo.jpg");
+
+            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+
             this.Controls.Add(this.pictureBox1);
 
 
@@ -582,7 +651,7 @@ namespace DgvSample
 
             this.pictureBox1.Width = 2 * this.Width / 3;
 
-            this.pictureBox1.Height = this.Height *2 ;
+            this.pictureBox1.Height = this.Height;
 
 
 
