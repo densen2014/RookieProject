@@ -7,3 +7,17 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+@{ 
+    _logger.LogWarning("Index LogWarning!");
+    _logger.LogError("Index LogError!");
+    _logger.LogCritical("Index LogCritical!");
+    _logger.LogInformation("Index LogInformation!");
+    _logger.LogTrace("Index LogTrace!");
+
+}
+
+@code{
+    [Inject] ILogger _logger { get; set; }
+
+}

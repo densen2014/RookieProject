@@ -2,16 +2,27 @@ using BlazorNlog.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using NLog;
+using NLog.Extensions.Logging;
 using NLog.Web;
 
-var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
-
-logger.Debug("init main Debug");
-logger.Warn("init main Warn");
-logger.Error("init main Error");
+//var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+//LogManager.ThrowExceptions = true;
 
 //上面代码仔细看看,只记录Error级别, 记录到 "bin/logs"目录,配置文件 nlog.config minlevel="Error"
 
+ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
+{
+builder
+    .AddDebug()
+    .AddConsole()
+    .AddNLog();
+});
+Microsoft.Extensions.Logging.ILogger logger = loggerFactory.CreateLogger<Program>();
+
+
+logger.LogDebug("init main Debug");
+logger.LogWarning("init main Warn");
+logger.LogError("init main Error");
 
 try
 {
@@ -21,6 +32,7 @@ try
     builder.Services.AddRazorPages();
     builder.Services.AddServerSideBlazor();
     builder.Services.AddSingleton<WeatherForecastService>();
+    builder.Services.AddSingleton(logger);
 
     var app = builder.Build();
 
@@ -46,7 +58,7 @@ try
 catch (Exception exception)
 {
     // NLog: catch setup errors
-    logger.Error(exception, "Stopped program because of exception");
+    logger.LogError(exception, "Stopped program because of exception");
     throw;
 }
 finally
