@@ -69,13 +69,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dgv", "DGV\dgv\dgv.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DgvSample", "DGV\DgvSample\DgvSample.csproj", "{C96BB1E1-F954-4991-B5C1-EDA4561C8DFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorNlog", "BlazorNlog\BlazorNlog.csproj", "{2E18A979-D1D9-42D2-85C6-CD6C9F2E37F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorNlog", "BlazorNlog\BlazorNlog.csproj", "{2E18A979-D1D9-42D2-85C6-CD6C9F2E37F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "正则取数字统计人数", "正则取数字统计人数", "{8A06FB96-1681-4F22-9F05-380762F35B5D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "正则取数字统计人数\ConsoleApp2\ConsoleApp2.csproj", "{887CFEFE-4F6D-4B2B-A16E-9A6BF3915359}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "正则取数字统计人数\WindowsFormsApp1\WindowsFormsApp1.csproj", "{50579303-BE37-45D7-94BE-7CF927C06CC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStreams", "FileStreams\FileStreams.csproj", "{757267F7-FCA9-421D-BB67-60E275929061}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -479,6 +481,18 @@ Global
 		{50579303-BE37-45D7-94BE-7CF927C06CC3}.Release|x64.Build.0 = Release|Any CPU
 		{50579303-BE37-45D7-94BE-7CF927C06CC3}.Release|x86.ActiveCfg = Release|Any CPU
 		{50579303-BE37-45D7-94BE-7CF927C06CC3}.Release|x86.Build.0 = Release|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Debug|x64.Build.0 = Debug|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Debug|x86.Build.0 = Debug|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Release|x64.ActiveCfg = Release|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Release|x64.Build.0 = Release|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Release|x86.ActiveCfg = Release|Any CPU
+		{757267F7-FCA9-421D-BB67-60E275929061}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

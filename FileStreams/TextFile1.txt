@@ -1,0 +1,13 @@
+﻿using System;
+using System.IO;
+namespace Client.Chapter_11___File_and_Streams
+{
+ public class OpenExistingFile {
+ static void Main(string[] args)
+ {
+  FileInfo MyFile = new FileInfo(@"c:\Projects\Testing.txt");
+  FileStream MyStream;
+  MyStream = MyFile.Open(FileMode.Open,FileAccess.Read,FileShare.None);
+ }
+ }
+}
