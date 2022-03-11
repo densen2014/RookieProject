@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+	<attribute>
+		<!--控件字段-->
+
+
+		<field>
+			<name>设施名称</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+			<readOnly></readOnly>
+		</field>
+
+		<field>
+			<name>设施编号</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+			
+		</field>
+
+		<field>
+			<name>设施代码</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+			<readOnly></readOnly>
+		</field>
+
+
+
+
+		<field>
+			<name>气源类型</name>
+			<type>comboBox</type>
+			<width>150</width>
+			<height>22</height>
+			<ul>
+				<li key="1">天然气</li>
+				<li key="2">液化气</li>
+				<li key="3">人工煤气</li>
+			</ul>
+		</field>
+
+		<field>
+			<name>投资类型</name>
+			<type>comboBox</type>
+			<width>150</width>
+			<height>22</height>
+			<ul>
+				<li key="1">自投</li>
+				<li key="2">政府</li>
+				<li key="3">用户</li>
+			</ul>
+		</field>
+
+		<field>
+			<name>设计年限</name>
+			<type>comboBox</type>
+			<width>150</width>
+			<height>22</height>
+			<ul>
+				<li key="1">10年</li>
+				<li key="2">20年</li>
+				<li key="3">30年</li>
+				<li key="4">40年</li>
+				<li key="5">50年</li>
+			</ul>
+		</field>
+
+		<field>
+			<name>物资编号</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+		</field>
+
+		<field>
+			<name>工程编号</name>
+			<notEmpty></notEmpty>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+			
+		</field>
+
+		<field>
+			<name>施工单位</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+		</field>
+
+		<field>
+			<name>施工负责人</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+		</field>
+
+		<field>
+			<name>监理单位</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+		</field>
+		<field>
+			<name>设计单位</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+		</field>
+		<field>
+			<name>验收人员</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+		</field>
+		<field>
+			<name>测绘单位</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+		</field>
+		<field>
+			<name>测绘人员</name>
+			<type>textBox</type>
+			<width>150</width>
+			<height>22</height>
+		</field>
+		<field>
+			<name>埋设时间</name>
+			<type>dateTimePicker</type>
+			<format>yyyy-MM-dd</format>
+			<width>150</width>
+			<height>22</height>
+		</field>
+		<field>
+			<name>投运日期</name>
+			<type>dateTimePicker</type>
+			<format>yyyy-MM-dd</format>
+			<width>150</width>
+			<height>22</height>
+			
+		</field>
+		<field>
+			<name>是否通气</name>
+			<type>radioButton</type>
+			<width>150</width>
+			<height>22</height>
+			<checkedName>否</checkedName>
+			<ul>
+				<li key="1">是</li>
+				<li key="2">否</li>
+			</ul>
+			
+		</field>
+		<field>
+			<name>废除日期</name> 
+			<type>dateTimePicker</type>
+			<format>yyyy-MM-dd</format>
+			<width>150</width>
+			<height>22</height>
+		</field>
+		<field>
+			<name>拆除日期</name>
+			<type>dateTimePicker</type>
+			<format>yyyy-MM-dd</format>
+			<width>150</width>
+			<height>22</height>
+		</field>
+
+	</attribute>
+</config>
