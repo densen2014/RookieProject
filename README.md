@@ -1,5 +1,5 @@
 # .Net/Core/WPF交流,菜鸡互啄
-https://github.com/densen2014/RookieProject
+[github](https://github.com/densen2014/RookieProject) | [gitee(mirror only)](https://gitee.com/densen2014/RookieProject)
 
 BlazorClientSolo
 -------
