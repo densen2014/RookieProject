@@ -1,0 +1,48 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppINotifyPropertyChanged"
+        mc:Ignorable="d"
+        Title="{Binding BackColor}" 
+        
+        Height="450" Width="800">
+    <StackPanel >
+        <StackPanel Orientation="Horizontal"
+                                Margin="8" Grid.Column="2" Grid.Row="1">
+            <Label Content="Theme:"
+                               VerticalAlignment="Center"
+                               Width="100" />
+            <Slider Value="{Binding Theme,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200"   />  
+            <TextBox Text="{Binding Theme,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"  />
+            <TextBox Text="{Binding Theme,UpdateSourceTrigger=PropertyChanged}" Width="100" />
+            <Label Content="{Binding Theme}"
+                               VerticalAlignment="Center"
+                               Width="100"  />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                                Margin="8" Grid.Column="2" Grid.Row="1">
+            <Label Content="BackColor:"
+                               VerticalAlignment="Center"
+                               Width="100" />
+            <TextBox Text="{Binding BackColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"  />
+            <TextBox Text="{Binding BackColor,UpdateSourceTrigger=PropertyChanged}" Width="100" />
+            <Label Content="{Binding BackColor}"
+                               VerticalAlignment="Center"
+                               Width="100"  />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                                Margin="8" Grid.Column="2" Grid.Row="1">
+            <Label Content="ForeColor:"
+                               VerticalAlignment="Center"
+                               Width="100" />
+            <CheckBox IsChecked="{Binding ForeColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"  />
+            <CheckBox IsChecked="{Binding ForeColor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="100"  />
+            <Label Content="{Binding ForeColor}"
+                               VerticalAlignment="Center"
+                               Width="100"  />
+        </StackPanel>
+    </StackPanel>
+
+</Window>
