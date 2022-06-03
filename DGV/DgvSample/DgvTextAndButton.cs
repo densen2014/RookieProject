@@ -48,6 +48,11 @@ namespace DgvSample
                 var ctrlType =  CtrlType.TextBox;
                 ItemTests.Add(new ItemTest( i ,  "col1" + i.ToString() ,  "col2" + i.ToString(), ctrlType));
             }
+            for (int i = 16; i < 18; i++)
+            {
+                var ctrlType =  CtrlType.NumericupdownButton;
+                ItemTests.Add(new ItemTest( i ,  "col1" + i.ToString() ,  "col2" + i.ToString(), ctrlType));
+            }
             this.dataGridView1.DataSource = ItemTests;
 
             this.dataGridView1.Columns[0].Width = 200;
@@ -104,6 +109,14 @@ namespace DgvSample
 
 
 
+            this.numericupdownbtnControl = new NumericupdownControl();
+
+            this.numericupdownbtnControl.Visible = false;
+
+            this.dataGridView1.Controls.Add(this.numericupdownbtnControl);
+
+
+
             //Handle this event to paint a textbox and button style in the cell,
 
             //this painting avoid using amount of usercontrols, we just need one
@@ -135,6 +148,8 @@ namespace DgvSample
         ComboboxAndButtonControl cmbbtnControl;
 
         PictureBoxAndButtonControl picbtnControl;
+
+        NumericupdownControl numericupdownbtnControl;
 
 
         void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -185,7 +200,13 @@ namespace DgvSample
 
                 formater.Alignment = StringAlignment.Center;
 
-                e.Graphics.DrawString(cellStyle == CtrlType.PictureBoxAndButton ? "图片框" : cellStyle == CtrlType.TextAndButton ? "文本框" : cellStyle == CtrlType.ComboboxAndButton?"combo框": cellStyle .ToString(), e.CellStyle.Font, new SolidBrush(e.CellStyle.ForeColor), btnRect, formater);
+                e.Graphics.DrawString(cellStyle == 
+                    CtrlType.PictureBoxAndButton ? "图片框" : 
+                    cellStyle == CtrlType.TextAndButton ? "文本框" : 
+                    cellStyle == CtrlType.ComboboxAndButton?"combo框": 
+                    cellStyle == CtrlType.NumericupdownButton ? "Numeric框" : 
+                    cellStyle .ToString(), 
+                    e.CellStyle.Font, new SolidBrush(e.CellStyle.ForeColor), btnRect, formater);
 
                 e.Handled = true;
 
@@ -207,7 +228,7 @@ namespace DgvSample
 
                 var cellStyle = ItemTests[e.RowIndex].CtrlType;
 
-                if (cellStyle== CtrlType.PictureBoxAndButton)
+                if (cellStyle == CtrlType.PictureBoxAndButton)
                 {
                     this.picbtnControl.Location = rect.Location;
 
@@ -258,6 +279,21 @@ namespace DgvSample
 
                     this.cmbbtnControl.Visible = true;
                 }
+                else if (cellStyle == CtrlType.NumericupdownButton)
+                {
+                    this.numericupdownbtnControl.Location = rect.Location;
+
+                    this.numericupdownbtnControl.Size = rect.Size;
+
+                    this.numericupdownbtnControl.Text = this.dataGridView1.CurrentCell.Value.ToString();
+
+                    this.numericupdownbtnControl.ButtonText = "click";
+
+                    this.numericupdownbtnControl.renderControl();
+
+                    this.numericupdownbtnControl.Visible = true;
+
+                } 
             }
 
         }
@@ -291,6 +327,13 @@ namespace DgvSample
                 {
 
                     this.dataGridView1.CurrentCell.Value = this.cmbbtnControl.Text;
+
+                    this.cmbbtnControl.Visible = false;
+                }
+                else if (cellStyle == CtrlType.NumericupdownButton)
+                {
+
+                    this.dataGridView1.CurrentCell.Value = this.numericupdownbtnControl.Value;
 
                     this.cmbbtnControl.Visible = false;
                 }
@@ -359,6 +402,24 @@ namespace DgvSample
 
             }
 
+            else if (this.numericupdownbtnControl.Visible == true)
+
+            {
+
+                Rectangle r = this.dataGridView1.GetCellDisplayRectangle(
+
+                    this.dataGridView1.CurrentCell.ColumnIndex,
+
+                    this.dataGridView1.CurrentCell.RowIndex,
+
+                    true);
+
+                this.numericupdownbtnControl.Location = r.Location;
+
+                this.numericupdownbtnControl.Size = r.Size;
+
+            }
+
         }
 
     }
@@ -370,6 +431,7 @@ namespace DgvSample
         TextAndButton,
         ComboboxAndButton,
         PictureBoxAndButton,
+        NumericupdownButton
     }
 
     class ItemTest
@@ -652,6 +714,97 @@ namespace DgvSample
             this.pictureBox1.Width = 2 * this.Width / 3;
 
             this.pictureBox1.Height = this.Height;
+
+
+
+            this.button1.Location = new Point(2 * this.Width / 3, 0);
+
+            this.button1.Width = this.Width / 3;
+
+            this.button1.Height = this.Height;
+
+        }
+
+    }
+    class NumericupdownControl : UserControl
+
+    {
+
+        private NumericUpDown numericUpDown;
+
+        private Button button1;
+
+
+
+        public NumericupdownControl()
+
+        {
+
+            this.numericUpDown = new NumericUpDown();
+
+            this.numericUpDown.BackColor = Color.Red;
+
+            this.Controls.Add(this.numericUpDown);
+
+
+
+            this.button1 = new Button();
+
+            this.Controls.Add(this.button1);
+
+
+
+            this.renderControl();
+
+            this.button1.Click += new EventHandler(button1_Click);
+
+        }
+
+
+
+        void button1_Click(object sender, EventArgs e)
+
+        {
+
+            MessageBox.Show("Click! The value is:" + this.Text);
+
+        }
+
+
+
+        public decimal Value
+
+        {
+
+            get { return this.numericUpDown.Value; }
+
+            set { this.numericUpDown.Value = value; }
+
+        }
+
+
+
+        public string ButtonText
+
+        {
+
+            get { return this.button1.Text; }
+
+            set { this.button1.Text = value; }
+
+        }
+
+
+
+        public void renderControl()
+
+        {
+
+            this.numericUpDown.Location = new Point(0, 0);
+
+            this.numericUpDown.Width = 2 * this.Width / 3;
+
+            this.numericUpDown.Height = this.Height;
 
 
 
