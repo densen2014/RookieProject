@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace DgvSample
 {
@@ -19,6 +20,13 @@ namespace DgvSample
         {
 
             InitializeComponent();
+            Application.VisualStyleState = VisualStyleState.NonClientAreaEnabled;
+
+            OpenFileDialog dlg = new OpenFileDialog(); 
+            // Show all files
+            dlg.Filter = null;
+
+            dlg.ShowDialog();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 29);
