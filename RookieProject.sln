@@ -91,6 +91,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeterMouseIsInsideControl",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetMultiIcon", "GetMultiIcon\GetMultiIcon.csproj", "{CD58AC8D-B01C-48BF-8DA8-6B1759F39976}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComboBoxLinq", "ComboBoxLinq\ComboBoxLinq.csproj", "{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -577,6 +579,18 @@ Global
 		{CD58AC8D-B01C-48BF-8DA8-6B1759F39976}.Release|x64.Build.0 = Release|Any CPU
 		{CD58AC8D-B01C-48BF-8DA8-6B1759F39976}.Release|x86.ActiveCfg = Release|Any CPU
 		{CD58AC8D-B01C-48BF-8DA8-6B1759F39976}.Release|x86.Build.0 = Release|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Debug|x64.Build.0 = Debug|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Debug|x86.Build.0 = Debug|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Release|x64.ActiveCfg = Release|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Release|x64.Build.0 = Release|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Release|x86.ActiveCfg = Release|Any CPU
+		{6A2E9966-49AA-477C-BFFC-04C9F4CAF507}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
