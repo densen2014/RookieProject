@@ -221,10 +221,13 @@
       <Project>{45819ddc-46c6-4c84-96f9-9635d2daa168}</Project>
       <Name>CosturaFodyDLL1</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Costura.Fody\WindowsFormsControlLibrary1\WindowsFormsControlLibrary1.csproj">
+    <ProjectReference Include="..\Costura.Fody\WindowsFormsControlLibrary1\CosturaFodyControlLibrary1.csproj">
       <Project>{11087bd2-8765-4419-a058-7ec69e37dae5}</Project>
-      <Name>WindowsFormsControlLibrary1</Name>
+      <Name>CosturaFodyControlLibrary1</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.5.5\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.5\build\Fody.targets')" />

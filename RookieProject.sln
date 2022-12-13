@@ -98,11 +98,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Costura.Fody", "Costura.Fod
 		结论1.txt = 结论1.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Win48CosturaFody", "Win48CosturaFody\Win48CosturaFody.csproj", "{137CA8C6-D060-4DFD-A2AE-D07DEDF825DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosturaFodyWin48", "Win48CosturaFody\CosturaFodyWin48.csproj", "{137CA8C6-D060-4DFD-A2AE-D07DEDF825DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosturaFodyDLL1", "Costura.Fody\CosturaFodyDLL1\CosturaFodyDLL1.csproj", "{45819DDC-46C6-4C84-96F9-9635D2DAA168}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosturaFodyDLL1", "Costura.Fody\CosturaFodyDLL1\CosturaFodyDLL1.csproj", "{45819DDC-46C6-4C84-96F9-9635D2DAA168}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsControlLibrary1", "Costura.Fody\WindowsFormsControlLibrary1\WindowsFormsControlLibrary1.csproj", "{11087BD2-8765-4419-A058-7EC69E37DAE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosturaFodyControlLibrary1", "Costura.Fody\WindowsFormsControlLibrary1\CosturaFodyControlLibrary1.csproj", "{11087BD2-8765-4419-A058-7EC69E37DAE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
