@@ -104,6 +104,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosturaFodyDLL1", "Costura.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosturaFodyControlLibrary1", "Costura.Fody\WindowsFormsControlLibrary1\CosturaFodyControlLibrary1.csproj", "{11087BD2-8765-4419-A058-7EC69E37DAE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.jieba.NET", "Console.jieba.NET\Console.jieba.NET.csproj", "{D80397FE-1543-494F-B141-337BEF3F912D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -638,6 +640,18 @@ Global
 		{11087BD2-8765-4419-A058-7EC69E37DAE5}.Release|x64.Build.0 = Release|Any CPU
 		{11087BD2-8765-4419-A058-7EC69E37DAE5}.Release|x86.ActiveCfg = Release|Any CPU
 		{11087BD2-8765-4419-A058-7EC69E37DAE5}.Release|x86.Build.0 = Release|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Debug|x64.Build.0 = Debug|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Debug|x86.Build.0 = Debug|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Release|x64.ActiveCfg = Release|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Release|x64.Build.0 = Release|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Release|x86.ActiveCfg = Release|Any CPU
+		{D80397FE-1543-494F-B141-337BEF3F912D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
