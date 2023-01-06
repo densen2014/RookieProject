@@ -52,18 +52,10 @@ namespace DgvValidatingData
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.sampleModelBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.sampleModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isMemberDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.memberLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sampleModelBindingNavigator)).BeginInit();
             this.sampleModelBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sampleModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -126,30 +118,20 @@ namespace DgvValidatingData
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.firstNameDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn,
-            this.birthDateDataGridViewTextBoxColumn,
-            this.urlDataGridViewTextBoxColumn,
-            this.isMemberDataGridViewCheckBoxColumn,
-            this.memberLevelDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.sampleModelBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 44);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 34);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 72;
             this.dataGridView1.RowTemplate.Height = 36;
-            this.dataGridView1.Size = new System.Drawing.Size(1264, 512);
+            this.dataGridView1.Size = new System.Drawing.Size(1264, 522);
             this.dataGridView1.TabIndex = 1;
             // 
             // sampleModelBindingNavigator
             // 
             this.sampleModelBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.sampleModelBindingNavigator.BindingSource = this.sampleModelBindingSource;
             this.sampleModelBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.sampleModelBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
             this.sampleModelBindingNavigator.ImageScalingSize = new System.Drawing.Size(24, 24);
@@ -173,7 +155,7 @@ namespace DgvValidatingData
             this.sampleModelBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.sampleModelBindingNavigator.Name = "sampleModelBindingNavigator";
             this.sampleModelBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.sampleModelBindingNavigator.Size = new System.Drawing.Size(1264, 44);
+            this.sampleModelBindingNavigator.Size = new System.Drawing.Size(1264, 34);
             this.sampleModelBindingNavigator.TabIndex = 2;
             this.sampleModelBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -183,13 +165,13 @@ namespace DgvValidatingData
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(40, 38);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(40, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(53, 38);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(53, 28);
             this.bindingNavigatorCountItem.Text = "/ {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -199,7 +181,7 @@ namespace DgvValidatingData
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(40, 38);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(40, 28);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -208,7 +190,7 @@ namespace DgvValidatingData
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(40, 38);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(40, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -217,13 +199,13 @@ namespace DgvValidatingData
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(40, 38);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(40, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 44);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 34);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -238,7 +220,7 @@ namespace DgvValidatingData
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 44);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 34);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -246,7 +228,7 @@ namespace DgvValidatingData
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(40, 38);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(40, 28);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -255,67 +237,21 @@ namespace DgvValidatingData
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(40, 38);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(40, 28);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 44);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 34);
             // 
             // sampleModelBindingNavigatorSaveItem
             // 
             this.sampleModelBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.sampleModelBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("sampleModelBindingNavigatorSaveItem.Image")));
             this.sampleModelBindingNavigatorSaveItem.Name = "sampleModelBindingNavigatorSaveItem";
-            this.sampleModelBindingNavigatorSaveItem.Size = new System.Drawing.Size(40, 38);
+            this.sampleModelBindingNavigatorSaveItem.Size = new System.Drawing.Size(40, 28);
             this.sampleModelBindingNavigatorSaveItem.Text = "Save Data";
-            // 
-            // sampleModelBindingSource
-            // 
-            this.sampleModelBindingSource.DataSource = typeof(Person);
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.MinimumWidth = 9;
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.MinimumWidth = 9;
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // birthDateDataGridViewTextBoxColumn
-            // 
-            this.birthDateDataGridViewTextBoxColumn.DataPropertyName = "BirthDate";
-            this.birthDateDataGridViewTextBoxColumn.HeaderText = "BirthDate";
-            this.birthDateDataGridViewTextBoxColumn.MinimumWidth = 9;
-            this.birthDateDataGridViewTextBoxColumn.Name = "birthDateDataGridViewTextBoxColumn";
-            // 
-            // urlDataGridViewTextBoxColumn
-            // 
-            this.urlDataGridViewTextBoxColumn.DataPropertyName = "Url";
-            this.urlDataGridViewTextBoxColumn.HeaderText = "Url";
-            this.urlDataGridViewTextBoxColumn.MinimumWidth = 9;
-            this.urlDataGridViewTextBoxColumn.Name = "urlDataGridViewTextBoxColumn";
-            // 
-            // isMemberDataGridViewCheckBoxColumn
-            // 
-            this.isMemberDataGridViewCheckBoxColumn.DataPropertyName = "IsMember";
-            this.isMemberDataGridViewCheckBoxColumn.HeaderText = "IsMember";
-            this.isMemberDataGridViewCheckBoxColumn.MinimumWidth = 9;
-            this.isMemberDataGridViewCheckBoxColumn.Name = "isMemberDataGridViewCheckBoxColumn";
-            // 
-            // memberLevelDataGridViewTextBoxColumn
-            // 
-            this.memberLevelDataGridViewTextBoxColumn.DataPropertyName = "MemberLevel";
-            this.memberLevelDataGridViewTextBoxColumn.HeaderText = "MemberLevel";
-            this.memberLevelDataGridViewTextBoxColumn.MinimumWidth = 9;
-            this.memberLevelDataGridViewTextBoxColumn.Name = "memberLevelDataGridViewTextBoxColumn";
             // 
             // Form1
             // 
@@ -334,7 +270,6 @@ namespace DgvValidatingData
             ((System.ComponentModel.ISupportInitialize)(this.sampleModelBindingNavigator)).EndInit();
             this.sampleModelBindingNavigator.ResumeLayout(false);
             this.sampleModelBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sampleModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,12 +296,5 @@ namespace DgvValidatingData
         private ToolStripButton bindingNavigatorMoveLastItem;
         private ToolStripSeparator bindingNavigatorSeparator2;
         private ToolStripButton sampleModelBindingNavigatorSaveItem;
-        private BindingSource sampleModelBindingSource;
-        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn birthDateDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn urlDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn isMemberDataGridViewCheckBoxColumn;
-        private DataGridViewTextBoxColumn memberLevelDataGridViewTextBoxColumn;
     }
 }

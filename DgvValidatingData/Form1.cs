@@ -16,9 +16,9 @@ namespace DgvValidatingData
         public Form1()
         {
             InitializeComponent();
-            this.bindingSource1.DataSource = typeof(Person);
-            this.sampleModelBindingNavigator.BindingSource = this.bindingSource1;
-            this.dataGridView1.DataSource = this.bindingSource1;
+            //this.bindingSource1.DataSource = typeof(Person);
+            //this.sampleModelBindingNavigator.BindingSource = this.bindingSource1;
+            //this.dataGridView1.DataSource = this.bindingSource1;
 
             var list = new List<Person>
             {
