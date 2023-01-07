@@ -60,10 +60,11 @@ interface IShellLinkW
 
 public class AppLink
 {
-    public static bool CreateAppLink(bool Startup = false, bool Delete = false)
+    public static bool CreateAppLink(bool Startup = false, bool Delete = false, bool UseApplicationProductName = true,string? ProductName=null)
     {
         string AppPath = Application.ExecutablePath;
-        string AppName = Path.GetFileNameWithoutExtension(AppPath);// Application.ProductName;
+        string AppName = ProductName ?? 
+            (UseApplicationProductName ? Application.ProductName: Path.GetFileNameWithoutExtension(AppPath));
         string AppLink = Environment.GetFolderPath(Startup ?  Environment.SpecialFolder.Startup: Environment.SpecialFolder.Desktop ) + "\\" + AppName + ".lnk";
         if (Delete)
         {
