@@ -92,6 +92,16 @@ namespace DgvValidatingData
         {
 
         }
+
+        private void buttonLink_Click(object sender, EventArgs e)
+        {
+            AppLink.CreateAppLink();
+        }
+
+        private void buttonDelLink_Click(object sender, EventArgs e)
+        {
+            AppLink.CreateAppLink(Delete:true);
+        }
     }
 }
 

@@ -19,6 +19,20 @@ https://github.com/densen2014/RookieProject/tree/master/DgvValidatingData
 |  ----  | ----  |
 |  Bind<T>(this DataGridView grid, IList<T> data, bool autoGenerateColumns = true) | 渲染生成列 | | 示例:dataGridView1.Bind(list) |
 
+### RDLC
+
+LocalReport类创建了一个扩展方法，调用Print它可以更轻松地打印报表而不显示报表或任何对话框：
+
+它有两个重载：
+
+- Print()：它使用报告的默认页面设置。
+
+- Print(PageSettings)：它使用传递给方法的页面设置对象。
+
+例如，您可以轻松地以这种方式使用它：
+
+this.reportViewer1.LocalReport.Print();
+
 
 #### 参考资料来源
 

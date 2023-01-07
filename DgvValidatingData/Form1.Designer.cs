@@ -38,6 +38,7 @@ namespace DgvValidatingData
             this.buttonSAVE = new System.Windows.Forms.Button();
             this.buttonDEL = new System.Windows.Forms.Button();
             this.buttonREFRESH = new System.Windows.Forms.Button();
+            this.buttonLink = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.sampleModelBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -52,12 +53,7 @@ namespace DgvValidatingData
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.sampleModelBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.dataGridViewNumericColumn1 = new Extensions.Winforms.DataGridViewNumericColumn();
-            this.IntegerColumn1 = new Extensions.Winforms.DataGridViewIntegerColumn();
-            this.NumericColumn1 = new Extensions.Winforms.DataGridViewNumericColumn();
-            this.CalendarColumn2 = new Extensions.Winforms.DataGridViewCalendarColumn();
-            this.PasswordColumn3 = new Extensions.Winforms.DataGridViewPasswordColumn();
-            this.RolloverCellColumn4 = new Extensions.Winforms.DataGridViewRolloverCellColumn();
+            this.buttonDelLink = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sampleModelBindingNavigator)).BeginInit();
@@ -70,6 +66,8 @@ namespace DgvValidatingData
             this.flowLayoutPanel1.Controls.Add(this.buttonSAVE);
             this.flowLayoutPanel1.Controls.Add(this.buttonDEL);
             this.flowLayoutPanel1.Controls.Add(this.buttonREFRESH);
+            this.flowLayoutPanel1.Controls.Add(this.buttonLink);
+            this.flowLayoutPanel1.Controls.Add(this.buttonDelLink);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 556);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -121,17 +119,22 @@ namespace DgvValidatingData
             this.buttonREFRESH.UseVisualStyleBackColor = true;
             this.buttonREFRESH.Click += new System.EventHandler(this.buttonREFRESH_Click);
             // 
+            // buttonLink
+            // 
+            this.buttonLink.Location = new System.Drawing.Point(444, 2);
+            this.buttonLink.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonLink.Name = "buttonLink";
+            this.buttonLink.Size = new System.Drawing.Size(129, 59);
+            this.buttonLink.TabIndex = 4;
+            this.buttonLink.Text = "Link";
+            this.buttonLink.UseVisualStyleBackColor = true;
+            this.buttonLink.Click += new System.EventHandler(this.buttonLink_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IntegerColumn1,
-            this.NumericColumn1,
-            this.CalendarColumn2,
-            this.PasswordColumn3,
-            this.RolloverCellColumn4});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 34);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -265,67 +268,16 @@ namespace DgvValidatingData
             this.sampleModelBindingNavigatorSaveItem.Size = new System.Drawing.Size(40, 28);
             this.sampleModelBindingNavigatorSaveItem.Text = "Save Data";
             // 
-            // dataGridViewNumericColumn1
+            // buttonDelLink
             // 
-            this.dataGridViewNumericColumn1.DecimalPlaces = 0;
-            this.dataGridViewNumericColumn1.HeaderText = "Column1";
-            this.dataGridViewNumericColumn1.Maximum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dataGridViewNumericColumn1.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dataGridViewNumericColumn1.MinimumWidth = 9;
-            this.dataGridViewNumericColumn1.Name = "dataGridViewNumericColumn1";
-            this.dataGridViewNumericColumn1.ThousandsSeparator = false;
-            this.dataGridViewNumericColumn1.Width = 1190;
-            // 
-            // IntegerColumn1
-            // 
-            this.IntegerColumn1.HeaderText = "IntegerColumn";
-            this.IntegerColumn1.MinimumWidth = 9;
-            this.IntegerColumn1.Name = "IntegerColumn1";
-            // 
-            // NumericColumn1
-            // 
-            this.NumericColumn1.DecimalPlaces = 3;
-            this.NumericColumn1.HeaderText = "NumericColumn";
-            this.NumericColumn1.Maximum = new decimal(new int[] {
-            2147483647,
-            0,
-            0,
-            0});
-            this.NumericColumn1.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.NumericColumn1.MinimumWidth = 9;
-            this.NumericColumn1.Name = "NumericColumn1";
-            this.NumericColumn1.ThousandsSeparator = false;
-            // 
-            // CalendarColumn2
-            // 
-            this.CalendarColumn2.HeaderText = "CalendarColumn";
-            this.CalendarColumn2.MinimumWidth = 9;
-            this.CalendarColumn2.Name = "CalendarColumn2";
-            // 
-            // PasswordColumn3
-            // 
-            this.PasswordColumn3.HeaderText = "PasswordColumn";
-            this.PasswordColumn3.MinimumWidth = 9;
-            this.PasswordColumn3.Name = "PasswordColumn3";
-            this.PasswordColumn3.UsePasswordCharWhenEditing = false;
-            // 
-            // RolloverCellColumn4
-            // 
-            this.RolloverCellColumn4.HeaderText = "RolloverCellColumn";
-            this.RolloverCellColumn4.MinimumWidth = 9;
-            this.RolloverCellColumn4.Name = "RolloverCellColumn4";
+            this.buttonDelLink.Location = new System.Drawing.Point(579, 2);
+            this.buttonDelLink.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonDelLink.Name = "buttonDelLink";
+            this.buttonDelLink.Size = new System.Drawing.Size(129, 59);
+            this.buttonDelLink.TabIndex = 5;
+            this.buttonDelLink.Text = "DelLink";
+            this.buttonDelLink.UseVisualStyleBackColor = true;
+            this.buttonDelLink.Click += new System.EventHandler(this.buttonDelLink_Click);
             // 
             // Form1
             // 
@@ -376,5 +328,7 @@ namespace DgvValidatingData
         private Extensions.Winforms.DataGridViewCalendarColumn CalendarColumn2;
         private Extensions.Winforms.DataGridViewPasswordColumn PasswordColumn3;
         private Extensions.Winforms.DataGridViewRolloverCellColumn RolloverCellColumn4;
+        private Button buttonLink;
+        private Button buttonDelLink;
     }
 }
