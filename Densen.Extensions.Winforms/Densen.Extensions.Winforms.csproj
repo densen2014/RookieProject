@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net4.8;net7.0-windows</TargetFrameworks>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<PropertyGroup> 
+		<Copyright>DensenInformatica</Copyright>
+		<Authors>Alex Chow</Authors>
+		<Company>Densen Informatica</Company>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<Version>0.1</Version>
+		<IsPackable>true</IsPackable> 
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageIcon>logo.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Description>Winforms常用扩展库</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/densen2014/RookieProject/tree/master/Densen.Extensions.Winforms</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/densen2014/RookieProject</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Densen.Extensions.Winforms</PackageTags>
+		<AssemblyName>Extensions.Winforms</AssemblyName>
+		<RootNamespace>Extensions.Winforms</RootNamespace>
+		<Configurations>Debug;Release</Configurations>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<None Include="logo.png" Pack="true" PackagePath="" />
+		<None Include="README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+	</ItemGroup>
+
+</Project>

@@ -13,4 +13,8 @@
 		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Densen.Extensions.Winforms\Densen.Extensions.Winforms.csproj" />
+	</ItemGroup>
+
 </Project>

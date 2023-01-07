@@ -52,6 +52,12 @@ namespace DgvValidatingData
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.sampleModelBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.dataGridViewNumericColumn1 = new Extensions.Winforms.DataGridViewNumericColumn();
+            this.IntegerColumn1 = new Extensions.Winforms.DataGridViewIntegerColumn();
+            this.NumericColumn1 = new Extensions.Winforms.DataGridViewNumericColumn();
+            this.CalendarColumn2 = new Extensions.Winforms.DataGridViewCalendarColumn();
+            this.PasswordColumn3 = new Extensions.Winforms.DataGridViewPasswordColumn();
+            this.RolloverCellColumn4 = new Extensions.Winforms.DataGridViewRolloverCellColumn();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sampleModelBindingNavigator)).BeginInit();
@@ -68,7 +74,7 @@ namespace DgvValidatingData
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 556);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1264, 86);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1324, 86);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // buttonADD
@@ -120,13 +126,19 @@ namespace DgvValidatingData
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IntegerColumn1,
+            this.NumericColumn1,
+            this.CalendarColumn2,
+            this.PasswordColumn3,
+            this.RolloverCellColumn4});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 34);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 72;
             this.dataGridView1.RowTemplate.Height = 36;
-            this.dataGridView1.Size = new System.Drawing.Size(1264, 522);
+            this.dataGridView1.Size = new System.Drawing.Size(1324, 522);
             this.dataGridView1.TabIndex = 1;
             // 
             // sampleModelBindingNavigator
@@ -155,7 +167,7 @@ namespace DgvValidatingData
             this.sampleModelBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.sampleModelBindingNavigator.Name = "sampleModelBindingNavigator";
             this.sampleModelBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.sampleModelBindingNavigator.Size = new System.Drawing.Size(1264, 34);
+            this.sampleModelBindingNavigator.Size = new System.Drawing.Size(1324, 34);
             this.sampleModelBindingNavigator.TabIndex = 2;
             this.sampleModelBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -253,11 +265,73 @@ namespace DgvValidatingData
             this.sampleModelBindingNavigatorSaveItem.Size = new System.Drawing.Size(40, 28);
             this.sampleModelBindingNavigatorSaveItem.Text = "Save Data";
             // 
+            // dataGridViewNumericColumn1
+            // 
+            this.dataGridViewNumericColumn1.DecimalPlaces = 0;
+            this.dataGridViewNumericColumn1.HeaderText = "Column1";
+            this.dataGridViewNumericColumn1.Maximum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.dataGridViewNumericColumn1.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.dataGridViewNumericColumn1.MinimumWidth = 9;
+            this.dataGridViewNumericColumn1.Name = "dataGridViewNumericColumn1";
+            this.dataGridViewNumericColumn1.ThousandsSeparator = false;
+            this.dataGridViewNumericColumn1.Width = 1190;
+            // 
+            // IntegerColumn1
+            // 
+            this.IntegerColumn1.HeaderText = "IntegerColumn";
+            this.IntegerColumn1.MinimumWidth = 9;
+            this.IntegerColumn1.Name = "IntegerColumn1";
+            // 
+            // NumericColumn1
+            // 
+            this.NumericColumn1.DecimalPlaces = 3;
+            this.NumericColumn1.HeaderText = "NumericColumn";
+            this.NumericColumn1.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.NumericColumn1.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.NumericColumn1.MinimumWidth = 9;
+            this.NumericColumn1.Name = "NumericColumn1";
+            this.NumericColumn1.ThousandsSeparator = false;
+            // 
+            // CalendarColumn2
+            // 
+            this.CalendarColumn2.HeaderText = "CalendarColumn";
+            this.CalendarColumn2.MinimumWidth = 9;
+            this.CalendarColumn2.Name = "CalendarColumn2";
+            // 
+            // PasswordColumn3
+            // 
+            this.PasswordColumn3.HeaderText = "PasswordColumn";
+            this.PasswordColumn3.MinimumWidth = 9;
+            this.PasswordColumn3.Name = "PasswordColumn3";
+            this.PasswordColumn3.UsePasswordCharWhenEditing = false;
+            // 
+            // RolloverCellColumn4
+            // 
+            this.RolloverCellColumn4.HeaderText = "RolloverCellColumn";
+            this.RolloverCellColumn4.MinimumWidth = 9;
+            this.RolloverCellColumn4.Name = "RolloverCellColumn4";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 642);
+            this.ClientSize = new System.Drawing.Size(1324, 642);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.sampleModelBindingNavigator);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -296,5 +370,11 @@ namespace DgvValidatingData
         private ToolStripButton bindingNavigatorMoveLastItem;
         private ToolStripSeparator bindingNavigatorSeparator2;
         private ToolStripButton sampleModelBindingNavigatorSaveItem;
+        private Extensions.Winforms.DataGridViewNumericColumn dataGridViewNumericColumn1;
+        private Extensions.Winforms.DataGridViewIntegerColumn IntegerColumn1;
+        private Extensions.Winforms.DataGridViewNumericColumn NumericColumn1;
+        private Extensions.Winforms.DataGridViewCalendarColumn CalendarColumn2;
+        private Extensions.Winforms.DataGridViewPasswordColumn PasswordColumn3;
+        private Extensions.Winforms.DataGridViewRolloverCellColumn RolloverCellColumn4;
     }
 }
