@@ -87,9 +87,9 @@ public class DataGridViewCalendarCell : DataGridViewTextBoxCell
 public class DataGridViewCalendarEditingControl : DateTimePicker,
     IDataGridViewEditingControl
 {
-    DataGridView dataGridView;
-    private bool valueChanged = false;
-    int rowIndex;
+    DataGridView? dataGridView;
+    private bool? valueChanged = false;
+    int? rowIndex;
 
     public DataGridViewCalendarEditingControl()
     {
@@ -158,7 +158,7 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
     {
         get
         {
-            return rowIndex;
+            return rowIndex??0;
         }
         set
         {
@@ -211,7 +211,7 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
     {
         get
         {
-            return dataGridView;
+            return dataGridView??new DataGridView();
         }
         set
         {
@@ -225,7 +225,7 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
     {
         get
         {
-            return valueChanged;
+            return valueChanged??false;
         }
         set
         {

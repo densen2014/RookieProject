@@ -90,9 +90,9 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
     public class DataGridViewNumericEditingControl : NumericUpDown,
         IDataGridViewEditingControl
     {
-        DataGridView dataGridView;
-        private bool valueChanged = false;
-        int rowIndex;
+        DataGridView? dataGridView;
+        private bool? valueChanged = false;
+        int? rowIndex;
 
         public DataGridViewNumericEditingControl()
         {
@@ -162,7 +162,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
         {
             get
             {
-                return rowIndex;
+                return rowIndex ?? 0;
             }
             set
             {
@@ -229,7 +229,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
         {
             get
             {
-                return valueChanged;
+                return valueChanged?? false;
             }
             set
             {
