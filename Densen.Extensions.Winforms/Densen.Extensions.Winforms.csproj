@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net4.8;net7.0-windows</TargetFrameworks>
+		<TargetFrameworks>net4.6.1;net4.8;net7.0-windows</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
@@ -35,7 +35,6 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="Microsoft.ReportViewer.WinForms" Version="10.0.40219.1" />
 		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
 	</ItemGroup>
 
