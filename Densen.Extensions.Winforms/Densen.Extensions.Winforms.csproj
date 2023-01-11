@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net4.6.1;net4.8;net7.0-windows</TargetFrameworks>
+		<!--<TargetFrameworks>net4.6.1;net4.8;net7.0-windows</TargetFrameworks>-->
+		<TargetFrameworks>net4.8;net7.0-windows</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
