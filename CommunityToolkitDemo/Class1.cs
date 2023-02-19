@@ -1,5 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging.Messages;
+using System.Diagnostics;
 
 namespace CommunityToolkitDemo;
 
@@ -52,11 +54,29 @@ public partial class TestConfig : ObservableObject
 
     partial void OnName1Changing(string? value)
     {
-        Console.WriteLine($"Name is about to change to {value}");
+        Debug.WriteLine($"Name is about to change to {value}");
     }
 
     partial void OnName1Changed(string? value)
     {
-        Console.WriteLine($"Name has changed to {value}");
+        Debug.WriteLine($"Name has changed to {value}");
     }
 }
+
+
+// Create a message
+public class LoggedInUserChangedMessage : ValueChangedMessage<TestConfig>
+{
+    public LoggedInUserChangedMessage(TestConfig user) : base(user)
+    {
+    }
+}
+
+// Create a message
+public class LoggedInUserChangedMessage2 : ValueChangedMessage<TestConfig>
+{
+    public LoggedInUserChangedMessage2(TestConfig user) : base(user)
+    {
+    }
+}
+

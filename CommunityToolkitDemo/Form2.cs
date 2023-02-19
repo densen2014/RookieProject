@@ -48,7 +48,7 @@ public partial class Form2 : Form
         
         Task.Run(() =>
         {
-            while (true)
+            while (!cancelTokenSource.IsCancellationRequested)
             { 
                 for (int i = 1; i <= 20; i++)
                 {

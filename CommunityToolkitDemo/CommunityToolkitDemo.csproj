@@ -11,6 +11,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Common" Version="8.1.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 	</ItemGroup>
 

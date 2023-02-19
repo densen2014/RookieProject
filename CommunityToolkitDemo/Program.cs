@@ -13,7 +13,7 @@ namespace CommunityToolkitDemo
 #if NET7_0_OR_GREATER
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
-            Application.Run(new Form2());
+            Application.Run(new Form1());
         }
     }
 }
