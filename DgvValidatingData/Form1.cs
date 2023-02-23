@@ -12,6 +12,13 @@ namespace DgvValidatingData
         {
             InitializeComponent();
 
+#if NET7_0_OR_GREATER
+            this.Text =  (".NET7");
+#elif NET6_0_OR_GREATER
+            this.Text =  (".NET6");
+#elif NET40_OR_GREATER
+            this.Text =  (".NET Framework 4.x");
+#endif
             var list = new List<Person>
             {
                 new Person
