@@ -7,13 +7,13 @@ namespace Extensions.Winforms;
 public class DataGridViewIntegerColumn : DataGridViewColumn
 {
     public DataGridViewIntegerColumn() : base(new DataGridViewNumericCell())
-    { 
+    {
     }
     public override DataGridViewCell CellTemplate
     {
         get
         {
-            return (DataGridViewNumericCell) base.CellTemplate;
+            return (DataGridViewNumericCell)base.CellTemplate;
         }
         set
         {
@@ -32,7 +32,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
     }
 
     public class DataGridViewNumericCell : DataGridViewTextBoxCell
-    { 
+    {
 
         public DataGridViewNumericCell()
             : base()
@@ -44,16 +44,19 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
             // Set the value of the editing control to the current cell value.
             base.InitializeEditingControl(rowIndex, initialFormattedValue,
                 dataGridViewCellStyle);
-            DataGridViewNumericEditingControl ctl =
-                DataGridView.EditingControl as DataGridViewNumericEditingControl;
+            DataGridViewNumericEditingControl? ctl =
+                DataGridView?.EditingControl as DataGridViewNumericEditingControl;
             // Use the default row value when Value property is null.
-            if (this.Value == null)
+            if (ctl != null)
             {
-                ctl.Value = (int)this.DefaultNewRowValue;
-            }
-            else
-            {
-                ctl.Value = (int)this.Value;
+                if (this.Value == null)
+                {
+                    ctl.Value = (int)this.DefaultNewRowValue;
+                }
+                else
+                {
+                    ctl.Value = (int)this.Value;
+                }
             }
         }
 
@@ -84,8 +87,8 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
                 return 0;
             }
         }
-         
-    } 
+
+    }
 
     public class DataGridViewNumericEditingControl : NumericUpDown,
         IDataGridViewEditingControl
@@ -96,8 +99,8 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
 
         public DataGridViewNumericEditingControl()
         {
-           this.Maximum = int.MaxValue;
-            
+            this.Maximum = int.MaxValue;
+
         }
 
         // Implements the IDataGridViewEditingControl.EditingControlFormattedValue
@@ -211,7 +214,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
 
         // Implements the IDataGridViewEditingControl
         // .EditingControlDataGridView property.
-        public DataGridView EditingControlDataGridView
+        public DataGridView? EditingControlDataGridView
         {
             get
             {
@@ -229,7 +232,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
         {
             get
             {
-                return valueChanged?? false;
+                return valueChanged ?? false;
             }
             set
             {
@@ -252,7 +255,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
             // Notify the DataGridView that the contents of the cell
             // have changed.
             valueChanged = true;
-            this.EditingControlDataGridView.NotifyCurrentCellDirty(true);
+            this.EditingControlDataGridView?.NotifyCurrentCellDirty(true);
             base.OnValueChanged(eventargs);
         }
     }

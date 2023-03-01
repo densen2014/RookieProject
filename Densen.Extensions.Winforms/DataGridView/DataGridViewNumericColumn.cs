@@ -53,21 +53,24 @@ public class DataGridViewNumericColumn : DataGridViewColumn
             // Set the value of the editing control to the current cell value.
             base.InitializeEditingControl(rowIndex, initialFormattedValue,
                 dataGridViewCellStyle);
-            DataGridViewNumericEditingControl ctl =
-                DataGridView.EditingControl as DataGridViewNumericEditingControl;
+            DataGridViewNumericEditingControl? ctl =
+                DataGridView?.EditingControl as DataGridViewNumericEditingControl;
             // Use the default row value when Value property is null.
-            if (this.Value == null)
+            if (ctl != null)
             {
-                ctl.Value = decimal.Round(decimal.Parse(this.DefaultNewRowValue.ToString()), DecimalPlaces);
+                if (this.Value == null)
+                {
+                    ctl.Value = decimal.Round(decimal.Parse(this.DefaultNewRowValue?.ToString()?? "0"), DecimalPlaces);
+                }
+                else
+                {
+                    ctl.Value = decimal.Round(decimal.Parse(this.Value?.ToString()??"0"), DecimalPlaces);
+                }
+                ctl.ThousandsSeparator = ThousandsSeparator;
+                ctl.DecimalPlaces = DecimalPlaces;
+                ctl.Minimum = Minimum;
+                ctl.Maximum = Maximum;
             }
-            else
-            {
-                ctl.Value = decimal.Round(decimal.Parse(this.Value.ToString()), DecimalPlaces);
-            }
-            ctl.ThousandsSeparator = ThousandsSeparator;
-            ctl.DecimalPlaces = DecimalPlaces;
-            ctl.Minimum = Minimum;
-            ctl.Maximum = Maximum;
 
         }
 
@@ -237,7 +240,7 @@ public class DataGridViewNumericColumn : DataGridViewColumn
     public class DataGridViewNumericEditingControl : NumericUpDown,
         IDataGridViewEditingControl
     {
-        DataGridView dataGridView;
+        DataGridView? dataGridView;
         private bool valueChanged = false;
         int rowIndex;
 
@@ -352,7 +355,7 @@ public class DataGridViewNumericColumn : DataGridViewColumn
 
         // Implements the IDataGridViewEditingControl
         // .EditingControlDataGridView property.
-        public DataGridView EditingControlDataGridView
+        public DataGridView? EditingControlDataGridView
         {
             get
             {
@@ -393,7 +396,7 @@ public class DataGridViewNumericColumn : DataGridViewColumn
             // Notify the DataGridView that the contents of the cell
             // have changed.
             valueChanged = true;
-            this.EditingControlDataGridView.NotifyCurrentCellDirty(true);
+            this.EditingControlDataGridView?.NotifyCurrentCellDirty(true);
             base.OnValueChanged(eventargs);
         }
     }

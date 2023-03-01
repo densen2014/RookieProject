@@ -23,7 +23,7 @@ public class BaseModel : IDataErrorInfo
                                       { MemberName = property },
                                       results);
             if (!result)
-                return results.First().ErrorMessage;
+                return results.First()?.ErrorMessage??"";
             return string.Empty;
         }
     }
@@ -39,7 +39,7 @@ public class BaseModel : IDataErrorInfo
             if (!result)
                 return string.Join("\n", results.Select(x => x.ErrorMessage));
             else
-                return null;
+                return "";
         }
     }
 }

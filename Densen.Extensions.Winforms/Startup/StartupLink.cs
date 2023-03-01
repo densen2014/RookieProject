@@ -81,7 +81,7 @@ public class AppLink
                 IShellLinkW link = (IShellLinkW)new ShellLink();
                 link.SetPath(AppPath);
                 link.SetDescription(AppName);
-                link.SetWorkingDirectory(Path.GetDirectoryName(AppPath));
+                link.SetWorkingDirectory(Path.GetDirectoryName(AppPath)??AppPath);
                 link.SetIconLocation(AppPath, 0);
                 IPersistFile file = (IPersistFile)link;
                 file.Save(AppLink, false);

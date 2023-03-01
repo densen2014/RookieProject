@@ -41,16 +41,19 @@ public class DataGridViewCalendarCell : DataGridViewTextBoxCell
         // Set the value of the editing control to the current cell value.
         base.InitializeEditingControl(rowIndex, initialFormattedValue,
             dataGridViewCellStyle);
-        DataGridViewCalendarEditingControl ctl =
-            DataGridView.EditingControl as DataGridViewCalendarEditingControl;
+        DataGridViewCalendarEditingControl? ctl =
+            DataGridView?.EditingControl as DataGridViewCalendarEditingControl;
         // Use the default row value when Value property is null.
-        if (this.Value == null)
+        if (ctl != null)
         {
-            ctl.Value = (DateTime)this.DefaultNewRowValue;
-        }
-        else
-        {
-            ctl.Value = (DateTime)this.Value;
+            if (this.Value == null)
+            {
+                ctl.Value = (DateTime)this.DefaultNewRowValue;
+            }
+            else
+            {
+                ctl.Value = (DateTime)this.Value;
+            }
         }
     }
 
@@ -158,7 +161,7 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
     {
         get
         {
-            return rowIndex??0;
+            return rowIndex ?? 0;
         }
         set
         {
@@ -207,11 +210,11 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
 
     // Implements the IDataGridViewEditingControl
     // .EditingControlDataGridView property.
-    public DataGridView EditingControlDataGridView
+    public DataGridView? EditingControlDataGridView
     {
         get
         {
-            return dataGridView??new DataGridView();
+            return dataGridView;
         }
         set
         {
@@ -225,7 +228,7 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
     {
         get
         {
-            return valueChanged??false;
+            return valueChanged ?? false;
         }
         set
         {
@@ -248,7 +251,7 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
         // Notify the DataGridView that the contents of the cell
         // have changed.
         valueChanged = true;
-        this.EditingControlDataGridView.NotifyCurrentCellDirty(true);
+        this.EditingControlDataGridView?.NotifyCurrentCellDirty(true);
         base.OnValueChanged(eventargs);
     }
 }
