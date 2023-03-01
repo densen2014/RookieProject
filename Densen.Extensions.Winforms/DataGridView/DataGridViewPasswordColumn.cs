@@ -52,7 +52,7 @@ public class DataGridViewPasswordColumn : DataGridViewTextBoxColumn
             DataGridViewCellStyle dataGridViewCellStyle)
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
-            ((TextBox)this.DataGridView.EditingControl).UseSystemPasswordChar = UsePasswordCharWhenEditing;
+            if (this.DataGridView!=null) ((TextBox)this.DataGridView.EditingControl).UseSystemPasswordChar = UsePasswordCharWhenEditing;
         }
         protected override void Paint(Graphics graphics, Rectangle clipBounds, Rectangle cellBounds,
             int rowIndex, DataGridViewElementStates cellState, object value, object formattedValue,
