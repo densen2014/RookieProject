@@ -17,7 +17,7 @@ public static class DataGridViewExtensions
             var properties = TypeDescriptor.GetProperties(typeof(T));
             var metedata = properties.Cast<PropertyDescriptor>().Select(p => new
             {
-                Name = p.Name,
+                p.Name,
                 HeaderText = p.Attributes.OfType<DisplayAttribute>()
                     .FirstOrDefault()?.Name ?? p.DisplayName,
                 ToolTipText = p.Attributes.OfType<DisplayAttribute>()
@@ -29,16 +29,16 @@ public static class DataGridViewExtensions
                 Format = p.Attributes.OfType<DisplayFormatAttribute>()
                     .FirstOrDefault()?.DataFormatString,
                 Type = p.PropertyType,
-                UIHint = p.Attributes.OfType<UIHintAttribute>()
+                p.Attributes.OfType<UIHintAttribute>()
                     .FirstOrDefault()?.UIHint
             });
             var columns = metedata.OrderBy(m => m.Order).Select(m =>
             {
                 DataGridViewColumn c;
                 if (!string.IsNullOrEmpty(m.UIHint) &&
-                UIHintMappings.DataGridViewColumns.ContainsKey(m.UIHint))
+                UIHintMappings.DataGridViewColumns.ContainsKey(m.UIHint??""))
                 {
-                    c = UIHintMappings.DataGridViewColumns[m.UIHint].Invoke();
+                    c = UIHintMappings.DataGridViewColumns[m.UIHint ?? ""].Invoke();
                 }
                 else
                 {

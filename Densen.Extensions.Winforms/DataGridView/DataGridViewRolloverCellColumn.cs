@@ -33,7 +33,7 @@ public class DataGridViewRolloverCell : DataGridViewTextBoxCell
 
         // Retrieve the client location of the mouse pointer.
         Point cursorPosition =
-            this.DataGridView.PointToClient(Cursor.Position);
+            this.DataGridView?.PointToClient(Cursor.Position)??new Point(0);
 
         // If the mouse pointer is over the current cell, draw a custom border.
         if (cellBounds.Contains(cursorPosition))
