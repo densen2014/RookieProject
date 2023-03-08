@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using PropertyChanged;
 using System.Diagnostics;
 using static WinFormsJsonTreeView.Rootobject;
 
@@ -16,20 +17,22 @@ namespace WinFormsJsonTreeView
             InitializeComponent();
 
             root = JsonConvert.DeserializeObject<Rootobject>(json);
+            var _json = JsonConvert.SerializeObject(root, setting2);
+            textBox1.Text = _json;
             var foo = new FooNode(root.data);
             treeView1.Nodes.Add(foo);
             treeView1.ExpandAll();
 
             treeView1.AfterSelect += ((x, s) =>
             {
-                if (s.Node is BarNode)
+                if (s.Node is BarNode || s.Node.Parent is BarNode)
                 {
-                    selectItem = ((BarNode)s.Node).Bar;
+                    selectItem = s.Node.Parent is BarNode? ((BarNode)s.Node.Parent).Bar : ((BarNode)s.Node).Bar;
                     dataGridView1.DataSource = new List<Forecast> { selectItem };
                 }
-                else if (s.Node is FooNode)
+                else if (s.Node is FooNode || s.Node.Parent is FooNode)
                 {
-                    dataGridView1.DataSource = new List<Data> { ((FooNode)s.Node).Foo };
+                    dataGridView1.DataSource = new List<Data> { s.Node.Parent is FooNode ? ((FooNode)s.Node.Parent).Foo : ((FooNode)s.Node).Foo };
                 }
             });
 
@@ -38,6 +41,7 @@ namespace WinFormsJsonTreeView
 
         }
 
+        [AddINotifyPropertyChangedInterface]
         private class FooNode : TreeNode
         {
             public FooNode(Data foo)
@@ -58,6 +62,7 @@ namespace WinFormsJsonTreeView
             }
         }
 
+        [AddINotifyPropertyChangedInterface]
         private class BarNode : TreeNode
         {
             public BarNode(Forecast bar)

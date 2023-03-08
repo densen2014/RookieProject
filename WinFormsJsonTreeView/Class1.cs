@@ -1,6 +1,7 @@
 ﻿using PropertyChanged;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,14 @@ namespace WinFormsJsonTreeView
         public int status { get; set; }
         public string city { get; set; }
         public int count { get; set; }
-        public Data data { get; set; }
+      
+       [OnChangedMethod(nameof(OnMyNameChanged))]
+       public Data data { get; set; }
+
+        private void OnMyNameChanged()
+        {
+            Debug.WriteLine("data changed");
+        }
 
         [AddINotifyPropertyChangedInterface]
         public class Data
@@ -33,6 +41,7 @@ namespace WinFormsJsonTreeView
         [AddINotifyPropertyChangedInterface]
         public class Yesterday
         {
+            [OnChangedMethod(nameof(OnMyNameChanged))]
             public string date { get; set; }
             public string sunrise { get; set; }
             public string high { get; set; }
@@ -43,6 +52,10 @@ namespace WinFormsJsonTreeView
             public string fl { get; set; }
             public string type { get; set; }
             public string notice { get; set; }
+            private void OnMyNameChanged()
+            {
+                Debug.WriteLine("data changed");
+            }
         }
 
         [AddINotifyPropertyChangedInterface]

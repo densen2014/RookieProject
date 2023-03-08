@@ -58,7 +58,7 @@
             splitContainer1.Panel2.Controls.Add(dataGridView1);
             splitContainer1.Panel2.Controls.Add(flowLayoutPanel1);
             splitContainer1.Size = new Size(1486, 949);
-            splitContainer1.SplitterDistance = 494;
+            splitContainer1.SplitterDistance = 488;
             splitContainer1.TabIndex = 0;
             // 
             // treeView1
@@ -67,7 +67,7 @@
             treeView1.HotTracking = true;
             treeView1.Location = new Point(0, 0);
             treeView1.Name = "treeView1";
-            treeView1.Size = new Size(494, 949);
+            treeView1.Size = new Size(488, 949);
             treeView1.TabIndex = 0;
             // 
             // dataGridView1
@@ -76,11 +76,11 @@
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 325);
+            dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 72;
             dataGridView1.RowTemplate.Height = 36;
-            dataGridView1.Size = new Size(988, 624);
+            dataGridView1.Size = new Size(994, 442);
             dataGridView1.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -88,10 +88,10 @@
             flowLayoutPanel1.Controls.Add(button1);
             flowLayoutPanel1.Controls.Add(button2);
             flowLayoutPanel1.Controls.Add(textBox1);
-            flowLayoutPanel1.Dock = DockStyle.Top;
-            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Dock = DockStyle.Bottom;
+            flowLayoutPanel1.Location = new Point(0, 442);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(988, 325);
+            flowLayoutPanel1.Size = new Size(994, 507);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // button1
@@ -118,7 +118,8 @@
             textBox1.Location = new Point(3, 49);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(973, 265);
+            textBox1.ScrollBars = ScrollBars.Both;
+            textBox1.Size = new Size(973, 442);
             textBox1.TabIndex = 2;
             // 
             // Form1
