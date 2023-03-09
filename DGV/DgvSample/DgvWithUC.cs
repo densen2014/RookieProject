@@ -11,27 +11,37 @@ using System.Windows.Forms.VisualStyles;
 
 namespace DgvSample
 {
-    public partial class DgvTextAndButton : Form
+    public partial class DgvWithUC : Form
     {
         DataGridView dataGridView1;
+        
+        List<ItemTest> ItemTests = new List<ItemTest>();
 
-        public DgvTextAndButton()
+        TextAndButtonControl txbtnControl;
+
+        ComboboxAndButtonControl cmbbtnControl;
+
+        PictureBoxAndButtonControl picbtnControl;
+
+        NumericupdownControl numericupdownbtnControl;
+
+        public DgvWithUC()
 
         {
 
             InitializeComponent();
             Application.VisualStyleState = VisualStyleState.NonClientAreaEnabled;
 
-            OpenFileDialog dlg = new OpenFileDialog(); 
-            // Show all files
-            dlg.Filter = null;
+            //OpenFileDialog dlg = new OpenFileDialog(); 
+            //// Show all files
+            //dlg.Filter = null;
 
-            dlg.ShowDialog();
+            //dlg.ShowDialog();
             dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 29);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23 ;
+            this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(620, 392);
             this.Controls.Add(this.dataGridView1);
 
@@ -43,23 +53,22 @@ namespace DgvSample
             this.dataGridView1.EditingControlShowing += (s, e) => dataGridView1_EditingControlShowing(s, e);
         }
 
-            List<ItemTest> ItemTests =new List<ItemTest>();
         void init()
         {
             for (int i = 0; i < 10; i++)
             {
                 var ctrlType = i < 3 ? CtrlType.TextAndButton : i % 2 == 0 ? CtrlType.ComboboxAndButton : CtrlType.PictureBoxAndButton;
-                ItemTests.Add(new ItemTest( i ,  "col1" + i.ToString() ,  "col2" + i.ToString(), ctrlType));
+                ItemTests.Add(new ItemTest(i, "col1" + i.ToString(), "col2" + i.ToString(), ctrlType));
             }
             for (int i = 10; i < 15; i++)
             {
-                var ctrlType =  CtrlType.TextBox;
-                ItemTests.Add(new ItemTest( i ,  "col1" + i.ToString() ,  "col2" + i.ToString(), ctrlType));
+                var ctrlType = CtrlType.TextBox;
+                ItemTests.Add(new ItemTest(i, "col1" + i.ToString(), "col2" + i.ToString(), ctrlType));
             }
             for (int i = 16; i < 18; i++)
             {
-                var ctrlType =  CtrlType.NumericupdownButton;
-                ItemTests.Add(new ItemTest( i ,  "col1" + i.ToString() ,  "col2" + i.ToString(), ctrlType));
+                var ctrlType = CtrlType.NumericupdownButton;
+                ItemTests.Add(new ItemTest(i, "col1" + i.ToString(), "col2" + i.ToString(), ctrlType));
             }
             this.dataGridView1.DataSource = ItemTests;
 
@@ -150,16 +159,6 @@ namespace DgvSample
         }
 
 
-
-        TextAndButtonControl txbtnControl;
-
-        ComboboxAndButtonControl cmbbtnControl;
-
-        PictureBoxAndButtonControl picbtnControl;
-
-        NumericupdownControl numericupdownbtnControl;
-
-
         void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
 
         {
@@ -208,12 +207,12 @@ namespace DgvSample
 
                 formater.Alignment = StringAlignment.Center;
 
-                e.Graphics.DrawString(cellStyle == 
-                    CtrlType.PictureBoxAndButton ? "图片框" : 
-                    cellStyle == CtrlType.TextAndButton ? "文本框" : 
-                    cellStyle == CtrlType.ComboboxAndButton?"combo框": 
-                    cellStyle == CtrlType.NumericupdownButton ? "Numeric框" : 
-                    cellStyle .ToString(), 
+                e.Graphics.DrawString(cellStyle ==
+                    CtrlType.PictureBoxAndButton ? "图片框" :
+                    cellStyle == CtrlType.TextAndButton ? "文本框" :
+                    cellStyle == CtrlType.ComboboxAndButton ? "combo框" :
+                    cellStyle == CtrlType.NumericupdownButton ? "Numeric框" :
+                    cellStyle.ToString(),
                     e.CellStyle.Font, new SolidBrush(e.CellStyle.ForeColor), btnRect, formater);
 
                 e.Handled = true;
@@ -301,7 +300,7 @@ namespace DgvSample
 
                     this.numericupdownbtnControl.Visible = true;
 
-                } 
+                }
             }
 
         }
@@ -432,399 +431,8 @@ namespace DgvSample
 
     }
 
-    enum CtrlType
-    {
-        TextBox,
-        ComboBox,
-        TextAndButton,
-        ComboboxAndButton,
-        PictureBoxAndButton,
-        NumericupdownButton
-    }
 
-    class ItemTest
-    {
-        public ItemTest(int ID, string Name, string Description, CtrlType CtrlType)
-        {
-            this.ID= ID;
-            this.Name = Name;
-            this.Description = Description;
-            this.CtrlType = CtrlType;
-        }
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public CtrlType CtrlType { get; set; }
-    }
 
-    class TextAndButtonControl : UserControl
-
-    {
-
-        private TextBox textbox1;
-
-        private Button button1;
-
-
-
-        public TextAndButtonControl()
-
-        {
-
-            this.textbox1 = new TextBox();
-
-            this.Controls.Add(this.textbox1);
-
-
-
-            this.button1 = new Button();
-
-            this.Controls.Add(this.button1);
-
-
-
-            this.renderControl();
-
-            this.button1.Click += new EventHandler(button1_Click);
-
-        }
-
-
-
-        void button1_Click(object sender, EventArgs e)
-
-        {
-
-            MessageBox.Show("Click! The value is:" + this.Text);
-
-        }
-
-
-
-        public string Text
-
-        {
-
-            get { return this.textbox1.Text; }
-
-            set { this.textbox1.Text = value; }
-
-        }
-
-
-
-        public string ButtonText
-
-        {
-
-            get { return this.button1.Text; }
-
-            set { this.button1.Text = value; }
-
-        }
-
-
-
-        public void renderControl()
-
-        {
-
-            this.textbox1.Location = new Point(0, 0);
-
-            this.textbox1.Width = 2 * this.Width / 3;
-
-            this.textbox1.Height = this.Height;
-
-
-
-            this.button1.Location = new Point(2 * this.Width / 3, 0);
-
-            this.button1.Width = this.Width / 3;
-
-            this.button1.Height = this.Height;
-
-        }
-
-    }
-    class ComboboxAndButtonControl : UserControl
-
-    {
-
-        public ComboBox comboBox1;
-
-        private Button button1;
-
-        public object DataSource;
-
-
-
-        public ComboboxAndButtonControl()
-
-        {
-
-            this.comboBox1 = new ComboBox();
-
-            //this.comboBox1.DataSource = DataSource ?? new int[] { 1, 2, 3, 4, 5, 6, 100 };
-
-            this.Controls.Add(this.comboBox1);
-
-
-
-            this.button1 = new Button();
-
-            this.Controls.Add(this.button1);
-
-
-
-            this.renderControl();
-
-            this.button1.Click += new EventHandler(button1_Click);
-
-        }
-
-
-
-        void button1_Click(object sender, EventArgs e)
-
-        {
-
-            MessageBox.Show("Click! The value is:" + this.Text);
-
-        }
-
-
-
-        public string Text
-
-        {
-
-            get { return this.comboBox1.Text; }
-
-            set { this.comboBox1.Text = value; }
-
-        }
-
-
-
-        public string ButtonText
-
-        {
-
-            get { return this.button1.Text; }
-
-            set { this.button1.Text = value; }
-
-        }
-
-
-
-        public void renderControl()
-
-        {
-
-            this.comboBox1.Location = new Point(0, 0);
-
-            this.comboBox1.Width = 2 * this.Width / 3;
-
-            this.comboBox1.Height = this.Height;
-
-
-
-            this.button1.Location = new Point(2 * this.Width / 3, 0);
-
-            this.button1.Width = this.Width / 3;
-
-            this.button1.Height = this.Height;
-
-        }
-
-    }
-    class PictureBoxAndButtonControl : UserControl
-
-    {
-
-        private PictureBox pictureBox1;
-
-        private Button button1;
-
-
-
-        public PictureBoxAndButtonControl()
-
-        {
-
-            this.pictureBox1 = new PictureBox();
-
-            this.pictureBox1.BackColor = Color.Red;
-
-            this.pictureBox1.Image = Image.FromFile("dslogo.jpg");
-
-            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            this.Controls.Add(this.pictureBox1);
-
-
-
-            this.button1 = new Button();
-
-            this.Controls.Add(this.button1);
-
-
-
-            this.renderControl();
-
-            this.button1.Click += new EventHandler(button1_Click);
-
-        }
-
-
-
-        void button1_Click(object sender, EventArgs e)
-
-        {
-
-            MessageBox.Show("Click! The value is:" + this.Text);
-
-        }
-
-
-
-        public string Text
-
-        {
-
-            get { return this.pictureBox1.Text; }
-
-            set { this.pictureBox1.Text = value; }
-
-        }
-
-
-
-        public string ButtonText
-
-        {
-
-            get { return this.button1.Text; }
-
-            set { this.button1.Text = value; }
-
-        }
-
-
-
-        public void renderControl()
-
-        {
-
-            this.pictureBox1.Location = new Point(0, 0);
-
-            this.pictureBox1.Width = 2 * this.Width / 3;
-
-            this.pictureBox1.Height = this.Height;
-
-
-
-            this.button1.Location = new Point(2 * this.Width / 3, 0);
-
-            this.button1.Width = this.Width / 3;
-
-            this.button1.Height = this.Height;
-
-        }
-
-    }
-    class NumericupdownControl : UserControl
-
-    {
-
-        private NumericUpDown numericUpDown;
-
-        private Button button1;
-
-
-
-        public NumericupdownControl()
-
-        {
-
-            this.numericUpDown = new NumericUpDown();
-
-            this.numericUpDown.BackColor = Color.Red;
-
-            this.Controls.Add(this.numericUpDown);
-
-
-
-            this.button1 = new Button();
-
-            this.Controls.Add(this.button1);
-
-
-
-            this.renderControl();
-
-            this.button1.Click += new EventHandler(button1_Click);
-
-        }
-
-
-
-        void button1_Click(object sender, EventArgs e)
-
-        {
-
-            MessageBox.Show("Click! The value is:" + this.Text);
-
-        }
-
-
-
-        public decimal Value
-
-        {
-
-            get { return this.numericUpDown.Value; }
-
-            set { this.numericUpDown.Value = value; }
-
-        }
-
-
-
-        public string ButtonText
-
-        {
-
-            get { return this.button1.Text; }
-
-            set { this.button1.Text = value; }
-
-        }
-
-
-
-        public void renderControl()
-
-        {
-
-            this.numericUpDown.Location = new Point(0, 0);
-
-            this.numericUpDown.Width = 2 * this.Width / 3;
-
-            this.numericUpDown.Height = this.Height;
-
-
-
-            this.button1.Location = new Point(2 * this.Width / 3, 0);
-
-            this.button1.Width = this.Width / 3;
-
-            this.button1.Height = this.Height;
-
-        }
-
-    }
 
 }
 

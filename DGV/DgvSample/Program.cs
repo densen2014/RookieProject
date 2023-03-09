@@ -16,7 +16,7 @@ namespace DgvSample
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DgvTextAndButton());
+            Application.Run(new DgvWithUC());
         }
     }
 }

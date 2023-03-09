@@ -46,16 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DgvTextAndButton.cs">
+    <Compile Include="ItemTest.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="NumericupdownControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PictureBoxAndButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComboboxAndButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TextAndButtonControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DgvWithUC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DgvTextAndButton.Designer.cs">
-      <DependentUpon>DgvTextAndButton.cs</DependentUpon>
+    <Compile Include="DgvWithUC.Designer.cs">
+      <DependentUpon>DgvWithUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DgvTextAndButton.resx">
-      <DependentUpon>DgvTextAndButton.cs</DependentUpon>
+    <EmbeddedResource Include="DgvWithUC.resx">
+      <DependentUpon>DgvWithUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +80,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
