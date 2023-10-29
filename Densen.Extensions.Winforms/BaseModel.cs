@@ -1,6 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace Extensions.Winforms;
@@ -23,7 +29,7 @@ public class BaseModel : IDataErrorInfo
                                       { MemberName = property },
                                       results);
             if (!result)
-                return results.First()?.ErrorMessage??"";
+                return results.First()?.ErrorMessage ?? "";
             return string.Empty;
         }
     }

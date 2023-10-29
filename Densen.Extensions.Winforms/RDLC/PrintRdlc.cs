@@ -1,10 +1,8 @@
-﻿//using Microsoft.Reporting.WinForms;
-//using System;
-//using System.Collections.Generic;
-//using System.Drawing;
-//using System.Drawing.Imaging;
-//using System.Drawing.Printing;
-//using System.IO;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
 
 //namespace Extensions.Winforms;
 //public static class LocalReportExtensions

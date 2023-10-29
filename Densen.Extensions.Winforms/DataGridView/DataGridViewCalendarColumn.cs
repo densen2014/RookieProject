@@ -1,4 +1,10 @@
-﻿using System;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
+using System;
 using System.Windows.Forms;
 
 namespace Extensions.Winforms;
@@ -41,18 +47,16 @@ public class DataGridViewCalendarCell : DataGridViewTextBoxCell
         // Set the value of the editing control to the current cell value.
         base.InitializeEditingControl(rowIndex, initialFormattedValue,
             dataGridViewCellStyle);
-        DataGridViewCalendarEditingControl? ctl =
-            DataGridView?.EditingControl as DataGridViewCalendarEditingControl;
         // Use the default row value when Value property is null.
-        if (ctl != null)
+        if (DataGridView?.EditingControl is DataGridViewCalendarEditingControl ctl)
         {
-            if (this.Value == null)
+            if (Value == null)
             {
-                ctl.Value = (DateTime)this.DefaultNewRowValue;
+                ctl.Value = (DateTime)DefaultNewRowValue;
             }
             else
             {
-                ctl.Value = (DateTime)this.Value;
+                ctl.Value = (DateTime)Value;
             }
         }
     }
@@ -90,9 +94,8 @@ public class DataGridViewCalendarCell : DataGridViewTextBoxCell
 public class DataGridViewCalendarEditingControl : DateTimePicker,
     IDataGridViewEditingControl
 {
-    DataGridView? dataGridView;
     private bool? valueChanged = false;
-    int? rowIndex;
+    private int? rowIndex;
 
     public DataGridViewCalendarEditingControl()
     {
@@ -105,7 +108,7 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
     {
         get
         {
-            return this.Value.ToShortDateString();
+            return Value.ToShortDateString();
         }
         set
         {
@@ -115,14 +118,14 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
                 {
                     // This will throw an exception of the string is
                     // null, empty, or not in the format of a date.
-                    this.Value = DateTime.Parse((String)value);
+                    Value = DateTime.Parse((String)value);
                 }
                 catch
                 {
                     // In the case of an exception, just use the
                     // default value so we're not left with a null
                     // value.
-                    this.Value = DateTime.Now;
+                    Value = DateTime.Now;
                 }
             }
         }
@@ -141,17 +144,17 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
     public void ApplyCellStyleToEditingControl(
         DataGridViewCellStyle dataGridViewCellStyle)
     {
-        this.Font = dataGridViewCellStyle.Font;
-        this.CalendarForeColor = dataGridViewCellStyle.ForeColor;
-        this.CalendarMonthBackground = dataGridViewCellStyle.BackColor;
+        Font = dataGridViewCellStyle.Font;
+        CalendarForeColor = dataGridViewCellStyle.ForeColor;
+        CalendarMonthBackground = dataGridViewCellStyle.BackColor;
         if (!string.IsNullOrEmpty(dataGridViewCellStyle.Format))
         {
-            this.Format = DateTimePickerFormat.Custom;
-            this.CustomFormat = dataGridViewCellStyle.Format;
+            Format = DateTimePickerFormat.Custom;
+            CustomFormat = dataGridViewCellStyle.Format;
         }
         else
         {
-            this.Format = DateTimePickerFormat.Short;
+            Format = DateTimePickerFormat.Short;
         }
     }
 
@@ -175,20 +178,11 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
         Keys key, bool dataGridViewWantsInputKey)
     {
         // Let the DateTimePicker handle the keys listed.
-        switch (key & Keys.KeyCode)
+        return (key & Keys.KeyCode) switch
         {
-            case Keys.Left:
-            case Keys.Up:
-            case Keys.Down:
-            case Keys.Right:
-            case Keys.Home:
-            case Keys.End:
-            case Keys.PageDown:
-            case Keys.PageUp:
-                return true;
-            default:
-                return !dataGridViewWantsInputKey;
-        }
+            Keys.Left or Keys.Up or Keys.Down or Keys.Right or Keys.Home or Keys.End or Keys.PageDown or Keys.PageUp => true,
+            _ => !dataGridViewWantsInputKey,
+        };
     }
 
     // Implements the IDataGridViewEditingControl.PrepareEditingControlForEdit
@@ -210,17 +204,7 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
 
     // Implements the IDataGridViewEditingControl
     // .EditingControlDataGridView property.
-    public DataGridView? EditingControlDataGridView
-    {
-        get
-        {
-            return dataGridView;
-        }
-        set
-        {
-            dataGridView = value;
-        }
-    }
+    public DataGridView? EditingControlDataGridView { get; set; }
 
     // Implements the IDataGridViewEditingControl
     // .EditingControlValueChanged property.
@@ -251,7 +235,7 @@ public class DataGridViewCalendarEditingControl : DateTimePicker,
         // Notify the DataGridView that the contents of the cell
         // have changed.
         valueChanged = true;
-        this.EditingControlDataGridView?.NotifyCurrentCellDirty(true);
+        EditingControlDataGridView?.NotifyCurrentCellDirty(true);
         base.OnValueChanged(eventargs);
     }
 }

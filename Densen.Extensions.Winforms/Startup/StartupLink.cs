@@ -1,4 +1,10 @@
-﻿using System;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
+using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
@@ -9,7 +15,7 @@ namespace Extensions.Winforms;
 
 [ComImport]
 [Guid("00021401-0000-0000-C000-000000000046")]
-class ShellLink
+internal class ShellLink
 {
 }
 
@@ -17,7 +23,7 @@ class ShellLink
 [ComImport()]
 [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 [Guid("000214F9-0000-0000-C000-000000000046")]
-interface IShellLinkW
+internal interface IShellLinkW
 {
     /// <summary>Retrieves the path and file name of a Shell link object</summary>
     void GetPath([Out(), MarshalAs(UnmanagedType.LPWStr)] StringBuilder pszFile, int cchMaxPath, out IntPtr pfd, int fFlags);
@@ -60,12 +66,12 @@ interface IShellLinkW
 
 public class AppLink
 {
-    public static bool CreateAppLink(bool Startup = false, bool Delete = false, bool UseApplicationProductName = true,string? ProductName=null)
+    public static bool CreateAppLink(bool Startup = false, bool Delete = false, bool UseApplicationProductName = true, string? ProductName = null)
     {
         string AppPath = Application.ExecutablePath;
-        string AppName = ProductName ?? 
-            (UseApplicationProductName ? Application.ProductName: Path.GetFileNameWithoutExtension(AppPath));
-        string AppLink = Environment.GetFolderPath(Startup ?  Environment.SpecialFolder.Startup: Environment.SpecialFolder.Desktop ) + "\\" + AppName + ".lnk";
+        string AppName = ProductName ??
+            (UseApplicationProductName ? Application.ProductName : Path.GetFileNameWithoutExtension(AppPath));
+        string AppLink = Environment.GetFolderPath(Startup ? Environment.SpecialFolder.Startup : Environment.SpecialFolder.Desktop) + "\\" + AppName + ".lnk";
         if (Delete)
         {
             if (File.Exists(AppLink))
@@ -81,7 +87,7 @@ public class AppLink
                 IShellLinkW link = (IShellLinkW)new ShellLink();
                 link.SetPath(AppPath);
                 link.SetDescription(AppName);
-                link.SetWorkingDirectory(Path.GetDirectoryName(AppPath)??AppPath);
+                link.SetWorkingDirectory(Path.GetDirectoryName(AppPath) ?? AppPath);
                 link.SetIconLocation(AppPath, 0);
                 IPersistFile file = (IPersistFile)link;
                 file.Save(AppLink, false);

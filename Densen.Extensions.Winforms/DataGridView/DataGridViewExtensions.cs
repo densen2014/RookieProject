@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
@@ -36,7 +42,7 @@ public static class DataGridViewExtensions
             {
                 DataGridViewColumn c;
                 if (!string.IsNullOrEmpty(m.UIHint) &&
-                UIHintMappings.DataGridViewColumns.ContainsKey(m.UIHint??""))
+                UIHintMappings.DataGridViewColumns.ContainsKey(m.UIHint ?? ""))
                 {
                     c = UIHintMappings.DataGridViewColumns[m.UIHint ?? ""].Invoke();
                 }

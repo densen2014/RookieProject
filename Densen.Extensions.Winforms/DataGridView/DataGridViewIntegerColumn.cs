@@ -1,5 +1,10 @@
-﻿using System;
-using System.ComponentModel;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
+using System;
 using System.Windows.Forms;
 
 namespace Extensions.Winforms;
@@ -28,7 +33,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
     }
     private DataGridViewNumericCell DataGridViewNumericCellTemplate
     {
-        get { return (DataGridViewNumericCell)this.CellTemplate; }
+        get { return (DataGridViewNumericCell)CellTemplate; }
     }
 
     public class DataGridViewNumericCell : DataGridViewTextBoxCell
@@ -44,18 +49,16 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
             // Set the value of the editing control to the current cell value.
             base.InitializeEditingControl(rowIndex, initialFormattedValue,
                 dataGridViewCellStyle);
-            DataGridViewNumericEditingControl? ctl =
-                DataGridView?.EditingControl as DataGridViewNumericEditingControl;
             // Use the default row value when Value property is null.
-            if (ctl != null)
+            if (DataGridView?.EditingControl is DataGridViewNumericEditingControl ctl)
             {
-                if (this.Value == null)
+                if (Value == null)
                 {
-                    ctl.Value = (int)this.DefaultNewRowValue;
+                    ctl.Value = (int)DefaultNewRowValue;
                 }
                 else
                 {
-                    ctl.Value = (int)this.Value;
+                    ctl.Value = (int)Value;
                 }
             }
         }
@@ -93,13 +96,12 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
     public class DataGridViewNumericEditingControl : NumericUpDown,
         IDataGridViewEditingControl
     {
-        DataGridView? dataGridView;
         private bool? valueChanged = false;
-        int? rowIndex;
+        private int? rowIndex;
 
         public DataGridViewNumericEditingControl()
         {
-            this.Maximum = int.MaxValue;
+            Maximum = int.MaxValue;
 
         }
 
@@ -109,7 +111,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
         {
             get
             {
-                return Convert.ToInt32(this.Value).ToString();
+                return Convert.ToInt32(Value).ToString();
             }
             set
             {
@@ -119,14 +121,14 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
                     {
                         // This will throw an exception of the string is
                         // null, empty, or not in the format of a int.
-                        this.Value = int.Parse((string)value);
+                        Value = int.Parse((string)value);
                     }
                     catch
                     {
                         // In the case of an exception, just use the
                         // default value so we're not left with a null
                         // value.
-                        this.Value = 0;
+                        Value = 0;
                     }
                 }
             }
@@ -145,9 +147,9 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
         public void ApplyCellStyleToEditingControl(
             DataGridViewCellStyle dataGridViewCellStyle)
         {
-            this.Font = dataGridViewCellStyle.Font;
-            this.ForeColor = dataGridViewCellStyle.ForeColor;
-            this.BackColor = dataGridViewCellStyle.BackColor;
+            Font = dataGridViewCellStyle.Font;
+            ForeColor = dataGridViewCellStyle.ForeColor;
+            BackColor = dataGridViewCellStyle.BackColor;
             if (!string.IsNullOrEmpty(dataGridViewCellStyle.Format))
             {
                 //this.Format = DateTimePickerFormat.Custom;
@@ -179,20 +181,11 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
             Keys key, bool dataGridViewWantsInputKey)
         {
             // Let the DateTimePicker handle the keys listed.
-            switch (key & Keys.KeyCode)
+            return (key & Keys.KeyCode) switch
             {
-                case Keys.Left:
-                case Keys.Up:
-                case Keys.Down:
-                case Keys.Right:
-                case Keys.Home:
-                case Keys.End:
-                case Keys.PageDown:
-                case Keys.PageUp:
-                    return true;
-                default:
-                    return !dataGridViewWantsInputKey;
-            }
+                Keys.Left or Keys.Up or Keys.Down or Keys.Right or Keys.Home or Keys.End or Keys.PageDown or Keys.PageUp => true,
+                _ => !dataGridViewWantsInputKey,
+            };
         }
 
         // Implements the IDataGridViewEditingControl.PrepareEditingControlForEdit
@@ -214,17 +207,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
 
         // Implements the IDataGridViewEditingControl
         // .EditingControlDataGridView property.
-        public DataGridView? EditingControlDataGridView
-        {
-            get
-            {
-                return dataGridView;
-            }
-            set
-            {
-                dataGridView = value;
-            }
-        }
+        public DataGridView? EditingControlDataGridView { get; set; }
 
         // Implements the IDataGridViewEditingControl
         // .EditingControlValueChanged property.
@@ -255,7 +238,7 @@ public class DataGridViewIntegerColumn : DataGridViewColumn
             // Notify the DataGridView that the contents of the cell
             // have changed.
             valueChanged = true;
-            this.EditingControlDataGridView?.NotifyCurrentCellDirty(true);
+            EditingControlDataGridView?.NotifyCurrentCellDirty(true);
             base.OnValueChanged(eventargs);
         }
     }

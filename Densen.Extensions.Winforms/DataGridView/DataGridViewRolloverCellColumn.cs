@@ -1,4 +1,10 @@
-﻿using System.Drawing;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Extensions.Winforms;
@@ -7,7 +13,7 @@ public class DataGridViewRolloverCellColumn : DataGridViewColumn
 {
     public DataGridViewRolloverCellColumn()
     {
-        this.CellTemplate = new DataGridViewRolloverCell();
+        CellTemplate = new DataGridViewRolloverCell();
     }
 }
 
@@ -33,7 +39,7 @@ public class DataGridViewRolloverCell : DataGridViewTextBoxCell
 
         // Retrieve the client location of the mouse pointer.
         Point cursorPosition =
-            this.DataGridView?.PointToClient(Cursor.Position)??new Point(0);
+            DataGridView?.PointToClient(Cursor.Position) ?? new Point(0);
 
         // If the mouse pointer is over the current cell, draw a custom border.
         if (cellBounds.Contains(cursorPosition))
@@ -48,13 +54,13 @@ public class DataGridViewRolloverCell : DataGridViewTextBoxCell
     // Force the cell to repaint itself when the mouse pointer enters it.
     protected override void OnMouseEnter(int rowIndex)
     {
-        this.DataGridView?.InvalidateCell(this);
+        DataGridView?.InvalidateCell(this);
     }
 
     // Force the cell to repaint itself when the mouse pointer leaves it.
     protected override void OnMouseLeave(int rowIndex)
     {
-        this.DataGridView?.InvalidateCell(this);
+        DataGridView?.InvalidateCell(this);
     }
 
 }

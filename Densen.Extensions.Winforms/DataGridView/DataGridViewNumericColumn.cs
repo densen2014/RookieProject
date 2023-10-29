@@ -1,4 +1,10 @@
-﻿using System;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
+using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -8,7 +14,7 @@ public class DataGridViewNumericColumn : DataGridViewColumn
 {
     public DataGridViewNumericColumn() : base(new DataGridViewNumericCell())
     {
-        this.CellTemplate = new DataGridViewNumericCell();
+        CellTemplate = new DataGridViewNumericCell();
     }
     public override DataGridViewCell CellTemplate
     {
@@ -29,7 +35,7 @@ public class DataGridViewNumericColumn : DataGridViewColumn
     }
     private DataGridViewNumericCell DataGridViewNumericCellTemplate
     {
-        get { return (DataGridViewNumericCell)this.CellTemplate; }
+        get { return (DataGridViewNumericCell)CellTemplate; }
     }
 
     public class DataGridViewNumericCell : DataGridViewTextBoxCell
@@ -53,18 +59,16 @@ public class DataGridViewNumericColumn : DataGridViewColumn
             // Set the value of the editing control to the current cell value.
             base.InitializeEditingControl(rowIndex, initialFormattedValue,
                 dataGridViewCellStyle);
-            DataGridViewNumericEditingControl? ctl =
-                DataGridView?.EditingControl as DataGridViewNumericEditingControl;
             // Use the default row value when Value property is null.
-            if (ctl != null)
+            if (DataGridView?.EditingControl is DataGridViewNumericEditingControl ctl)
             {
-                if (this.Value == null)
+                if (Value == null)
                 {
-                    ctl.Value = decimal.Round(decimal.Parse(this.DefaultNewRowValue?.ToString()?? "0"), DecimalPlaces);
+                    ctl.Value = decimal.Round(decimal.Parse(DefaultNewRowValue?.ToString() ?? "0"), DecimalPlaces);
                 }
                 else
                 {
-                    ctl.Value = decimal.Round(decimal.Parse(this.Value?.ToString()??"0"), DecimalPlaces);
+                    ctl.Value = decimal.Round(decimal.Parse(Value?.ToString() ?? "0"), DecimalPlaces);
                 }
                 ctl.ThousandsSeparator = ThousandsSeparator;
                 ctl.DecimalPlaces = DecimalPlaces;
@@ -106,10 +110,10 @@ public class DataGridViewNumericColumn : DataGridViewColumn
         public override object Clone()
         {
             var c = (DataGridViewNumericCell)base.Clone();
-            c.ThousandsSeparator = this.ThousandsSeparator;
-            c.DecimalPlaces = this.DecimalPlaces;
-            c.Minimum = this.Minimum;
-            c.Maximum = this.Maximum;
+            c.ThousandsSeparator = ThousandsSeparator;
+            c.DecimalPlaces = DecimalPlaces;
+            c.Minimum = Minimum;
+            c.Maximum = Maximum;
             return c;
 
         }
@@ -125,16 +129,14 @@ public class DataGridViewNumericColumn : DataGridViewColumn
         {
             if (DataGridViewNumericCellTemplate != null)
                 DataGridViewNumericCellTemplate.ThousandsSeparator = value;
-            if (this.DataGridView != null)
+            if (DataGridView != null)
             {
-                var dataGridViewRows = this.DataGridView.Rows;
+                var dataGridViewRows = DataGridView.Rows;
                 var rowCount = dataGridViewRows.Count;
                 for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                 {
                     var dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                    var dataGridViewCell = dataGridViewRow.Cells[this.Index]
-                        as DataGridViewNumericCell;
-                    if (dataGridViewCell != null)
+                    if (dataGridViewRow.Cells[Index] is DataGridViewNumericCell dataGridViewCell)
                     {
                         dataGridViewCell.ThousandsSeparator = value;
                     }
@@ -154,16 +156,14 @@ public class DataGridViewNumericColumn : DataGridViewColumn
         {
             if (DataGridViewNumericCellTemplate != null)
                 DataGridViewNumericCellTemplate.DecimalPlaces = value;
-            if (this.DataGridView != null)
+            if (DataGridView != null)
             {
-                var dataGridViewRows = this.DataGridView.Rows;
+                var dataGridViewRows = DataGridView.Rows;
                 var rowCount = dataGridViewRows.Count;
                 for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                 {
                     var dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                    var dataGridViewCell = dataGridViewRow.Cells[this.Index]
-                        as DataGridViewNumericCell;
-                    if (dataGridViewCell != null)
+                    if (dataGridViewRow.Cells[Index] is DataGridViewNumericCell dataGridViewCell)
                     {
                         dataGridViewCell.DecimalPlaces = value;
                     }
@@ -186,16 +186,14 @@ public class DataGridViewNumericColumn : DataGridViewColumn
         {
             if (DataGridViewNumericCellTemplate != null)
                 DataGridViewNumericCellTemplate.Minimum = value;
-            if (this.DataGridView != null)
+            if (DataGridView != null)
             {
-                var dataGridViewRows = this.DataGridView.Rows;
+                var dataGridViewRows = DataGridView.Rows;
                 var rowCount = dataGridViewRows.Count;
                 for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                 {
                     var dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                    var dataGridViewCell = dataGridViewRow.Cells[this.Index]
-                        as DataGridViewNumericCell;
-                    if (dataGridViewCell != null)
+                    if (dataGridViewRow.Cells[Index] is DataGridViewNumericCell dataGridViewCell)
                     {
                         dataGridViewCell.Minimum = value;
                     }
@@ -217,16 +215,14 @@ public class DataGridViewNumericColumn : DataGridViewColumn
         {
             if (DataGridViewNumericCellTemplate != null)
                 DataGridViewNumericCellTemplate.Maximum = value;
-            if (this.DataGridView != null)
+            if (DataGridView != null)
             {
-                var dataGridViewRows = this.DataGridView.Rows;
+                var dataGridViewRows = DataGridView.Rows;
                 var rowCount = dataGridViewRows.Count;
                 for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                 {
                     var dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                    var dataGridViewCell = dataGridViewRow.Cells[this.Index]
-                        as DataGridViewNumericCell;
-                    if (dataGridViewCell != null)
+                    if (dataGridViewRow.Cells[Index] is DataGridViewNumericCell dataGridViewCell)
                     {
                         dataGridViewCell.Maximum = value;
                     }
@@ -240,16 +236,12 @@ public class DataGridViewNumericColumn : DataGridViewColumn
     public class DataGridViewNumericEditingControl : NumericUpDown,
         IDataGridViewEditingControl
     {
-        DataGridView? dataGridView;
-        private bool valueChanged = false;
-        int rowIndex;
-
         public DataGridViewNumericEditingControl()
         {
-            this.ThousandsSeparator = false;
-            this.DecimalPlaces = 2;
-            this.Minimum = 0;
-            this.Maximum = int.MaxValue;
+            ThousandsSeparator = false;
+            DecimalPlaces = 2;
+            Minimum = 0;
+            Maximum = int.MaxValue;
 
         }
 
@@ -259,7 +251,7 @@ public class DataGridViewNumericColumn : DataGridViewColumn
         {
             get
             {
-                return decimal.Round(this.Value, DecimalPlaces).ToString();
+                return decimal.Round(Value, DecimalPlaces).ToString();
             }
             set
             {
@@ -269,14 +261,14 @@ public class DataGridViewNumericColumn : DataGridViewColumn
                     {
                         // This will throw an exception of the string is
                         // null, empty, or not in the format of a date.
-                        this.Value = decimal.Parse((string)value);
+                        Value = decimal.Parse((string)value);
                     }
                     catch
                     {
                         // In the case of an exception, just use the
                         // default value so we're not left with a null
                         // value.
-                        this.Value = 0;
+                        Value = 0;
                     }
                 }
             }
@@ -295,24 +287,14 @@ public class DataGridViewNumericColumn : DataGridViewColumn
         public void ApplyCellStyleToEditingControl(
             DataGridViewCellStyle dataGridViewCellStyle)
         {
-            this.Font = dataGridViewCellStyle.Font;
-            this.ForeColor = dataGridViewCellStyle.ForeColor;
-            this.BackColor = dataGridViewCellStyle.BackColor;
+            Font = dataGridViewCellStyle.Font;
+            ForeColor = dataGridViewCellStyle.ForeColor;
+            BackColor = dataGridViewCellStyle.BackColor;
         }
 
         // Implements the IDataGridViewEditingControl.EditingControlRowIndex
         // property.
-        public int EditingControlRowIndex
-        {
-            get
-            {
-                return rowIndex;
-            }
-            set
-            {
-                rowIndex = value;
-            }
-        }
+        public int EditingControlRowIndex { get; set; }
 
         // Implements the IDataGridViewEditingControl.EditingControlWantsInputKey
         // method.
@@ -320,20 +302,11 @@ public class DataGridViewNumericColumn : DataGridViewColumn
             Keys key, bool dataGridViewWantsInputKey)
         {
             // Let the DateTimePicker handle the keys listed.
-            switch (key & Keys.KeyCode)
+            return (key & Keys.KeyCode) switch
             {
-                case Keys.Left:
-                case Keys.Up:
-                case Keys.Down:
-                case Keys.Right:
-                case Keys.Home:
-                case Keys.End:
-                case Keys.PageDown:
-                case Keys.PageUp:
-                    return true;
-                default:
-                    return !dataGridViewWantsInputKey;
-            }
+                Keys.Left or Keys.Up or Keys.Down or Keys.Right or Keys.Home or Keys.End or Keys.PageDown or Keys.PageUp => true,
+                _ => !dataGridViewWantsInputKey,
+            };
         }
 
         // Implements the IDataGridViewEditingControl.PrepareEditingControlForEdit
@@ -355,31 +328,11 @@ public class DataGridViewNumericColumn : DataGridViewColumn
 
         // Implements the IDataGridViewEditingControl
         // .EditingControlDataGridView property.
-        public DataGridView? EditingControlDataGridView
-        {
-            get
-            {
-                return dataGridView;
-            }
-            set
-            {
-                dataGridView = value;
-            }
-        }
+        public DataGridView? EditingControlDataGridView { get; set; }
 
         // Implements the IDataGridViewEditingControl
         // .EditingControlValueChanged property.
-        public bool EditingControlValueChanged
-        {
-            get
-            {
-                return valueChanged;
-            }
-            set
-            {
-                valueChanged = value;
-            }
-        }
+        public bool EditingControlValueChanged { get; set; } = false;
 
         // Implements the IDataGridViewEditingControl
         // .EditingPanelCursor property.
@@ -395,8 +348,8 @@ public class DataGridViewNumericColumn : DataGridViewColumn
         {
             // Notify the DataGridView that the contents of the cell
             // have changed.
-            valueChanged = true;
-            this.EditingControlDataGridView?.NotifyCurrentCellDirty(true);
+            EditingControlValueChanged = true;
+            EditingControlDataGridView?.NotifyCurrentCellDirty(true);
             base.OnValueChanged(eventargs);
         }
     }

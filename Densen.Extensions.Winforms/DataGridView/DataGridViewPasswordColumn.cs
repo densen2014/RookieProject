@@ -1,4 +1,10 @@
-﻿using System.Drawing;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Extensions.Winforms;
@@ -7,11 +13,11 @@ public class DataGridViewPasswordColumn : DataGridViewTextBoxColumn
 {
     public DataGridViewPasswordColumn()
     {
-        this.CellTemplate = new DataGriViewPasswordCell();
+        CellTemplate = new DataGriViewPasswordCell();
     }
     private DataGriViewPasswordCell PasswordCellTemplate
     {
-        get { return (DataGriViewPasswordCell)this.CellTemplate; }
+        get { return (DataGriViewPasswordCell)CellTemplate; }
     }
 
     public bool UsePasswordCharWhenEditing
@@ -24,16 +30,14 @@ public class DataGridViewPasswordColumn : DataGridViewTextBoxColumn
         {
             if (PasswordCellTemplate != null)
                 PasswordCellTemplate.UsePasswordCharWhenEditing = value;
-            if (this.DataGridView != null)
+            if (DataGridView != null)
             {
-                var dataGridViewRows = this.DataGridView.Rows;
+                var dataGridViewRows = DataGridView.Rows;
                 var rowCount = dataGridViewRows.Count;
                 for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)
                 {
                     var dataGridViewRow = dataGridViewRows.SharedRow(rowIndex);
-                    var dataGridViewCell = dataGridViewRow.Cells[this.Index]
-                        as DataGriViewPasswordCell;
-                    if (dataGridViewCell != null)
+                    if (dataGridViewRow.Cells[Index] is DataGriViewPasswordCell dataGridViewCell)
                     {
                         dataGridViewCell.UsePasswordCharWhenEditing = value;
                     }
@@ -45,14 +49,14 @@ public class DataGridViewPasswordColumn : DataGridViewTextBoxColumn
     {
         public DataGriViewPasswordCell()
         {
-            this.UsePasswordCharWhenEditing = true;
+            UsePasswordCharWhenEditing = true;
         }
         public bool UsePasswordCharWhenEditing { get; set; }
         public override void InitializeEditingControl(int rowIndex, object initialFormattedValue,
             DataGridViewCellStyle dataGridViewCellStyle)
         {
             base.InitializeEditingControl(rowIndex, initialFormattedValue, dataGridViewCellStyle);
-            if (this.DataGridView!=null) ((TextBox)this.DataGridView.EditingControl).UseSystemPasswordChar = UsePasswordCharWhenEditing;
+            if (DataGridView != null) ((TextBox)DataGridView.EditingControl).UseSystemPasswordChar = UsePasswordCharWhenEditing;
         }
         protected override void Paint(Graphics graphics, Rectangle clipBounds, Rectangle cellBounds,
             int rowIndex, DataGridViewElementStates cellState, object value, object formattedValue,
@@ -66,7 +70,7 @@ public class DataGridViewPasswordColumn : DataGridViewTextBoxColumn
         public override object Clone()
         {
             var c = (DataGriViewPasswordCell)base.Clone();
-            c.UsePasswordCharWhenEditing = this.UsePasswordCharWhenEditing;
+            c.UsePasswordCharWhenEditing = UsePasswordCharWhenEditing;
             return c;
         }
     }
