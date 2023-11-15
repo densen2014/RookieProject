@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<!--<TargetFrameworks>net4.6.1;net4.8;net7.0-windows</TargetFrameworks>-->
-		<TargetFrameworks>net4.8;net7.0-windows</TargetFrameworks>
+		<TargetFrameworks>net4.8;net7.0-windows;net8.0-windows</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
-	</PropertyGroup>
+        <Version>7.13.0</Version>
+    </PropertyGroup>
 
 	<PropertyGroup> 
 		<Copyright>DensenInformatica</Copyright>
