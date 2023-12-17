@@ -100,6 +100,12 @@ namespace DgvSample
             //this.dataGridView1.DataSource = dt;
 
             this.dataGridView1.Columns[0].Width = 150;
+            dataGridView1.AllowDrop = true;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToOrderColumns = false;
+            dataGridView1.MultiSelect = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullColumnSelect; 
 
 
 
