@@ -70,7 +70,7 @@ public class AppLink
     {
         string AppPath = Application.ExecutablePath;
         string AppName = ProductName ??
-            (UseApplicationProductName ? Application.ProductName : Path.GetFileNameWithoutExtension(AppPath));
+            (UseApplicationProductName ? Application.ProductName : Path.GetFileNameWithoutExtension(AppPath))??"APP";
         string AppLink = Environment.GetFolderPath(Startup ? Environment.SpecialFolder.Startup : Environment.SpecialFolder.Desktop) + "\\" + AppName + ".lnk";
         if (Delete)
         {
