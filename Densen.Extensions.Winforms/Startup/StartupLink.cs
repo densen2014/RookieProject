@@ -66,7 +66,7 @@ internal interface IShellLinkW
 
 public class AppLink
 {
-    public static bool CreateAppLink(bool Startup = false, bool Delete = false, bool UseApplicationProductName = true, string? ProductName = null, string? AppPath = null)
+    public static bool CreateAppLink(bool Startup = false, bool Delete = false, bool UseApplicationProductName = true, string? ProductName = null, string? AppPath = null, string? IconPath = null)
     {
         AppPath ??= Application.ExecutablePath;
         ProductName ??= (UseApplicationProductName ? Application.ProductName : Path.GetFileNameWithoutExtension(AppPath))??"APP";
@@ -87,7 +87,8 @@ public class AppLink
                 link.SetPath(AppPath);
                 link.SetDescription(ProductName);
                 link.SetWorkingDirectory(Path.GetDirectoryName(AppPath) ?? AppPath);
-                link.SetIconLocation(AppPath, 0);
+                IconPath ??= AppPath;
+                link.SetIconLocation(IconPath, 0);
                 IPersistFile file = (IPersistFile)link;
                 file.Save(AppLink, false);
                 return true;
